@@ -1,9 +1,85 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>PHOTOFOLIO</title>
-    </head>
-    <body>
-        <p> Welcome to  Photofolio</p>
-    </body>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>PhotoFolio - Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">PhotoFolio</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#features">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#portfolio">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="blog.html">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html">Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 class="display-4 animate animate-onload">Welcome to PhotoFolio</h1>
+            <p class="lead">Showcase your photography skills to the world.</p>
+            <a href="login.html" class="btn btn-primary btn-lg">Get Started</a>
+        </div>
+    </section>
+
+    <section id="features" class="py-5">
+        <div class="container text-center">
+            <h2 class="mb-4">Features</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>Exhibitions & Events</h3>
+                    <p>Participate in exhibitions, challenges, and events to gain exposure.</p>
+                </div>
+                <div class="col-md-4">
+                    <h3>Specialty & Services</h3>
+                    <p>Enlist your specialties and services for reservations.</p>
+                </div>
+                <div class="col-md-4">
+                    <h3>Blog Posts</h3>
+                    <p>Create captivating blog posts about your photography stories.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="bg-light py-5">
+        <div class="container text-center">
+            <h2 class="mb-4">Portfolio</h2>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-4">
+        <p>&copy; 2024 PhotoFolio. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS and your JS files -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+</body>
+
 </html>
