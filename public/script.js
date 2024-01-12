@@ -7,5 +7,5 @@ function animateWords() {
 
 // Trigger the animation after the page loads
 window.addEventListener('load', function () {
-    setTimeout(animateWords, 1000); // Delay of 1 second (1000 milliseconds)
+    setTimeout(animateWords, 300); // Delay of 1 second (1000 milliseconds)
 });
