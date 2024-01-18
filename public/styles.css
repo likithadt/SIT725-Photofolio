@@ -1,0 +1,38 @@
+@keyframes animateWords {
+    0% { transform: translateY(0); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+.animate {
+    visibility: hidden;
+}
+
+.animate.animate-onload {
+    animation: animateWords 5s ease-in-out forwards;
+}
+
+.btn-styling{
+    margin-left: 30px;
+    width: 101px;
+}
+
+.sub-content{
+    width: 69%;
+    margin-left: 15%;
+    margin-right: 25%;
+    height: 25%;
+    background-color: rgba(0,0,0, 0.7);
+    margin-top: 1%;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+  }
+
+.carousel-cards{
+    background-color: rgb(54, 54, 54);
+    width: 100%;
+    text-align: center;
+    height: 300px;
+}
