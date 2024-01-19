@@ -1,5 +1,5 @@
-let client = require('../dbConnection');
-let collection = client.db('photofolio').collection('users');
+let selDb = require('../dbConnection');
+let collection = selDb.collection('clients');
 
 function getAllUsers(callback) {
     collection.find({}).toArray(callback);
