@@ -44,13 +44,22 @@
     height: 300px;
 }
 
-.container {
+.card_style {
     width: 40%;
     margin: 200px auto;
     border: 1px solid #ddd;
     padding: 20px;
     background-color: white;
 
+}
+
+.btn-color{
+    color: #E5E5E5;
+}
+
+.landing_background{
+    height: 564px; 
+    margin-top: 6%;
 }
 
 .header {
@@ -150,4 +159,9 @@
     color: white;
     padding-bottom: 50px;
 
+}
+
+.background-image-style{
+    opacity : 50%;
+    background-size: contain;
 }
