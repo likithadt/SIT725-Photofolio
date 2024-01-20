@@ -3,34 +3,48 @@
     <head>
         <title>Signup Page</title>
         <link rel="stylesheet" href="./authentication.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     </head>
-    <body>
-        <div  class = "background-image-style" style = "background-image: url('./../images/opacity-changed-landing_page.jpg')">
-         <div class ="card_style">
+    <body style = "background-image: url('./../images/opacity-changed-landing_page.jpg'); background-size: cover;">
+         <div class ="card_style" style="margin-top: 2%; background: #292929">
             <div class="header">
                 <img src="./../images/Photo.png" alt="Photofolio-Logo" class ="userLogo" >
             </div>  
-             <form class="userSignupForm">
-                <h2 style="width: 100%; text-align: center; color: black; font-size: 35px; font-family: Reem Kufi Ink; font-weight: 400; word-wrap: break-word"> Sign Up </h2>
-                <input type="text" placeholder="Name" id ="Name" >
-                <input type="email" placeholder="Email" id ="Email">
-                <input type="password" placeholder="Password" id ="Password">
-                <input type="password" placeholder="Confirm Password" id ="Confirm Password">
-                <select id="roleSelect">
+
+            <form>
+                <div class="form" style = "margin-top: 20px;">
+                <div class="form-group col-md-6">
+                    <input type="name" class="form-control" id="name" placeholder="Name">
+                    </div>
+                  <div class="form-group col-md-6">
+                    <input type="email" class="form-control" id="email" placeholder="Email">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <input type="password" class="form-control" id="password" placeholder="Password">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password">
+                  </div>
+                  <div class="form-group col-md-6">
+                  <select id="roleSelect" class="form-control">
                     <option value="" disabled selected>Role</option>
                     <option value="photographer">Photographer</option>
-                    <option value="viewer">Viewer</option>
-                </select>
-             <div class="footer">
-                <p><a href="login.html">Already have an account?</a></p>
-                <button type="button" id="signupButton" onclick ="roleBasedPageNavigator()">Let's Go...</button>
-            </div>
-            </form> 
-
+                    <option value="Client">Client</option>
+                  </select>
+                </div>
+                </div>
+                <div class="footer">
+                    <p><a href="login.html" class="account_exist">Already have an account? Login</a></p>
+                    <button type="submit" id="signupButton" class="btn btn-primary" onclick ="roleBasedPageNavigator()">Let's Go...</button>
+                </div>
+                
+              </form>
             </div>
          </div>
-        </div>
 
-<script src="authentication.js"></script>         
+<script src="authentication.js"></script>        
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
     </body>
 </html>
+
+

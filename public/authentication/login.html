@@ -4,29 +4,33 @@
 <head>
     <title> Login </title>
     <link rel="stylesheet" href="authentication.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
-<body style = "background-image: url('./../images/opacity-changed-landing_page.jpg')">
-    <div class="card_style" style="background: #292929">
+<body style = "background-image: url('./../images/opacity-changed-landing_page.jpg'); background-size: cover;">
+    <div class="card_style specific_card" style="background: #292929; width: 30%; margin-left: 35%;">
         <div class="header">
             <img src="./../images/Photo.png" alt="photfolioLogo" class="userLogo" style ="margin-bottom:20px; ">
         </div>
         <div style="width: 100%; height: 100%; background: #292929">
-        <form class="userLoginForm">
-            <input type="email" placeholder="Email" id="userEmail">
-            <input type="password" placeholder="Password" id="userPassword">
-        </form>
-        <p> <a href ="passwordReset.html" class ="navigator"> Forgot Your Password? </a></p>
-        </div>
-        <div class ="footer">
-            <p> <a  href ="userRegistration.html" style="color: white;">Dont Have an Account? Join Us Today!</a> </p>
-            <button type = "button" id ="loginButton">Let's Go...</button> 
-        </div>
+            <form>
+                <div class="form" style = "margin-top: 20px;">
+                  <div class="form-group col-md-6">
+                    <input type="email" class="form-control" id="userEmail" placeholder="Email">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <input type="password" class="form-control" id="userPassword" placeholder="Password">
+                  </div>
+                </div>
+                <div class="footer">
+                    <p> <a  href ="passwordReset.html" class="account_exist">Forgot Password?</a> </p>
+                    <p> <a  href ="userRegistration.html" class="account_exist">Dont Have an Account? Join Us Today!</a> </p>
+                    <button type="submit" id ="loginButton"  class="btn btn-primary">Let's Go...</button> 
+                </div>
+              </form>
 
     </div>
 
-
-
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
 </body>
-
 </html>
