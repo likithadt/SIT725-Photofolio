@@ -34,10 +34,47 @@ async function createDB() {
 
       } else {
         console.log(`Database "${dbName}" exists`);
+        selDb = client.db(dbName);
     }
-    // create collections
 }
-createDB();
 
+function uploadImage() {
+ console.log("Hello upload");
+}
+
+const nodemailer = require('nodemailer');
+
+function sendEmail() {
+    const transporter = nodemailer.createTransport({
+        service: 'gmail', // Use your email service provider
+        host: "smtp.gmail.com",
+        port: 465,
+        secure: true,
+        auth: {
+          user: 'team.photofolio@gmail.com', // Your email address
+          pass: 'lhiiwnzzurnjwqxl' // Your email password or app-specific password
+        }
+    });
+
+    const mailOptions = {
+        from: 'team.photofolio@gmail.com', // Sender email address
+        to: 'likhithadt2011@gmail.com', // Recipient email address
+        subject: 'Hello from Photofolio Team',
+        text: 'This is the Body of the email, regards..'
+      };
+      
+      // Send the email
+      transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+          console.error('Error sending email:', error);
+        } else {
+          console.log('Email sent:', info.response);
+        }
+      });
+}
+
+createDB();
+uploadImage();
+// sendEmail();
 
 module.exports = {client, selDb};
