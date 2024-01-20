@@ -35,7 +35,6 @@ async function createDB() {
       } else {
         console.log(`Database "${dbName}" exists`);
     }
-    // create collections
 }
 createDB();
 
