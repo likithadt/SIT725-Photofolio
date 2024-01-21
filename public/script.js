@@ -17,7 +17,7 @@ async function postLandingData() {
         age: "25",
     }
     try {
-        const resp = await fetch('http://localhost:3000/landing/add', {
+        const resp = await fetch('/landing/add', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
@@ -34,7 +34,7 @@ async function postLandingData() {
 
 async function fetchLandingData() {
     try {
-        const resp = await fetch('http://localhost:3000/landing/get', { method: 'GET'});
+        const resp = await fetch('/landing/get', { method: 'GET'});
         const data = await resp.json();
 
         console.log("Data from server ::", data);
