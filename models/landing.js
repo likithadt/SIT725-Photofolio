@@ -12,6 +12,18 @@ class landingModel {
         const data = await collection.insertOne(body);
         return data;
     }
+
+    async updateDat(id, body) {
+        id = parseInt(id);
+        const data = await collection.updateOne({id: id}, {$set: body});
+        return data.modifiedCount > 0;
+    }
+
+    async deleteDat(id) {
+        id = parseInt(id);
+        const data = await collection.deleteOne({id: id});
+        return data.deletedCount > 0;
+    }
 }
 
 module.exports = new landingModel();

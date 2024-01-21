@@ -7,5 +7,7 @@ const landingController = require('../Controllers/landingController');
 // routing the controllers based on API
 router.get('/get', landingController.getAllData);
 router.post('/add', landingController.insertData);
+router.put('/update/:id', landingController.updateData);
+router.delete('/delete/:id', landingController.deleteData);
 
 module.exports = router;
