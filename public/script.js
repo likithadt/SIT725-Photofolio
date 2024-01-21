@@ -9,3 +9,39 @@ function animateWords() {
 window.addEventListener('load', function () {
     setTimeout(animateWords, 300); // Delay of 1 second (1000 milliseconds)
 });
+
+async function postLandingData() {
+    const newUser = {
+        name: "Likitha",
+        role: "Photog",
+        age: "25",
+    }
+    try {
+        const resp = await fetch('http://localhost:3000/landing/add', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(newUser),
+        });
+        const data = await resp.json();
+
+        console.log("Data from server ::", data);
+    } catch(error) {
+        console.log("Error creating User", error);
+    }
+}
+
+async function fetchLandingData() {
+    try {
+        const resp = await fetch('http://localhost:3000/landing/get', { method: 'GET'});
+        const data = await resp.json();
+
+        console.log("Data from server ::", data);
+    } catch(error) {
+        console.log("Error getting Data", error);
+    }
+}
+
+postLandingData();
+fetchLandingData();

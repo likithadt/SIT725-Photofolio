@@ -1,80 +1,48 @@
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = "mongodb://localhost:27017";
 
-const client = new MongoClient(uri, {
-    serverApi: {
-        version: ServerApiVersion.v1,
-        strict: true,
-        deprecationErrors: true,
+class Database {
+    constructor() {
+        this.client = new MongoClient(uri, {
+            serverApi: {
+                version: ServerApiVersion.v1,
+                strict: true,
+                deprecationErrors: true,
+            }
+        });
+        this.dbName = 'photofolio';
     }
-});
 
-dbName = 'photofolio';
-var selDb;
+    async connect() {
+        await this.client.connect();
 
-async function createDB() {
-    await client.connect();
-    db = client.db('admin');
-    list = await db.admin().listDatabases();
-    const databaseExists = list.databases.some(db => db.name == dbName);
+        this.db = this.client.db('admin');
+        let list = await this.db.admin().listDatabases();
+        const databaseExists = list.databases.some(db => db.name == this.dbName);
 
-    if (!databaseExists) {
-        // Create a new database
-        await client.db(dbName);
-        console.log(`Database "${dbName}" created successfully`);
+        if (!databaseExists) {
+            // Create a new database
+            await this.client.db(this.dbName);
+            console.log(`Database "${this.dbName}" created successfully`);
         
-        //create collections
-        selDb = client.db(dbName);
-        await selDb.createCollection('users');
-        await selDb.createCollection('portfolios');
-        await selDb.createCollection('images');
-        await selDb.createCollection('events');
-        await selDb.createCollection('blogs');
-        console.log(`Collections created successfully`);
+            //create collections
+            this.selDb = this.client.db(this.dbName);
+            await this.selDb.createCollection('users');
+            await this.selDb.createCollection('portfolios');
+            await this.selDb.createCollection('images');
+            await this.selDb.createCollection('events');
+            await this.selDb.createCollection('blogs');
+            console.log(`Collections created successfully`);
 
-      } else {
-        console.log(`Database "${dbName}" exists`);
-        selDb = client.db(dbName);
+        } else {
+            this.selDb = await this.client.db(this.dbName);
+            console.log(`Database "${this.dbName}" exists`);
+        }
+    }
+    
+    async close() {
+        await this.client.close();
     }
 }
 
-function uploadImage() {
- console.log("Hello upload");
-}
-
-const nodemailer = require('nodemailer');
-
-function sendEmail() {
-    const transporter = nodemailer.createTransport({
-        service: 'gmail', // Use your email service provider
-        host: "smtp.gmail.com",
-        port: 465,
-        secure: true,
-        auth: {
-          user: 'team.photofolio@gmail.com', // Your email address
-          pass: 'lhiiwnzzurnjwqxl' // Your email password or app-specific password
-        }
-    });
-
-    const mailOptions = {
-        from: 'team.photofolio@gmail.com', // Sender email address
-        to: 'likhithadt2011@gmail.com', // Recipient email address
-        subject: 'Hello from Photofolio Team',
-        text: 'This is the Body of the email, regards..'
-      };
-      
-      // Send the email
-      transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-          console.error('Error sending email:', error);
-        } else {
-          console.log('Email sent:', info.response);
-        }
-      });
-}
-
-createDB();
-uploadImage();
-// sendEmail();
-
-module.exports = {client, selDb};
+module.exports = new Database();

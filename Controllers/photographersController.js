@@ -1,4 +1,4 @@
-let collection = require('../models/photographers');
+let collection = require('../models/photograhers');
 
 const postPhotographer = (req,res) => {
     let cat = req.body;
