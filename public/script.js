@@ -75,6 +75,22 @@ async function deleteData() {
     }
 }
 
+async function uploadImage() {
+    const form = document.getElementById('form-submit');
+    const formData = new FormData(form);
+    try {
+        const resp = await fetch('/images/upload', {
+            method: 'POST',
+            body: formData,
+        });
+        const data = await resp.json();
+
+        console.log("Data from server ::", data);
+    } catch(error) {
+        console.log("Error uploading image", error);
+    }
+}
+
 // postLandingData();
 updateData();
 // deleteData();

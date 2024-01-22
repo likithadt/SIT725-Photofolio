@@ -1,7 +1,10 @@
 const express = require('express');
 const app = express();
 const db = require('./dbConnection');
+
 const landingRouter = require('./routers/landingRouter');
+const imagesRouter = require('./routers/imagesRouter');
+
 
 let PORT = process.env.port || 3000;
 
@@ -14,6 +17,7 @@ app.get('/', function (req,res) {
 });
 
 app.use('/landing', landingRouter);
+app.use('/images', imagesRouter);
 
 app.listen(PORT, async () => {
   try {
