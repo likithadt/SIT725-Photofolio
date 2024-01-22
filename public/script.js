@@ -75,7 +75,37 @@ async function deleteData() {
     }
 }
 
-// postLandingData();
-updateData();
+async function sendQuery(event){
+    try{
+        console.log("insode send query")
+        const data = {
+            userEmail : document.getElementById('enquirerEmail').value,
+            userName : document.getElementById('enquirerName').value,
+            userQuery : document.getElementById('enquiry').value,
+        };
+
+        const resp = await fetch('/landing/query', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        });
+        const response = await resp.json();
+
+        console.log("Data from server ::", response);
+
+        var frm = document.getElementById('contact-form');
+        frm.reset();  // Reset all form data
+
+    }
+    catch(error){
+        console.log("Error encountered in user query - contact form", error);
+    }
+} 
+
+
+// updateData();
 // deleteData();
-fetchLandingData();
+// postLandingData();
+// fetchLandingData();

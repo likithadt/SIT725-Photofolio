@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <div>
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#"><img src = "./images/Photo.png" width="230" height="60"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -41,11 +42,11 @@
             </ul>
         </div>
     </nav>
-    <div>
+
 <section id ="home">
     <div
         class="bg-image p-5 text-center shadow-1-strong rounded mb-5 text-white landing_background"
-        style="background-image: url('./images/landing_page.jpg');">
+        style="background-image: url('./images/landing_page.jpg'); background-size: cover;">
         <div class = "sub-content">
             <h1 class="display-4 animate">Welcome to PhotoFolio</h1>
             <p data-mdb-animation-start="onLoad" data-mdb-animation="slide-in-right" >
@@ -144,18 +145,42 @@
 
     <!-- Contact Section -->
     <section id="contact" class="bg-light py-5">
-        <div class="container text-center">
-            <h2 class="mb-4">Contact</h2>
+        <div class="container text-center" style="max-width:100%; background-color: #F2F2F2;">
+            <h2 class="mb-4">Contact Us</h2>
+            <div class="row">
+                <div style="width: 50%;">
+                    <form id ="contact-form" onsubmit="return false;">
+                        <div class="form"  style = "margin-top: 20px;">
+                            <div class="form-group col-md-6">
+                                <input type="name" class="form-control" id="enquirerName" placeholder="Name">
+                              </div>
+                          <div class="form-group col-md-6">
+                            <input type="email" class="form-control" id="enquirerEmail" placeholder="Email">
+                          </div>
+                          <div class="form-group col-md-6">
+                           <textarea style="height:150px" class="form-control" id="enquiry" placeholder="Ask away.."></textarea>
+                          </div>
+                        </div>
+                        <div class="footer">
+                            <button type="submit" id ="enquiryButton" onclick="sendQuery()" class="btn btn-primary">Submit</button> 
+                        </div>
+                      </form>
+                </div>
+                <div style="width: 50%; float: right;">
+                  <img class="img-contact" src="images/chat_with_us.png">  
+                </div>
+            </div>
         </div>
     </section>
 
-</div>
-<div>
-
-    <!-- Footer -->
+    <section>
+<!-- Footer -->
     <footer class="text-center py-4">
         <p>&copy; 2024 PhotoFolio. All rights reserved.</p>
     </footer>
+    </section>
+</div>
+    
 
     <!-- Bootstrap JS and your JS files -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

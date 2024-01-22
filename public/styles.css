@@ -53,3 +53,34 @@
     height: 564px; 
     margin-top: 6%;
 }
+
+.split {
+    height: 100%;
+    width: 50%;
+    /* position: fixed; */
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+  .left {
+    left: 0;
+    background-color: #111;
+  }
+  
+  .right {
+    right: 0;
+    float: right;
+    background-color: red;
+  }
+
+  .col-md-6
+{
+    max-width:  100% !important;
+}
+
+.img-contact{
+    width: 70%;
+    height: 85%;
+}

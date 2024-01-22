@@ -10,4 +10,6 @@ router.post('/add', landingController.insertData);
 router.put('/update/:id', landingController.updateData);
 router.delete('/delete/:id', landingController.deleteData);
 
+router.post('/query', landingController.postUserQuery);
+
 module.exports = router;

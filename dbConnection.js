@@ -32,6 +32,7 @@ class Database {
             await this.selDb.createCollection('images');
             await this.selDb.createCollection('events');
             await this.selDb.createCollection('blogs');
+            await this.selDb.createCollection('queries');
             console.log(`Collections created successfully`);
 
         } else {

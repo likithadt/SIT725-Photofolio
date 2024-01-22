@@ -1,6 +1,7 @@
 let db = require('../dbConnection');
 let selDB = db.client.db('photofolio');
 let collection = selDB.collection('users');
+let collectionQuery = selDB.collection('queries');
 
 class landingModel {
     async getLandingData() {
@@ -23,6 +24,11 @@ class landingModel {
         id = parseInt(id);
         const data = await collection.deleteOne({id: id});
         return data.deletedCount > 0;
+    }
+
+    async insertQuery(body){
+        const data = await collectionQuery.insertOne(body);
+        return data;
     }
 }
 
