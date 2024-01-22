@@ -2,7 +2,7 @@ const loginModel = require('../models/login');
 
 
 class loginController {
-    async addusers(res,req) {
+    async addusers(req,res) {
         try {
             const data = await loginModel.addusers(req.body);
             res.json(data);
