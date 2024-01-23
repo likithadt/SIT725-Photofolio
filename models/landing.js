@@ -2,6 +2,7 @@ let db = require('../dbConnection');
 let selDB = db.client.db('photofolio');
 let collection = selDB.collection('users');
 let collectionQuery = selDB.collection('queries');
+let collectionTestimonials = selDB.collection('testimonials');
 
 class landingModel {
     async getLandingData() {
@@ -28,6 +29,11 @@ class landingModel {
 
     async insertQuery(body){
         const data = await collectionQuery.insertOne(body);
+        return data;
+    }
+
+    async getTestimonialsData() {
+        const data = await collection.find().toArray();
         return data;
     }
 }

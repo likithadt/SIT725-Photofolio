@@ -24,12 +24,12 @@
 }
 
 .sub-content {
-    width: 69%;
-    margin-left: 15%;
+    width: 44%;
+    margin-left: 33%;
     margin-right: 25%;
     height: 25%;
     background-color: rgba(0, 0, 0, 0.7);
-    margin-top: 1%;
+    margin-top: 3%;
 }
 
 .img-fluid {
@@ -83,4 +83,75 @@
 .img-contact{
     width: 70%;
     height: 85%;
+}
+
+.heading-style{
+    padding-top: 3% ; 
+    font-family: fantasy;
+}
+
+.p-style{
+    text-align: justify;
+    font-family: serif;
+}
+
+.f-family{
+    font-family: serif;
+}
+
+.bg-color{
+   background-color: #d7d7d7;
+}
+.carousel-style{
+    width: 78%;
+    margin-left: 11%;
+    margin-top: 5%;
+    padding-top: 5%;
+}
+
+/* .animated-card {
+    animation: fadeInUp 0.5s ease-out;
+  } */
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .animated-card:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-out;
+  }
+
+  .animated-card {
+    animation: fadeInUp 0.5s ease-out;
+    background-color: #f8f9fa; /* Dark grey card background */
+    border: 1px solid #e4e4e4; /* Border color */
+    border-radius: 8px;
+    color: #000000; /* Text color */
+    transition: transform 0.3s ease-out;
+    font-size: 14px;
+    font-family: math;
+    text-align: justify;
+  }
+
+  .col-md-6{
+    max-width: 100% !important;
+    width: 100%;
+  }
+.card_holder{
+    background-color: #ffffff; /* White container background */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle black shadow */
+    padding: 20px;
+    margin-top: 50px;
+}
+.card-title{
+    text-align: left;
 }

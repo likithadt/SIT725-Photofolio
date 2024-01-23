@@ -104,8 +104,23 @@ async function sendQuery(event){
     }
 } 
 
+async function getUserTestimonials(){
+try{
+    const resp = await fetch('/landing/testimonials', {
+        method: 'GET'
+    });
+    console.log(resp);
+    // const data = await resp.json();
 
+    // console.log("Data from server ::", data);
+}
+catch(e){
+    console.log(" Error while fetching Data from server ::", e);
+}
+}
+
+getUserTestimonials();
 // updateData();
 // deleteData();
 // postLandingData();
-// fetchLandingData();
+fetchLandingData();
