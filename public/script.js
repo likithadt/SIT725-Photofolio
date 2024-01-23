@@ -104,8 +104,44 @@ async function sendQuery(event){
     }
 } 
 
+async function uploadImage() {
+    const form = document.getElementById('form-submit');
+    const formData = new FormData(form);
+    try {
+        const resp = await fetch('/upload', {
+            method: 'POST',
+            body: formData,
+        });
+        const data = await resp.json();
 
+        console.log("Data from server ::", data);
+        retrieveImage(data.fileId);
+    } catch(error) {
+        console.log("Error uploading image", error);
+    }
+}
+
+async function retrieveImage(fileId) {
+    try {
+        const resp = await fetch(`/file/${fileId}`, {
+            method: 'GET',
+        });
+        const data = await resp;
+
+        console.log("Data from server ::", data);
+
+        imgEle = document.createElement('img');
+        imgEle.src = data.url;
+        imgEle.alt = 'image';
+        document.getElementById('imagesHere').appendChild(imgEle);
+
+
+    } catch(error) {
+        console.log("Error uploading image", error);
+    }
+}
+
+// postLandingData();
 // updateData();
 // deleteData();
-// postLandingData();
 // fetchLandingData();
