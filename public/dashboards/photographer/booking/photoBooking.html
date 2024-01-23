@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>PhotoFolio - Home</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./photographer.css">
+    <link rel="stylesheet" href="../photographer.css">
     <script src="https://kit.fontawesome.com/6fa2f2e88e.js" crossorigin="anonymous"></script>
 </head>
 
@@ -25,12 +25,12 @@
                 <div class="collapse navbar-collapse mr-auto" id="navbarSupportedContent">
                     <!-- Navbar brand -->
                     <a class="navbar-brand mt-2 mt-lg-0" href="#">
-                        <img class="logo" src="../../images/Photo.png" alt="Photofolio Logo" />
+                        <img class="logo" src="../../../images/Photo.png" alt="Photofolio Logo" />
                     </a>
                     <!-- Navbar -->
                     <ul class="navbar-nav ml-auto mr-3">
                         <li class="nav-item">
-                            <a class="nav-link" href="../photographer/booking/photoBooking.html"> Bookings</a>
+                            <a class="nav-link" href="#"> Bookings</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"> Porfolio</a>
@@ -84,18 +84,14 @@
     <!-- Main -->
     <main>
         <div class="user-dashboard container-fluid">
-            <h1 class=" text-center"> Username's Dashboard </h1> <br>
-        </div> <br>
+            <h1 class="text-center"> Booking Requests </h1> <br>
+        </div> <br> 
+        <div class="container align-items-center">
+        <div  id="booking-requests"  class="row "> </div>
+    </div>
 
-        <div class="container-fluid">
-            <p id="view-portfolio-dashboard" class="text-center"> You haven't uploaded any portfolio! </p> <br>
-        </div>
-
-        <div class="text-center">
-            <button type="button" class="btn btn-dark text-center"> Build your portfolio </button>
-        </div>
-    </main> <br>
-
+    </main>
+    
     <!-- Footer -->
     <footer>
         <!-- <div class="footer-div text-center">
@@ -110,10 +106,10 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="photoDashboard.js"></script>
+    <script src="../photoDashboard.js"></script>
+    <script src="./photoBooking.js"></script>
 
     <!-- Ref: https://mdbootstrap.com/docs/standard/navigation/navbar/-->
 
 </body>
-
 </html>
