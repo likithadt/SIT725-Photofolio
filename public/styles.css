@@ -160,3 +160,39 @@
     font-size: 16px;
     text-align: justify;
 }
+.quotes-style{
+    margin-bottom: 9px;
+}
+.name-style{
+    margin-top: 5%;
+}
+.col-lg-6 {
+    width: 33% !important;
+}
+.footer-image{
+    margin-top: 4%;
+    width: 79%;
+    height: 70%;
+}
+
+.vl {
+    border-left: 1px solid rgb(94, 94, 94);
+    height: 40px;
+  }
+
+  .social-icons {
+    font-size: 24px;
+    margin: 0 10px;
+    color: #000000; /* Icon color */
+    text-decoration: none;
+  }
+
+  .social-icons:hover {
+    color: #007bff; /* Hover color */
+  }
+
+  .social-media{
+    max-width: 100% !important;
+    text-align: center;
+    width: 100% !important;
+  }
