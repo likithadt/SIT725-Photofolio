@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>PhotoFolio - Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./photographer.css">
+    <script src="https://kit.fontawesome.com/6fa2f2e88e.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <!-- Header !-->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+            <div class="container-fluid">
+                <!-- Toggle button -->
+                <button data-mdb-dropdown-init class="navbar-toggler" type="button"
+                    data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <div class="collapse navbar-collapse mr-auto" id="navbarSupportedContent">
+                    <!-- Navbar brand -->
+                    <a class="navbar-brand mt-2 mt-lg-0" href="#">
+                        <img class="logo" src="../../images/Photo.png" alt="Photofolio Logo" />
+                    </a>
+                    <!-- Navbar -->
+                    <ul class="navbar-nav ml-auto mr-3">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../photographer/booking/photoBooking.html"> Bookings</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"> Porfolio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"> Events</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"> Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"> Forum</a>
+                        </li>
+                    </ul>
+                    
+                    <div class="d-flex align-items-center">
+                        <!-- Notifications -->
+                        <div class="dropdown">
+                            <a class="text-reset me-3 mr-3" href="#"
+                                role="button" aria-expanded="false">
+                                <i class="fas fa-bell"></i>
+                                <span class="badge rounded-pill badge-notification bg-danger"></span>
+                            </a>
+                        </div>
+                        <!-- Settings -->
+                        <div>
+                            <a class="text-reset me-3 mr-3" href="#"
+                                role="button" aria-expanded="false">
+                                <i class="fa-solid fa-gear"></i>
+                            </a>
+                        </div>
+                        <!-- User Avatar -->
+                        <div class="dropdown">
+                            <a class="dropdown-toggle d-flex align-items-center hidden-arrow"
+                                href="#" id="navbarDropdownMenuAvatar" role="button" aria-expanded="false">
+                                <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle"
+                                    height="25" alt="user photo" loading="lazy" />
+                            </a>
+                            <ul class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdownMenuAvatar">
+                                <li>
+                                    <a class="dropdown-item" href="../../authentication/login.html"> Logout</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main -->
+    <main>
+        <div class="user-dashboard container-fluid">
+            <h1 class=" text-center"> Photographer Dashboard </h1> <br>
+        </div> <br>
+
+        <div class="container-fluid">
+            <p id="view-portfolio-dashboard" class="text-center"> You haven't uploaded any portfolio! </p> <br>
+        </div>
+
+        <div class="text-center">
+            <button type="button" class="btn btn-dark text-center"> Build your portfolio </button>
+        </div>
+    </main> <br>
+
+    <!-- Footer -->
+    <footer>
+        <!-- <div class="footer-div text-center">
+            <a class="navbar-brand mt-2 text-center" href="#">
+                <img class="logo" src="../../images/Photo.png" alt="Photofolio Logo" />
+            </a>
+        </div> -->
+        <p class="text-center py-3"> &copy; 2024 PhotoFolio - All rights reserved. </p>
+    </footer>
+
+    <!--  JS files -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="photoDashboard.js"></script>
+
+    <!-- Ref: https://mdbootstrap.com/docs/standard/navigation/navbar/-->
+
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+.fa-solid{
+    padding-top: 3px;
+    margin: 2px;
+}
+
+body {
+    background-color: #F5F5F5;
+}
+
+.logo {
+    height: 40%;
+    width: 40%;
+}
+
+
+.dropdown { 
+    display: inline-block; 
+    position: relative; 
+  } 
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    display: block;
+    color: #000000;
+    padding: 5px;
+    text-decoration: none;
+}
+
+.dropdown-content a:hover {
+    color: #FFFFFF;
+    background-color: #00A4BD;
+}
+
+.user-dashboard {
+   margin-top: 100px;
+   margin-bottom: 20px;
+}
+
+.navbar,
+.footer-div {
+    background-color: #FFFFFF;
+}
+
+.card {
+    height: 220px;
+    width: 90%;
+    overflow: auto;
+    border: 1px solid #ddd;
+    padding: 25px;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
