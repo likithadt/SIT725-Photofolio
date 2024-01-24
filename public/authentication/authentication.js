@@ -35,7 +35,7 @@ async function roleBasedPageNavigator(event) {
         adduser();
         if (formData.role == "photographer") {
             var a = document.createElement('a');
-            a.href = '/dashboards/photographers/photographerDashboard.html';
+            a.href = '/dashboards/photographer/photographerDashboard.html';
             a.click()
         }
         else if (formData.role == "client") {
