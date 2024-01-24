@@ -12,6 +12,17 @@ async function formElements() {
 
 }
 
+async function loginFormData() {
+    var formData = {
+        email: document.getElementById('userEmail').value,
+        password: document.getElementById('userPassword').value
+    };
+
+    return formData;
+
+}
+
+
 //onclick Event function that will handle adding all the users and also navigate to the appropriate dashboard 
 async function roleBasedPageNavigator(event) {
     try {
@@ -24,7 +35,7 @@ async function roleBasedPageNavigator(event) {
         adduser();
         if (formData.role == "photographer") {
             var a = document.createElement('a');
-            a.href = '/dashboards/photographerDashboard.html';
+            a.href = '/dashboards/photographers/photographerDashboard.html';
             a.click()
         }
         else if (formData.role == "client") {
@@ -63,5 +74,27 @@ async function adduser() {
 }
 
 
+async function loginevent(event) {
+    try {
+        console.log("Inside Login button");
+
+        var formData = await loginFormData();
+        var email = formData.email;
+
+        const resp = await fetch('/login/login', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+        });
+        const data = await resp.json();
+
+        console.log("Data from server ::", data);
+    } catch (error) {
+        console.log("Error creating User", error);
+    }
+
+}
 
 
