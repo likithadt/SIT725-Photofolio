@@ -6,8 +6,11 @@ const db = require('./dbConnection');
 
 //importing routers
 const landingRouter = require('./routers/landingRouter');
+const loginRouter = require('./routers/loginRouter');
  
 let PORT = process.env.port || 3000;
+var bodyParser = require('body-parser');
+const path = require('path');
 
 mongoose.connect('mongodb://localhost:27017/photofolio');
 const Image = mongoose.model('Image', {
@@ -56,7 +59,8 @@ app.get('/file/:id', async (req, res) => {
   }
 });
 
-app.use(express.static(__dirname + '/public'))
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(__dirname + '/public'));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
@@ -64,8 +68,14 @@ app.get('/', function (req,res) {
     res.render('index.html');
 });
 
+app.get('/userRegistration', function (req, res) {
+  res.sendFile(path.join(__dirname,'authentication', 'userRegistration.html')); 
+})
+
 // Defining routers with path
 app.use('/landing', landingRouter);
+app.use('/userRegistration', loginRouter);
+
 
 app.listen(PORT, async () => {
   try {

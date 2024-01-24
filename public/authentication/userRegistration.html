@@ -1,50 +1,53 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Signup Page</title>
-        <link rel="stylesheet" href="./authentication.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    </head>
-    <body style = "background-image: url('./../images/opacity-changed-landing_page.jpg'); background-size: cover;">
-         <div class ="card_style" style="margin-top: 2%; background: #292929">
-            <div class="header">
-                <img src="./../images/Photo.png" alt="Photofolio-Logo" class ="userLogo" >
-            </div>  
 
-            <form>
-                <div class="form" style = "margin-top: 20px;">
-                <div class="form-group col-md-6">
-                    <input type="name" class="form-control" id="name" placeholder="Name">
-                    </div>
-                  <div class="form-group col-md-6">
-                    <input type="email" class="form-control" id="email" placeholder="Email">
-                  </div>
-                  <div class="form-group col-md-6">
-                    <input type="password" class="form-control" id="password" placeholder="Password">
-                  </div>
-                  <div class="form-group col-md-6">
-                    <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password">
-                  </div>
-                  <div class="form-group col-md-6">
-                  <select id="roleSelect" class="form-control">
-                    <option value="" disabled selected>Role</option>
-                    <option value="photographer">Photographer</option>
-                    <option value="Client">Client</option>
-                  </select>
-                </div>
-                </div>
-                <div class="footer">
-                    <p><a href="login.html" class="account_exist">Already have an account? Login</a></p>
-                    <button type="submit" id="signupButton" class="btn btn-primary" onclick ="roleBasedPageNavigator()">Let's Go...</button>
-                </div>
-                
-              </form>
-            </div>
-         </div>
+<head>
+  <title>Signup Page</title>
+  <link rel="stylesheet" href="./authentication.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
 
-<script src="authentication.js"></script>        
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
-    </body>
+<body style="background-image: url('./../images/opacity-changed-landing_page.jpg'); background-size: cover;">
+  <div class="card_style" style="margin-top: 2%; background: #292929">
+    <div class="header">
+      <img src="./../images/Photo.png" alt="Photofolio-Logo" class="userLogo">
+    </div>
+
+    <form id = "userRegistrationForm", onsubmit ="return false;">
+      <div class="form" style="margin-top: 20px;">
+        <div class="form-group col-md-6">
+          <input type="name" class="form-control" id="name" placeholder="Name">
+        </div>
+        <div class="form-group col-md-6">
+          <input type="email" class="form-control" id="email" placeholder="Email">
+        </div>
+        <div class="form-group col-md-6">
+          <input type="password" class="form-control" id="password" placeholder="Password">
+        </div>
+        <div class="form-group col-md-6">
+          <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password">
+        </div>
+        <div class="form-group col-md-6">
+          <select id="roleSelect" class="form-control">
+            <option value="" disabled selected>Role</option>
+            <option value="photographer">Photographer</option>
+            <option value="client">Client</option>
+          </select>
+        </div>
+      </div>
+      <div class="footer">
+        <p><a href="login.html" class="account_exist">Already have an account? Login</a></p>
+        <button type="submit" id="signupButton" class="btn btn-primary" onclick="roleBasedPageNavigator()">Let's
+          Go...</button>
+      </div>
+
+    </form>
+  </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="authentication.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
 </html>
-
-
