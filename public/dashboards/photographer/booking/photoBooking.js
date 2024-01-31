@@ -42,23 +42,10 @@ function actions(){
     return action;
 }
 
-// $ = function(id) {
-//     return document.getElementById(id);
-// }
-
-// var show = function(id) {
-// 	$(id).style.display ='block';
-// }
-// var hide = function(id) {
-// 	$(id).style.display ='none';
-// }
-
 // Example usage
 const card1 = createCard('What are the services!', 'Billie', 'mcdeedb@gmail.com', 'I would like to book you for a wedding shoot!');
 // const card2 = createCard('Dynamic Cards 101', 'Billie', 'mcdeedb@gmail.com', 'I would like to book you for a wedding shoot!');
-// const card3 = createCard('Dynamic Cards 101', 'Billie', 'mcdeedb@gmail.com', 'I would like to book you for a wedding like to book eddingfor a wedding like to book you for a wedding ');
 
 cardContainer.appendChild(card1);
 // cardContainer.appendChild(card2);
-// cardContainer.appendChild(card3);
 
