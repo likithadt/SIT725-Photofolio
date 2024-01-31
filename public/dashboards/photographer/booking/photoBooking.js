@@ -20,8 +20,9 @@ function createCard(title, name, email, msg) {
     const cardMsg = document.createElement('p');
     cardMsg.textContent = "Message: " + msg;
 
-    const action = document.createElement('div')
-    action.innerHTML = '<div class="col-sm-4"> <div class="text-center"> <button id="btnAccept" class="btn btn-dark btn-md  " Style="width: 100px;" > Accept </button> <button id="btnReject" class="btn btn-outline-dark btn-md " Style="width: 100px;" > Reject</button> </div> </div>';
+    // const action = document.createElement('div')
+    // action.innerHTML = '<div class="col-sm-4"> <div class="text-center"> <button id="btnAccept"  class="btn btn-dark btn-md  " Style="width: 100px;" > Accept </button> <button id="btnReject" class="btn btn-outline-dark btn-md " Style="width: 100px;" > Reject</button> </div> </div>';
+    const action = this.actions();
 
     cardDetails.appendChild(cardTitle);
     cardDetails.appendChild(cardName);
@@ -34,12 +35,30 @@ function createCard(title, name, email, msg) {
     return card;
 }
 
+function actions(){
+    const action = document.createElement('div');
+    action.innerHTML = '<div class="col-sm-4"> <div class="text-center"> <button id="btnAccept" data-toggle="modal" data-target="#accept" class="btn btn-dark btn-md" style="width: 100px;" > Accept </button> <button id="btnReject"  data-toggle="modal" data-target="#reject"  class="btn btn-outline-dark btn-md " Style="width: 100px;" > Reject</button> </div> </div>';
+
+    return action;
+}
+
+// $ = function(id) {
+//     return document.getElementById(id);
+// }
+
+// var show = function(id) {
+// 	$(id).style.display ='block';
+// }
+// var hide = function(id) {
+// 	$(id).style.display ='none';
+// }
+
 // Example usage
-// const card1 = createCard('What are the services!', 'Billie', 'mcdeedb@gmail.com', 'I would like to book you for a wedding shoot!');
+const card1 = createCard('What are the services!', 'Billie', 'mcdeedb@gmail.com', 'I would like to book you for a wedding shoot!');
 // const card2 = createCard('Dynamic Cards 101', 'Billie', 'mcdeedb@gmail.com', 'I would like to book you for a wedding shoot!');
 // const card3 = createCard('Dynamic Cards 101', 'Billie', 'mcdeedb@gmail.com', 'I would like to book you for a wedding like to book eddingfor a wedding like to book you for a wedding ');
 
-// cardContainer.appendChild(card1);
+cardContainer.appendChild(card1);
 // cardContainer.appendChild(card2);
 // cardContainer.appendChild(card3);
 

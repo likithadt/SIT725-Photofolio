@@ -69,7 +69,7 @@
                             </a>
                             <ul class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdownMenuAvatar">
                                 <li>
-                                    <a class="dropdown-item" href="../../authentication/login.html"> Logout</a>
+                                    <a class="dropdown-item" href="../../../authentication/login.html"> Logout</a>
                                 </li>
                             </ul>
                         </div>
@@ -88,6 +88,59 @@
             <div id="booking-requests" class="row "> </div>
         </div>
 
+        <!-- Modal: Accept Requests -->
+        <div class="modal fade" id="accept" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title w-100 text-center" id="accept"> Accept Request </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="contactForm">
+                            <div class="form">
+                                <div class="form-group">
+                                    <input type="name" class="form-control" id="subject" placeholder="Subject">
+                                </div>
+                                <div class="form-group">
+                                    <textarea style="height:150px" class="form-control" id="enquiry"
+                                        placeholder="Message..."></textarea>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" id="enquiryButton" style="width: 96%;" class="btn btn-dark">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal: Reject Requests -->
+        <div class="modal fade" id="reject" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title w-100 text-center" id="reject"> Reject Request </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-center align-items-center"> Are you sure? you want to reject this booking
+                            request? </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="cancel" class="btn btn-outline-dark" data-dismiss="modal"> Cancle
+                        </button>
+                        <button type="button" id="confirm" class="btn btn-dark"> Confirm </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <!-- Footer -->
