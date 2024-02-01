@@ -49,7 +49,7 @@ body {
     background-color: #FFFFFF;
 }
 
-.card {
+.cardb {
     height: 220px;
     width: 90%;
     overflow: auto;
@@ -58,4 +58,8 @@ body {
     margin: 10px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.folio-cards{
+    border: 1px solid black;
 }

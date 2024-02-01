@@ -2,7 +2,7 @@ const cardContainer = document.getElementById('booking-requests');
 
 function createCard(title, name, email, msg) {
     const card = document.createElement('div');
-    card.classList.add('card');
+    card.classList.add('cardb');
     card.classList.add('row');
 
     const cardDetails = document.createElement('div');
