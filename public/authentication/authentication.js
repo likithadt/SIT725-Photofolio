@@ -1,3 +1,6 @@
+
+
+
 //Function to gather all the elements in the form 
 async function formElements() {
     const formData = {
@@ -35,7 +38,7 @@ async function roleBasedPageNavigator(event) {
         adduser();
         if (formData.role == "photographer") {
             var a = document.createElement('a');
-            a.href = '/dashboards/photographers/photographerDashboard.html';
+            a.href = '/dashboards/photographer/photographerDashboard.html';
             a.click()
         }
         else if (formData.role == "client") {
@@ -74,27 +77,51 @@ async function adduser() {
 }
 
 
-async function loginevent(event) {
+async function loginEvent(event) {
     try {
         console.log("Inside Login button");
 
         var formData = await loginFormData();
-        var email = formData.email;
-
+        console.log("Email Id is ", formData.email);
+        console.log("Password Is ", formData.password);
         const resp = await fetch('/login/login', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(formData),
+                
         });
-        const data = await resp.json();
 
-        console.log("Data from server ::", data);
+        if (resp.status === 200) {
+            const data = await resp.json();
+
+            console.log ("data is ",data );
+            if (data.role=="photographer")
+            {
+                var a = document.createElement('a');
+                a.href = '/dashboards/photographer/photographerDashboard.html';
+                a.click()
+            }
+            else if (data.role=="client"){
+                var a = document.createElement('a');
+                a.href = '/dashboards/clientDashboard.html';
+                a.click()
+            }
+
+            else{
+                alert ("Email Id or Password not found ");
+            }
+
+        } else {
+            console.log("Incorrect Username or password");
+
+        }
+
+
     } catch (error) {
-        console.log("Error creating User", error);
+        console.log("Error while checking credentials ", error);
     }
 
 }
-
 

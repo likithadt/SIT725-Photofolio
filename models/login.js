@@ -24,6 +24,24 @@ class login {
         }
 
     }
+    async getEmail(email) {
+        try {
+            const userEmail = await collection.findOne({ email: email });
+            if (userEmail) {
+
+                return {
+                    email: userEmail.email,
+                    role: userEmail.role
+                };
+            }
+            else {
+                return null;
+            }
+        } catch (error) {
+            console.log("Error inside getEmail() ", error);
+
+        }
+    }
 }
 
 module.exports = new login()

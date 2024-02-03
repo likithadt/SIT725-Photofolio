@@ -71,10 +71,13 @@ app.get('/', function (req,res) {
 app.get('/userRegistration', function (req, res) {
   res.sendFile(path.join(__dirname,'authentication', 'userRegistration.html')); 
 })
-
+app.get('/login', function (req, res) {
+  res.sendFile(path.join(__dirname, 'public', 'authentication', 'login.html')); 
+})
 // Defining routers with path
 app.use('/landing', landingRouter);
 app.use('/userRegistration', loginRouter);
+app.use('/login',loginRouter);
 
 
 app.listen(PORT, async () => {
