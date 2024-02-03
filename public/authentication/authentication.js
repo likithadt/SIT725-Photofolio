@@ -1,6 +1,3 @@
-
-
-
 //Function to gather all the elements in the form 
 async function formElements() {
     const formData = {
@@ -23,6 +20,11 @@ async function loginFormData() {
 
     return formData;
 
+}
+
+async function resetFormData() {
+    var formData = document.getElementById('resetEmail').value;
+    return formData;
 }
 
 
@@ -90,27 +92,26 @@ async function loginEvent(event) {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(formData),
-                
+
         });
 
         if (resp.status === 200) {
             const data = await resp.json();
 
-            console.log ("data is ",data );
-            if (data.role=="photographer")
-            {
+            console.log("data is ", data);
+            if (data.role == "photographer") {
                 var a = document.createElement('a');
                 a.href = '/dashboards/photographer/photographerDashboard.html';
                 a.click()
             }
-            else if (data.role=="client"){
+            else if (data.role == "client") {
                 var a = document.createElement('a');
                 a.href = '/dashboards/clientDashboard.html';
                 a.click()
             }
 
-            else{
-                alert ("Email Id or Password not found ");
+            else {
+                alert("Email Id or Password not found ");
             }
 
         } else {
@@ -125,3 +126,42 @@ async function loginEvent(event) {
 
 }
 
+async function resetPassword(event) {
+    try {
+        const data = await resetFormData();
+        console.log(data);
+        await sendPasswordLink(data);
+    } catch (error) {
+        console.log("Error in resetPassword()");
+    }
+}
+
+
+async function sendPasswordLink(email) {
+    try {
+
+        const resp = await fetch('/resetPassword/resetpassword', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email: email }),
+
+        });
+
+        const data = await resp.json();
+
+        if (resp.status === 200) {
+            alert("Check your inbox to rest your password ");
+        }
+        else if (resp.status === 404) {
+            alert("User not found");
+        } else {
+            alert("Could not send the password reset instructions");
+        }
+    } catch (error) {
+
+        console.log("Error in sendPasswordlink() ", error);
+
+    }
+}

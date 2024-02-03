@@ -3,7 +3,8 @@ const app = express();
 const mongoose = require('mongoose');
 const multer = require('multer');
 const db = require('./dbConnection');
-
+const cors = require('cors');
+app.use(cors()); 
 //importing routers
 const landingRouter = require('./routers/landingRouter');
 const loginRouter = require('./routers/loginRouter');
@@ -74,11 +75,18 @@ app.get('/userRegistration', function (req, res) {
 app.get('/login', function (req, res) {
   res.sendFile(path.join(__dirname, 'public', 'authentication', 'login.html')); 
 })
+app.get('/resetPassword', function (req, res) {
+  res.sendFile(path.join(__dirname, 'public', 'authentication', 'passwordReset.html')); 
+})
+app.get('/newPassword', function (req, res) {
+  res.sendFile(path.join(__dirname, 'public', 'authentication', 'newPassword.html')); 
+})
 // Defining routers with path
 app.use('/landing', landingRouter);
 app.use('/userRegistration', loginRouter);
 app.use('/login',loginRouter);
-
+app.use('/resetPassword',loginRouter);
+app.use('/newPassword',loginRouter);
 
 app.listen(PORT, async () => {
   try {
