@@ -3,8 +3,6 @@ const app = express();
 const mongoose = require('mongoose');
 const multer = require('multer');
 const db = require('./dbConnection');
-const cors = require('cors');
-app.use(cors()); 
 //importing routers
 const landingRouter = require('./routers/landingRouter');
 const loginRouter = require('./routers/loginRouter');

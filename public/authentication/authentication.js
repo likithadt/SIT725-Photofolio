@@ -165,3 +165,13 @@ async function sendPasswordLink(email) {
 
     }
 }
+
+async function newPassword(event)
+{
+    try {
+        alert("Password Clicked ");
+    } catch (error) {
+        console.log("Error in newPassword")
+    }
+   
+}
