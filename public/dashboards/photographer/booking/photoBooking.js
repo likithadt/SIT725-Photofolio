@@ -2,7 +2,7 @@ const cardContainer = document.getElementById('booking-requests');
 
 function createCard(title, name, email, msg) {
     const card = document.createElement('div');
-    card.classList.add('card');
+    card.classList.add('cardb');
     card.classList.add('row');
 
     const cardDetails = document.createElement('div');
@@ -20,8 +20,9 @@ function createCard(title, name, email, msg) {
     const cardMsg = document.createElement('p');
     cardMsg.textContent = "Message: " + msg;
 
-    const action = document.createElement('div')
-    action.innerHTML = '<div class="col-sm-4"> <div class="text-center"> <button id="btnAccept" class="btn btn-dark btn-md  " Style="width: 100px;" > Accept </button> <button id="btnReject" class="btn btn-outline-dark btn-md " Style="width: 100px;" > Reject</button> </div> </div>';
+    // const action = document.createElement('div')
+    // action.innerHTML = '<div class="col-sm-4"> <div class="text-center"> <button id="btnAccept"  class="btn btn-dark btn-md  " Style="width: 100px;" > Accept </button> <button id="btnReject" class="btn btn-outline-dark btn-md " Style="width: 100px;" > Reject</button> </div> </div>';
+    const action = this.actions();
 
     cardDetails.appendChild(cardTitle);
     cardDetails.appendChild(cardName);
@@ -34,12 +35,17 @@ function createCard(title, name, email, msg) {
     return card;
 }
 
-// Example usage
-// const card1 = createCard('What are the services!', 'Billie', 'mcdeedb@gmail.com', 'I would like to book you for a wedding shoot!');
-// const card2 = createCard('Dynamic Cards 101', 'Billie', 'mcdeedb@gmail.com', 'I would like to book you for a wedding shoot!');
-// const card3 = createCard('Dynamic Cards 101', 'Billie', 'mcdeedb@gmail.com', 'I would like to book you for a wedding like to book eddingfor a wedding like to book you for a wedding ');
+function actions(){
+    const action = document.createElement('div');
+    action.innerHTML = '<div class="col-sm-4"> <div class="text-center"> <button id="btnAccept" data-toggle="modal" data-target="#accept" class="btn btn-dark btn-md" style="width: 100px;" > Accept </button> <button id="btnReject"  data-toggle="modal" data-target="#reject"  class="btn btn-outline-dark btn-md " Style="width: 100px;" > Reject</button> </div> </div>';
 
-// cardContainer.appendChild(card1);
+    return action;
+}
+
+// Example usage
+const card1 = createCard('What are the services!', 'Billie', 'mcdeedb@gmail.com', 'I would like to book you for a wedding shoot!');
+// const card2 = createCard('Dynamic Cards 101', 'Billie', 'mcdeedb@gmail.com', 'I would like to book you for a wedding shoot!');
+
+cardContainer.appendChild(card1);
 // cardContainer.appendChild(card2);
-// cardContainer.appendChild(card3);
 

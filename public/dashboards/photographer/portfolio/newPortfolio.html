@@ -83,88 +83,57 @@
 
     <!-- Main -->
     <main>
-        <div class="user-dashboard container-fluid">
-            <h1 class="text-center"> Booking Requests </h1> <br>
-        </div> <br>
-        <div class="container align-items-center">
-            <div id="booking-requests" class="row "> </div>
-        </div>
-
-        <!-- Modal: Accept Requests -->
-        <div class="modal fade" id="accept" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title w-100 text-center" id="accept"> Accept Request </h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+        <div class="user-dashboard container">
+            <h1 class="text-center"> New Portfolio Post </h1> <br>
+            <div class="container border border-dark bg-white">
+                <div class="row pt-5 px-4">
+                    <div class="col-md-10">
+                        <img id='img-upload' />
                     </div>
-                    <div class="modal-body">
-                        <form id="contactForm">
-                            <div class="form">
-                                <div class="form-group">
-                                    <input type="name" class="form-control" id="subject" placeholder="Subject">
-                                </div>
-                                <div class="form-group">
-                                    <textarea style="height:150px" class="form-control" id="enquiry"
-                                        placeholder="Message..."></textarea>
-                                </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-btn">
+                                    <span class="btn btn-default btn-outline-dark btn-file"> Upload... 
+                                        <input type="file" id="imgInp" >
+                                    </span>
+                                </span>
                             </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" id="enquiryButton" style="width: 96%;" class="btn btn-dark">Send</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <!-- Modal: Reject Requests -->
-        <div class="modal fade" id="reject" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title w-100 text-center" id="reject"> Reject Request </h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p class="text-center align-items-center"> Are you sure? you want to reject this booking
-                            request? </p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" id="cancel" class="btn btn-outline-dark" data-dismiss="modal"> Cancle
-                        </button>
-                        <button type="button" id="confirm" class="btn btn-dark"> Confirm </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
+                <div>
+                    <form class="p-4">
+                        <div class="form-group form-group-post">
+                          <label for="Title"> Title </label>
+                          <input type="email" class="form-control" id="Title" placeholder="Title">
+                        </div>
+                        <div class="form-group form-group-post">
+                          <label for="Cateogory"> Category</label>
+                          <select class="form-control" id="Cateogory">
+                            <option> Abstract </option>
+                            <option> Fashion </option>
+                            <option> Nature </option>
+                            <option> Wedding </option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="Inspo"> Inspiration </label>
+                            <textarea style="height:150px" class="form-control" placeholder="Story behind the click..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="Inspo"> Tags </label>
+                            <input type="text"  class="form-control" placeholder="Natue, Wildlife..." data-role="tagsinput">
+                        </div>
 
-    <!-- Modal: User Setting -->
-    <!-- <div class="modal fade" id="profile" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title w-100 text-center" id="profile"> User Profile </h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    
-                </div>
-                <div class="modal-footer">
-                    <button type="button" id="confirm" class="btn btn-dark"> Save </button>
+                        <button type="submit" class="btn btn-dark w-100 mt-2"> Send </button>
+                    </form>
                 </div>
             </div>
-        </div>
-    </div> -->
+
+        </div> <br>
+
+    </main>
 
     <!-- Footer -->
     <footer>
@@ -181,9 +150,11 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="../photoDashboard.js"></script>
-    <script src="./photoBooking.js"></script>
+    <script src="./newPortfolio.js"></script>
 
-    <!-- Ref: https://mdbootstrap.com/docs/standard/navigation/navbar/-->
+
+    <!-- Ref:   https://mdbootstrap.com/docs/standard/navigation/navbar/
+                https://stackoverflow.com/questions/34173254/bootstrap-file-upload-with-image-preview-->
 
 </body>
 
