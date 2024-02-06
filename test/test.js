@@ -102,7 +102,7 @@ describe("Login POST request is working", function() {
             json: {email: "kiranms20@gmail.com", password: "1234"}
         }, function(error, response, body) {
             expect(response.statusCode).to.equal(200);
-            expect(body.sucess).to.equal(false);
+            expect(body.success).to.equal(false);
             done();
         });
     });

@@ -32,14 +32,14 @@ class loginController {
         try {
             const email = req.body.email;
             const pass = req.body.password;
-            const userEmail = await loginModel.getEmail(email, pass);
+            const userData = await loginModel.getEmail(email, pass);
             //console.log(userEmail);
-            if (userEmail) {
+            if (userData) {
 
-                res.json({ success: true, message: "Login Successful", email: userEmail.email, role: userEmail.role, name: userEmail.name });
+                res.json({ success: true, message: "Login Successful", userData });
             }
             else {
-                res.json({ sucess: false, message: "Check Email Id or Password"});
+                res.json({ success: false, message: "Check Email Id or Password"});
             }
 
         } catch (error) {

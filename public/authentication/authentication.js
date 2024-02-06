@@ -111,17 +111,21 @@ async function loginEvent(event) {
             const data = await resp.json();
 
             console.log("data is ", data);
-            if (data.role == "photographer") {
-                var a = document.createElement('a');
-                a.href = '/dashboards/photographer/photographerDashboard.html';
-                a.click();
+            if(data.success) {
+                localStorage.setItem("userId", data.userData.id);
+                localStorage.setItem("userName", data.userData.name);
+                localStorage.setItem("userRole", data.userData.role);
+                if (data.userData.role == "photographer") {
+                    var a = document.createElement('a');
+                    a.href = '/dashboards/photographer/photographerDashboard.html';
+                    a.click();
+                }
+                else if (data.userData.role == "client") {
+                    var a = document.createElement('a');
+                    a.href = '/dashboards/clientDashboard.html';
+                    a.click();
+                }
             }
-            else if (data.role == "client") {
-                var a = document.createElement('a');
-                a.href = '/dashboards/clientDashboard.html';
-                a.click();
-            }
-
             else {
                 alert("Email Id or Password not found ");
             }

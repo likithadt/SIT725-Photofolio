@@ -28,12 +28,11 @@ class login {
         try {
             const userEmail = await collection.findOne({ email: email, password: pass});
             if (userEmail) {
-
                 return {
                     email: userEmail.email,
                     name: userEmail.name,
                     role: userEmail.role,
-
+                    id: userEmail._id.toString(),
                 };
             }
             else {
