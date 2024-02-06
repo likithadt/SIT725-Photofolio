@@ -1,6 +1,7 @@
 var expect  = require("chai").expect;
 var request = require("request");
 
+// Landing page testing
 describe("Landing Page Loading Properly", function() {
     var url = "http://localhost:3000/";
     it("Landing Page working properly and returns status 200", function(done) {
@@ -71,6 +72,7 @@ describe("Website Loads all the styles", function() {
     });
 });
 
+// Login page
 describe("Login Page is loading correctly", function() {
     var url = "http://localhost:3000/authentication/login.html";
     it("Login page loaded properly and returns status 200", function(done) {
@@ -81,6 +83,44 @@ describe("Login Page is loading correctly", function() {
     });
 });
 
+describe("Login POST request is working", function() {
+    var url = "http://localhost:3000/login/login";
+    it("Login API works and returns status 200", function(done) {
+        request.post({
+            url: url,
+            json: {email: "kiranms20@gmail.com", password: "mohan"}
+        }, function(error, response, body) {
+            expect(response.statusCode).to.equal(200);
+            done();
+        });
+    });
+
+    var url = "http://localhost:3000/login/login";
+    it("Login API works and returns false when wrong data is given", function(done) {
+        request.post({
+            url: url,
+            json: {email: "kiranms20@gmail.com", password: "1234"}
+        }, function(error, response, body) {
+            expect(response.statusCode).to.equal(200);
+            expect(body.sucess).to.equal(false);
+            done();
+        });
+    });
+
+    var url = "http://localhost:3000/login/login";
+    it("Login API works and returns true when correct data is given", function(done) {
+        request.post({
+            url: url,
+            json: {email: "kiranms20@gmail.com", password: "mohan"}
+        }, function(error, response, body) {
+            expect(response.statusCode).to.equal(200);
+            expect(body.success).to.equal(true);
+            done();
+        });
+    });
+});
+
+// Password Reset Page
 describe("Password Reset page is loading correctly", function() {
     var url = "http://localhost:3000/authentication/passwordReset.html";
     it("Password reset page loaded properly and returns status 200", function(done) {
@@ -91,6 +131,7 @@ describe("Password Reset page is loading correctly", function() {
     });
 });
 
+// User Registration page
 describe("User Signup page is loading correctly", function() {
     var url = "http://localhost:3000/authentication/userRegistration.html";
     it("Signup page loaded properly and returns status 200", function(done) {
