@@ -113,6 +113,7 @@ async function loginEvent(event) {
             console.log("data is ", data);
             if(data.success) {
                 localStorage.setItem("userId", data.userData.id);
+                localStorage.setItem("userEmail", data.userData.email);
                 localStorage.setItem("userName", data.userData.name);
                 localStorage.setItem("userRole", data.userData.role);
                 if (data.userData.role == "photographer") {
