@@ -24,6 +24,32 @@ class login {
         }
 
     }
+    async getEmail(email, pass) {
+        try {
+            const userEmail = await collection.findOne({ email: email, password: pass});
+            if (userEmail) {
+
+                return {
+                    email: userEmail.email,
+                    name: userEmail.name,
+                    role: userEmail.role,
+
+                };
+            }
+            else {
+                return null;
+            }
+        } catch (error) {
+            console.log("Error inside getEmail() ", error);
+
+        }
+    }
+
+    async resetPasswordToDB(body) {
+        let email = body.email;
+        const data = await collection.updateOne({email: email}, {$set: body});
+        return data.modifiedCount > 0;
+    }
 }
 
 module.exports = new login()
