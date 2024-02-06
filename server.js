@@ -4,6 +4,10 @@ const mongoose = require('mongoose');
 const multer = require('multer');
 const db = require('./dbConnection');
 
+// socket imports
+const http = require("http").Server(app);
+const socketIO = require("socket.io")(http);
+
 //importing routers
 const landingRouter = require('./routers/landingRouter');
 const loginRouter = require('./routers/loginRouter');
@@ -59,6 +63,21 @@ app.get('/file/:id', async (req, res) => {
   }
 });
 
+
+//socket connection
+socketIO.on('connection', (socket) => {
+  console.log(`${socket.id} user connected now`);
+  socket.on('disconnect', () => {
+    console.log('User Disconnected!');
+  });
+
+  //socket msgs
+  socket.on('send_notif', (data) => {
+    data.newDat = "new Data added here";
+    socket.broadcast.emit('booking_notif', data); 
+  });
+});
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));
 app.use(express.json());
@@ -77,10 +96,20 @@ app.use('/landing', landingRouter);
 app.use('/userRegistration', loginRouter);
 
 
-app.listen(PORT, async () => {
+// app.listen(PORT, async () => {
+//   try {
+//     await db.connect();
+//     console.log(`Server running on port ${PORT}`);
+//   } catch(error) {
+//     console.log('Error connecting to the Database: ', error);
+//   }
+// });
+
+http.listen(PORT, async ()=> {
   try {
     await db.connect();
     console.log(`Server running on port ${PORT}`);
+    console.log(`Socket listening on ${PORT}`);
   } catch(error) {
     console.log('Error connecting to the Database: ', error);
   }
