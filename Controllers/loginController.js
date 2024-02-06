@@ -2,11 +2,11 @@ const loginModel = require('../models/login');
 
 
 class loginController {
-    async addusers(req,res) {
+    async addusers(req, res) {
         try {
             const data = await loginModel.addusers(req.body);
             res.json(data);
-            console.log("Data at controller :",data);
+            console.log("Data at controller :", data);
         } catch (errro) {
             console.log("error isnside login controller");
 
@@ -18,9 +18,9 @@ class loginController {
             const data = await loginModel.getusers();
             res.json(data);
 
-            console.log("Data at controller :",data);
+            console.log("Data at controller :", data);
 
-        } catch(error) {
+        } catch (error) {
             console.log("Error fetching users :", error);
         }
     }
