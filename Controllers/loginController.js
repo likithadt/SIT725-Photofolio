@@ -30,16 +30,16 @@ class loginController {
 
     async logUser(req, res) {
         try {
-
             const email = req.body.email;
-            const userEmail = await loginModel.getEmail(email);
+            const pass = req.body.password;
+            const userEmail = await loginModel.getEmail(email, pass);
             //console.log(userEmail);
             if (userEmail) {
 
-                res.json({ success: true, message: "Login Successful", email: userEmail.email, role: userEmail.role });
+                res.json({ success: true, message: "Login Successful", email: userEmail.email, role: userEmail.role, name: userEmail.name });
             }
             else {
-                res.json({ sucess: false, message: "Check Email Id or Password " });
+                res.json({ sucess: false, message: "Check Email Id or Password"});
             }
 
         } catch (error) {
@@ -54,14 +54,14 @@ class loginController {
             const userEmail = await loginModel.getEmail(email);
             console.log(userEmail, "User email is ");
             if (userEmail) {
-                const passwordLink = 'http://localhost:3000/newPassword';
+                const passwordLink = 'http://localhost:3000/authentication/newPassword.html';
 
                 const emailBody = `
                 Dear ${userEmail.email}, 
                 Welcome to phtofolio , We have received a request to reset your password 
                 Plese click on the following link inorder for you reset your password ${passwordLink}
 
-                Thank you for using Photoflio !!!
+                Thank you for using Photofolio !!!
                 `;
 
                 mailService.sendEmail(userEmail.email, "Request to reset password", emailBody);
@@ -73,6 +73,15 @@ class loginController {
             }
         } catch (error) {
             console.log("Error in sendResetPasswordLink() at controller", error);
+        }
+    }
+
+    async resetPassword(req, res) {
+        try {
+            const data = await loginModel.resetPasswordToDB(req.body);
+            res.json(data);
+        } catch(error) {
+            console.log("Error in resetting password: ", error);
         }
     }
 }

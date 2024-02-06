@@ -34,22 +34,21 @@ async function roleBasedPageNavigator(event) {
         console.log("Sign up button is working");
         var formData = await formElements();
 
-
-        console.log(formData);
-
-        adduser();
-        if (formData.role == "photographer") {
-            var a = document.createElement('a');
-            a.href = '/dashboards/photographer/photographerDashboard.html';
-            a.click()
-        }
-        else if (formData.role == "client") {
-            var a = document.createElement('a');
-            a.href = '/dashboards/clientDashboard.html';
-            a.click()
+        let respUser = await adduser();
+        if(respUser == true) {
+            if (formData.role == "photographer") {
+                var a = document.createElement('a');
+                a.href = '/dashboards/photographer/photographerDashboard.html';
+                a.click();
+            }
+            else if (formData.role == "client") {
+                var a = document.createElement('a');
+                a.href = '/dashboards/clientDashboard.html';
+                a.click();
+            }
         }
         else {
-            alert("please fill all the details ");
+            alert("Failed to add User");
         }
 
     }
@@ -63,18 +62,31 @@ async function roleBasedPageNavigator(event) {
 async function adduser() {
     try {
         var formData = await formElements();
+        if(formData.password != formData.confirmPassword) {
+            alert('Passwords dont match');
+            return;
+        }
+
+        let body = {
+            email: formData.email,
+            password: formData.password,
+            name: formData.name,
+            role: formData.role,
+        }
         const resp = await fetch('/userRegistration/adduser', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(formData),
+            body: JSON.stringify(body),
         });
         const data = await resp.json();
 
         console.log("Data from server ::", data);
+        return true;
     } catch (error) {
         console.log("Error creating User", error);
+        return false;
     }
 }
 
@@ -102,12 +114,12 @@ async function loginEvent(event) {
             if (data.role == "photographer") {
                 var a = document.createElement('a');
                 a.href = '/dashboards/photographer/photographerDashboard.html';
-                a.click()
+                a.click();
             }
             else if (data.role == "client") {
                 var a = document.createElement('a');
                 a.href = '/dashboards/clientDashboard.html';
-                a.click()
+                a.click();
             }
 
             else {
@@ -153,6 +165,9 @@ async function sendPasswordLink(email) {
 
         if (resp.status === 200) {
             alert("Check your inbox to rest your password ");
+            var a = document.createElement('a');
+            a.href = '/authentication/login.html';
+            a.click();
         }
         else if (resp.status === 404) {
             alert("User not found");
@@ -163,6 +178,45 @@ async function sendPasswordLink(email) {
 
         console.log("Error in sendPasswordlink() ", error);
 
+    }
+}
+
+async function passNew() {
+    try {
+        let email = document.getElementById('emailReset').value;
+        let password = document.getElementById('passwordNew').value;
+        let confirmPass = document.getElementById('passwordConfirm').value;
+
+        if(password != confirmPass) {
+            alert("Passwords don't match");
+            return;
+        }
+
+        let body = {
+            email, password
+        }; 
+
+        const resp = await fetch('/newPassword/setPass', { 
+            method: 'PUT',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(body),
+        });
+        const data = await resp.json();
+
+        if (data) {
+            alert("Password reset successfully!");
+
+        } else {
+            alert("Failed to set password. Please try again");
+        }
+
+        var a = document.createElement('a');
+        a.href = '/authentication/login.html';
+        a.click();
+    } catch(error) {
+        console.log("Error setting password: ", error);
     }
 }
 

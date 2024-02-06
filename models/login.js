@@ -24,14 +24,16 @@ class login {
         }
 
     }
-    async getEmail(email) {
+    async getEmail(email, pass) {
         try {
-            const userEmail = await collection.findOne({ email: email });
+            const userEmail = await collection.findOne({ email: email, password: pass});
             if (userEmail) {
 
                 return {
                     email: userEmail.email,
-                    role: userEmail.role
+                    name: userEmail.name,
+                    role: userEmail.role,
+
                 };
             }
             else {
@@ -41,6 +43,12 @@ class login {
             console.log("Error inside getEmail() ", error);
 
         }
+    }
+
+    async resetPasswordToDB(body) {
+        let email = body.email;
+        const data = await collection.updateOne({email: email}, {$set: body});
+        return data.modifiedCount > 0;
     }
 }
 
