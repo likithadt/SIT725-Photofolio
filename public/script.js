@@ -123,7 +123,7 @@ getUserTestimonials();
 // updateData();
 // deleteData();
 // postLandingData();
-fetchLandingData();
+// fetchLandingData();
 
 async function uploadImage() {
     const form = document.getElementById('form-submit');

@@ -41,6 +41,24 @@ describe("Landing Page Loading Properly", function() {
             done();
         });
     });
+
+    var url = "http://localhost:3000/landing/testimonials";
+    it("Testimonials GET API is called and returns status 200", function(done) {
+        request(url, function(error, response, body) {
+            expect(response.statusCode).to.equal(200);
+            expect(body.length).to.be.greaterThan(0);
+            done();
+        });
+    });
+
+    var url = "http://localhost:3000/landing/testimonials";
+    it("Testimonials API returns a list of testimonials", function(done) {
+        request(url, function(error, response, body) {
+            expect(body.length).to.be.greaterThan(0);
+            done();
+        });
+    });
+
 });
 
 describe("Website Loads all the styles", function() {
