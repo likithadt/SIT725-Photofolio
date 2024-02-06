@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>PhotoFolio - Client Dashboard</title>
+    <title>PhotoFolio - Client Booking </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./clientCss.css">
+    <link rel="stylesheet" href="../clientCss.css">
     <script src="https://kit.fontawesome.com/6fa2f2e88e.js" crossorigin="anonymous"></script>
 </head>
 
-<body onload="showPhotographers()">
+<body>
 
     <!-- Header !-->
     <header>
@@ -25,7 +25,7 @@
                 <div class="collapse navbar-collapse mr-auto" id="navbarSupportedContent">
                     <!-- Navbar brand -->
                     <a class="navbar-brand mt-2 mt-lg-0" href="#">
-                        <img class="logo" src="../../images/Photo.png" alt="Photofolio Logo" />
+                        <img class="logo" src="../../../images/Photo.png" alt="Photofolio Logo" />
                     </a>
                     <!-- Navbar -->
                     <ul class="navbar-nav ml-auto mr-3">
@@ -33,10 +33,10 @@
                             <a class="nav-link" href="#"> Photographers </a>
                         </li> -->
                         <li class="nav-item">
-                            <a class="nav-link" href="./bk/clientBooking.html"> Bookings </a>
+                            <a class="nav-link" href="../bk/clientBooking.html"> Bookings </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./blog/clientBlog.html"> Blog</a>
+                            <a class="nav-link" href="../blog/clientBlog.html"> Blog</a>
                         </li>
                     </ul>
 
@@ -76,51 +76,10 @@
     <!-- Main -->
     <main>
         <div class="user-dashboard container-fluid">
-            <h1 class=" text-center"> Client Dashboard </h1> <br>
-            <div class="container">
-                <div class="row">
-                    <div class="container text-center d-inline">
-                        <div class="dropdown">
-                            <button class="btn btn-outline-dark dropdown-toggle" type="button" id="cat"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Category </button>
-                            <!-- <div class="dropdown-menu" aria-labelledby="cat">
-                                <a class="dropdown-item" href="#"> Action</a>
-                                <a class="dropdown-item" href="#"> Another action</a>
-                                <a class="dropdown-item" href="#"> Something else here</a>
-                            </div> -->
-                        </div>
-                        <div class="dropdown">
-                            <button class="btn btn-outline-dark dropdown-toggle" type="button" id="sort"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Sort </button>
-                            <!-- <div class="dropdown-menu" aria-labelledby="sort">
-                            <a class="dropdown-item" href="#"> Action</a>
-                            <a class="dropdown-item" href="#"> Another action</a>
-                            <a class="dropdown-item" href="#"> Something else here</a>
-                            </div> -->
-                        </div>
-                        <div class="dropdown">
-                            <button class="btn btn-outline-dark dropdown-toggle" type="button" id="location"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Location </button>
-                            <!-- <div class="dropdown-menu" aria-labelledby="location">
-                            <a class="dropdown-item" href="#"> Action</a>
-                            <a class="dropdown-item" href="#"> Another action</a>
-                            <a class="dropdown-item" href="#"> Something else here</a>
-                            </div> -->
-                        </div>
-                        <form class="d-inline form-inline">
-                            <input class="form-control mr-sm-1" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-dark" type="submit">Search</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
+            <h1 class="text-center"> Booking Requests </h1> <br>
         </div> <br>
-
-        <div class="container text-center">
-            <!-- Photo Grid -->
-            <div class="image-grid" id="img-grid"> </div>
-
+        <div class="container align-items-center">
+            <div id="c-booking-requests" class="row "> </div>
         </div>
 
     </main> <br>
@@ -139,7 +98,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="clientJs.js"></script>
+    <script src="./clientBooking.js"> </script>
 
     <!-- Ref: https://mdbootstrap.com/docs/standard/navigation/navbar/-->
 
