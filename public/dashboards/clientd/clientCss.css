@@ -87,3 +87,10 @@ body {
 		--row-height: 200px;
 	}
 }
+
+.avatar {
+    vertical-align: middle;
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+  }

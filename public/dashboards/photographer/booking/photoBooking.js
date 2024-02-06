@@ -20,9 +20,7 @@ function createCard(title, name, email, msg) {
     const cardMsg = document.createElement('p');
     cardMsg.textContent = "Message: " + msg;
 
-    // const action = document.createElement('div')
-    // action.innerHTML = '<div class="col-sm-4"> <div class="text-center"> <button id="btnAccept"  class="btn btn-dark btn-md  " Style="width: 100px;" > Accept </button> <button id="btnReject" class="btn btn-outline-dark btn-md " Style="width: 100px;" > Reject</button> </div> </div>';
-    const action = this.actions();
+     const action = this.actions();
 
     cardDetails.appendChild(cardTitle);
     cardDetails.appendChild(cardName);

@@ -9,7 +9,7 @@
     <script src="https://kit.fontawesome.com/6fa2f2e88e.js" crossorigin="anonymous"></script>
 </head>
 
-<body onload="showPortfolio()">
+<body onload="showPhotographers()">
 
     <!-- Header !-->
     <header>
@@ -29,9 +29,9 @@
                     </a>
                     <!-- Navbar -->
                     <ul class="navbar-nav ml-auto mr-3">
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="#"> Photographers </a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                             <a class="nav-link" href="#"> Bookings </a>
                         </li>
@@ -81,26 +81,35 @@
                 <div class="row">
                     <div class="container text-center d-inline">
                         <div class="dropdown">
-                            <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton"
+                            <button class="btn btn-outline-dark dropdown-toggle" type="button" id="cat"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Category </button>
-                            <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <!-- <div class="dropdown-menu" aria-labelledby="cat">
                                 <a class="dropdown-item" href="#"> Action</a>
                                 <a class="dropdown-item" href="#"> Another action</a>
                                 <a class="dropdown-item" href="#"> Something else here</a>
                             </div> -->
                         </div>
                         <div class="dropdown">
-                            <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton"
+                            <button class="btn btn-outline-dark dropdown-toggle" type="button" id="sort"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Sort </button>
-                            <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <!-- <div class="dropdown-menu" aria-labelledby="sort">
                             <a class="dropdown-item" href="#"> Action</a>
                             <a class="dropdown-item" href="#"> Another action</a>
                             <a class="dropdown-item" href="#"> Something else here</a>
-                        </div> -->
+                            </div> -->
+                        </div>
+                        <div class="dropdown">
+                            <button class="btn btn-outline-dark dropdown-toggle" type="button" id="location"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Location </button>
+                            <!-- <div class="dropdown-menu" aria-labelledby="location">
+                            <a class="dropdown-item" href="#"> Action</a>
+                            <a class="dropdown-item" href="#"> Another action</a>
+                            <a class="dropdown-item" href="#"> Something else here</a>
+                            </div> -->
                         </div>
                         <form class="d-inline form-inline">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-dark" type="submit" onclick="showPortfolio()">Search</button>
+                            <input class="form-control mr-sm-1" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-dark" type="submit">Search</button>
                         </form>
                     </div>
                 </div>
