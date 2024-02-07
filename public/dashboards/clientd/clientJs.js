@@ -71,8 +71,8 @@ async function fetchImageUrl(id) {
 async function searchPhotographer() {
     try {
         let searchText = document.getElementById('search-input').value;
-        if(searchText == "") {
-            fetchAllPhotographers();
+        if(searchText == "") {            
+            location.reload();
             return;
         }
         const resp = await fetch('/clients/searchPhotographer', {
@@ -89,6 +89,22 @@ async function searchPhotographer() {
                 data[i].imageUrl = await fetchImageUrl(data[i]._id);
             }
             console.log("Searched Data", data); // DATA HERE
+
+            document.getElementById('card_holder_container').remove();
+            let contain = document.createElement('div');
+            contain.setAttribute('id', 'card_holder_container');
+            document.getElementById("parent_container").append(contain);
+
+            if(data.length == 0){
+                let empty_display = document.getElementById("empty_display");
+                empty_display.style.display = "block";
+            }
+            else{
+                let search_display = document.getElementById("search_display");
+                search_display.style.display = "block";
+                addCards(data);
+            }
+
         } else {
             showToaster("Photographer Not Found");
         }
