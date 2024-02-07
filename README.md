@@ -73,23 +73,26 @@ There are heaps of ideas that can be implemented to this project and we'll be ad
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
-* [![Node][Node.js]](https://nodejs.org/en)
-* [![Mocha][Mochajs.org]](https://mochajs.org/)
-* [![Chai][Chai.com]](https://www.chaijs.com/)
-* [![NodeMailer][Nodemailer.com]](https://nodemailer.com/)
-* [![GridFS-Stream][npm.com]](https://www.npmjs.com/package/multer/)
-* [![Multer][npm.com]](https://www.npmjs.com/package/multer/)
-* [![Bootstrap][Bootstrap.com]](https://getbootstrap.com/)
-* [![JavaScript][Javascript.com]](https://www.javascript.com/)
+* [Node](https://nodejs.org/en)
+* [Mocha](https://mochajs.org/)
+* [Chai](https://www.chaijs.com/)
+* [NodeMailer](https://nodemailer.com/)
+* [GridFS-Stream](https://www.npmjs.com/package/multer/)
+* [Multer](https://www.npmjs.com/package/multer/)
+* [Bootstrap](https://getbootstrap.com/)
+* [JavaScript](https://www.javascript.com/)
 
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
+#### Database
+* [MongoDB](https://www.mongodb.com/)
+* [Mongoose](https://mongoosejs.com/)
+
+#### Architecture
+
+<img src="./public/images/Photofolio_MVC.png" alt="architecture">
+
+#### System Flow
+
+<img src="./public/images/Photofolio-SystemFlow.png" alt="architecture">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -144,15 +147,14 @@ _Below is an example of how you can instruct your audience on installing and set
 <!-- CONTACT -->
 ## Team
 
-* LIKITHA DODDAYAGATI THIMMAIAH: 
-    * Email: s223686897@deakin.edu.au 
-* MOHAN SAI KIRAN BONU: 
-    * Email: s223689519@deakin.edu.au
-* NABIHA MASOOD: 
-    * Email: s222137149@deakin.edu.au 
-* PRASHANT VIJAY PATIL: 
-    * Email: s222425284@deakin.edu.au 
-
+<strong>
+<ul>
+    <li> LIKITHA DODDAYAGATI THIMMAIAH </li>
+    <li> MOHAN SAI KIRAN BONU </li>
+    <li> NABIHA MASOOD </li>
+    <li> PRASHANT VIJAY PATIL </li>
+</ul>
+ </strong> 
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
