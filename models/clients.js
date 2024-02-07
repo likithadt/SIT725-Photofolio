@@ -75,6 +75,16 @@ class clients {
             console.log("Error while fetching bookings", error);
         }
     }
+
+    async fetchAllBlogs() {
+        try {
+            const data = await collectionBooking.find().toArray();
+            return data;
+        }
+        catch (error) {
+            console.log("Error while fetching bookings", error);
+        }
+    }
 }
 
 module.exports = new clients();

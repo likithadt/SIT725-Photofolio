@@ -3,6 +3,7 @@ let selDB = db.client.db('photofolio');
 let collection = selDB.collection('portfolios');
 let collectionBooking = selDB.collection('bookings');
 let eventsCollection = selDB.collection('events');
+let blogCollection = selDB.collection('blogs');
 let ObjectId = require('mongodb').ObjectId;
 
 class photographers {
@@ -17,6 +18,7 @@ class photographers {
         }
 
     }
+
     async newPortfolio(body) {
         try {
             const data = await collection.insertOne(body);
@@ -25,7 +27,26 @@ class photographers {
         catch (error) {
             console.log("There is an error in loginController adduser()", error);
         }
+    }
 
+    async createNewBlog(body) {
+        try {
+            const data = await blogCollection.insertOne(body);
+            return data;
+        }
+        catch (error) {
+            console.log("There is an error creating new blogs", error);
+        }
+    }
+
+    async showAllBlogs(id) {
+        try {
+            const data = await blogCollection.find({photographerId: id}).toArray();
+            return data;
+        }
+        catch (error) {
+            console.log("There is an error in fetching blogs", error);
+        }
     }
 
     async bookingRequests(photographerId) {
@@ -36,7 +57,6 @@ class photographers {
         catch (error) {
             console.log("There is an error in portfoios get all", error);
         }
-
     }
 
     async sendAcceptMessage(id, body) {

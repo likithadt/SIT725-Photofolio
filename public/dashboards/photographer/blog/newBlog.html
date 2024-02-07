@@ -11,7 +11,7 @@
     <script src="https://kit.fontawesome.com/6fa2f2e88e.js" crossorigin="anonymous"></script>
 </head>
 
-<body onload="fetchBlogPosts()">
+<body>
     <div id="snackbar"></div>
 
     <!-- Header !-->
@@ -86,40 +86,49 @@
 
     <!-- Main -->
     <main>
+
+
         <div class="user-dashboard container">
-            <h1 class="text-center"> My Blogs </h1> <br>
-            <div class="row">
-                <div class="container col-sm-8 d-inline">
-                    <div class="dropdown">
-                        <!-- <button class="btn btn-outline-dark dropdown-toggle" type="button" id="status"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Status </button> -->
-                        <!-- <div class="dropdown-menu" aria-labelledby="status">
-                            <a class="dropdown-item" href="#"> Action</a>
-                            <a class="dropdown-item" href="#"> Another action</a>
-                            <a class="dropdown-item" href="#"> Something else here</a>
-                        </div> -->
+            <h1 class="text-center" style="font-weight: 700;"> NEW BLOGPOST </h1> <br>
+            <div class="container border border-dark bg-white">
+                <div class="row pt-5 px-4">
+                    <div class="col-md-10">
+                        <form id="form-submit" enctype="multipart/form-data">
+                            <img style="display: none;" id='img-upload' />
+                                <div class="col-lg-4">
+                                    <input type="file" name="image" onchange="selectedFile(event)" id="imageChoose" accept="image/*" required style="visibility: hidden;">
+                                    <button onclick="openFileUpload()"  class= "upload_button" type="button">Upload Image</button>
+                                </div>
+                        </form>
                     </div>
-                    <div class="dropdown">
-                        <!-- <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Sort </button> -->
-                        <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#"> Action</a>
-                        <a class="dropdown-item" href="#"> Another action</a>
-                        <a class="dropdown-item" href="#"> Something else here</a>
-                    </div> -->
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-btn">
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <div>
+                    <form id="newBlog" onsubmit="return false;" class="p-4">
+                        <div class="form-group form-group-post">
+                          <label for="Title"> Title </label>
+                          <input type="text" class="form-control" id="Title" placeholder="Title">
+                        </div>
+                        <div class="form-group">
+                            <label for="Inspo"> Description </label>
+                            <textarea style="height:150px" id="description" class="form-control" placeholder="Story behind the click..."></textarea>
+                        </div>
 
-                <div class=" col-sm-2">
-                    <a class="btn btn-dark" class="blog-post-button" type="submit" href="./newBlog.html"> New BlogPost </a>
+                        <button type="submit" class="btn btn-dark w-100 mt-2" onclick="createNew(event)"> Create New Blogpost </button>
+                    </form>
                 </div>
-            </div> <br>
-
-            <div class="container align-items-center">
-                <div id="pg-blogs" class="row align-items-center "> </div>
             </div>
 
-        </div> <br>
+        </div>
+
+
 
     </main>
 

@@ -31,6 +31,26 @@ class PhotographersController {
         }
     }
 
+    async createNewBlog(req, res) {
+        try {
+            const data = await photographersModel.createNewBlog(req.body);
+            res.json(data);
+
+        } catch(error) {
+            console.log("Error creating a new blog :", error);
+        }
+    }
+
+    async fetchAllBlogs(req, res) {
+        try {
+            const data = await photographersModel.showAllBlogs(req.body.photographerId);
+            res.json(data);
+
+        } catch(error) {
+            console.log("Error fetching blogs :", error);
+        }
+    }
+
     async sendAcceptMessage(req,res) {
         try {
             let body = req.body;

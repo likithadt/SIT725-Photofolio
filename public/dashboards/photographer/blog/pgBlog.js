@@ -1,3 +1,6 @@
+let file_id = "";
+let file_url = "";
+
 const cardContainer = document.getElementById('pg-blogs');
 
 function createCard(title, blog, status, img) {
@@ -53,7 +56,121 @@ function actions(){
 }
 
 // Example usage
-const card1 = createCard('What are the services!', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Ut enim ad minim veniam, quis nostrud ...', 'Unpublished' ,'https://images.unsplash.com/photo-1556125574-d7f27ec36a06?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' );
+// const card1 = createCard('What are the services!', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Ut enim ad minim veniam, quis nostrud ...', 'Unpublished' ,'https://images.unsplash.com/photo-1556125574-d7f27ec36a06?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' );
 
-cardContainer.appendChild(card1);
+function showToaster(message) {
+    var x = document.getElementById("snackbar");
+    x.className = "show";
+    x.innerHTML = message;
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
+
+function openFileUpload() {
+    document.getElementById("imageChoose").click();
+  }
+
+function  selectedFile(e) {
+        if (e.target.files[0]) {
+            uploadImage();
+        }
+}
+
+async function uploadImage() {
+    const form = document.getElementById('form-submit');
+    const formData = new FormData(form);
+    try {
+        const resp = await fetch('/upload', {
+            method: 'POST',
+            body: formData,
+        });
+        const data = await resp.json();
+
+        console.log("Data from server ::", data);
+        file_id = data.fileId;
+        retrieveImage(data.fileId);
+        
+    } catch(error) {
+        console.log("Error uploading image", error);
+    }
+}
+
+async function retrieveImage(fileId) {
+    try {
+        const resp = await fetch(`/file/${fileId}`, {
+            method: 'GET',
+        });
+        const data = await resp;
+
+        imgEle = document.getElementById('img-upload');
+        imgEle.src = data.url;
+        imgEle.alt = 'image';
+        file_url = data.url;
+        photo = document.getElementById("img-upload");
+        photo.style.display = 'block';
+
+    } catch(error) {
+        console.log("Error uploading image", error);
+    }
+
+}
+
+async function createNew() {
+    try{
+        photographerId = localStorage.getItem("userId");
+        const data = {
+            title : document.getElementById('Title').value,
+            description : document.getElementById('description').value,
+            fileId: file_id,
+            photographerId: photographerId,
+            fileUrl : file_url,
+            date: new Date(),
+        };
+
+        const resp = await fetch('/photographers/createNewBlog', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        });
+        const response = await resp.json();
+        console.log("blog response :: ",response);
+        showToaster("Blogpost created Successfully");
+
+        var frm = document.getElementById('newBlog');
+        frm.reset();  // Reset all form data
+
+        location.href = '/dashboards/photographer/blog/pgBlog.html';
+
+    }
+    catch(error){
+        showToaster("Blogpost creation failed");
+    }
+}
+
+async function fetchBlogPosts() {
+    try{
+        photographerId = localStorage.getItem("userId");
+
+        const resp = await fetch('/photographers/fetchAllBlogs', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({photographerId}),
+        });
+        const response = await resp.json();
+        
+        for(let i=0; i< response.length;i++) {
+            const cardd = createCard(response[i].title,response[i].description,'Melbourne',response[i].fileUrl);
+            cardContainer.appendChild(cardd);
+        }
+        console.log("List of blogs :: ",response);
+
+        showToaster("Blogposts listed successfully");
+    }
+    catch(error){
+        showToaster("Failed to load blogposts");
+    }
+}
 
