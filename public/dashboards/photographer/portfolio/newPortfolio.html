@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../photographer.css">
     <script src="https://kit.fontawesome.com/6fa2f2e88e.js" crossorigin="anonymous"></script>
+    <link rel = "stylesheet" href="../../../toater.css">
 </head>
 
 <body>
@@ -83,50 +84,54 @@
 
     <!-- Main -->
     <main>
+        <div id="snackbar"></div>
         <div class="user-dashboard container">
-            <h1 class="text-center"> New Portfolio Post </h1> <br>
+            <h1 class="text-center" style="font-family: math; font-weight: 900;"> NEW PORTFOLIO POST </h1> <br>
             <div class="container border border-dark bg-white">
                 <div class="row pt-5 px-4">
                     <div class="col-md-10">
-                        <img id='img-upload' />
+                        <form id="form-submit" enctype="multipart/form-data">
+                            <img id='img-upload' />
+                                <div class="col-lg-4">
+                                    <input type="file" name="image" onchange="selectedFile(event)" id="imageChoose" accept="image/*" required style="visibility: hidden;">
+                                    <button onclick="openFileUpload()"  class= "upload_button" type="button">Upload Image</button>
+                                </div>
+                        </form>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-btn">
-                                    <span class="btn btn-default btn-outline-dark btn-file"> Upload... 
-                                        <input type="file" id="imgInp" >
-                                    </span>
                                 </span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <form class="p-4">
+                    <form id="newPortfolio" onsubmit="return false;" class="p-4">
                         <div class="form-group form-group-post">
                           <label for="Title"> Title </label>
-                          <input type="email" class="form-control" id="Title" placeholder="Title">
+                          <input type="text" class="form-control" id="Title" placeholder="Title">
                         </div>
                         <div class="form-group form-group-post">
                           <label for="Cateogory"> Category</label>
                           <select class="form-control" id="Cateogory">
-                            <option> Abstract </option>
-                            <option> Fashion </option>
-                            <option> Nature </option>
-                            <option> Wedding </option>
+                            <option value="0"> Abstract </option>
+                            <option value="1"> Fashion </option>
+                            <option value="2"> Nature </option>
+                            <option value="3"> Wedding </option>
                           </select>
                         </div>
                         <div class="form-group">
                             <label for="Inspo"> Inspiration </label>
-                            <textarea style="height:150px" class="form-control" placeholder="Story behind the click..."></textarea>
+                            <textarea style="height:150px" id="Inspiration" class="form-control" placeholder="Story behind the click..."></textarea>
                         </div>
                         <div class="form-group">
                             <label for="Inspo"> Tags </label>
-                            <input type="text"  class="form-control" placeholder="Natue, Wildlife..." data-role="tagsinput">
+                            <input type="text"  id="tags" class="form-control" placeholder="Natue, Wildlife..." data-role="tagsinput">
                         </div>
 
-                        <button type="submit" class="btn btn-dark w-100 mt-2"> Send </button>
+                        <button type="submit" class="btn btn-dark w-100 mt-2" onclick="createNew(event)"> Create New Portfolio </button>
                     </form>
                 </div>
             </div>

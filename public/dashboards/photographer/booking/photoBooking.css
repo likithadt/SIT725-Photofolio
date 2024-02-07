@@ -1,0 +1,23 @@
+#changed_status_reject
+{background-color: #913f1f;
+color: white;
+padding: 10px;
+border-radius: 5px;
+text-align: center;
+font-size: 18px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+max-width: 300px !important;
+color: white;
+}
+
+#changed_status_accept
+{background-color: #68956a;
+color: white;
+padding: 10px;
+border-radius: 5px;
+text-align: center;
+font-size: 18px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+max-width: 300px !important;
+color: white;
+}
