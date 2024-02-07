@@ -11,7 +11,7 @@
     <script src="https://cdn.socket.io/4.5.0/socket.io.min.js" integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k" crossorigin="anonymous"></script>
 </head>
 
-<body onload="fetchPhotographersData()">
+<body>
 
     <div id="snackbar"></div>
     <!-- Header !-->
@@ -81,23 +81,22 @@
         <div class="user-dashboard container-fluid text-center">
             <img src="https://images.unsplash.com/photo-1556125574-d7f27ec36a06?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="Avatar" class="avatar">
-            <h1 class=" text-center mt-2"> {Photographer Name} </h1> <br>
+            <h1 class=" text-center mt-2" id="photographer_name">  </h1> <br>
             <div class="container text-center px-5">
-                <p> {Photographer Bio} Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing
-                    elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                <p id="bio_content">  </p>
                 <div class="pt-2">
                     <a class="text-reset me-3 mr-3" href="#" role="button" aria-expanded="false" style="text-decoration: none;">
-                        <i class="fas fa-location-pin"></i> <span> {Location} </span>
+                        <i class="fas fa-location-pin"></i> <span> Melbourne </span>
                     </a>
-                    <a class="text-reset me-3 mr-3" href="#" role="button" aria-expanded="false" style="text-decoration: none;">
+                    <!-- <a class="text-reset me-3 mr-3" href="#" role="button" aria-expanded="false" style="text-decoration: none;">
                         <i class="fas fa-globe"></i> <span> {Website} </span>
-                    </a>
+                    </a> -->
                 </div>
                 <div class="pt-3">
-                    <p class="text-secondary"> Interests </p>
-                    <span class="badge rounded-pill badge-notification bg-secondary text-white p-2"> Wildlife </span>
-                    <span class="badge rounded-pill badge-notification bg-secondary text-white p-2"> Nature </span>
+                    <p class="text-secondary"> Interest </p>
+                    <span id="interest_content" class="badge badge-interest rounded-pill badge-notification bg-secondary text-white p-2">  </span>
+                    <span class="badge badge-interest rounded-pill badge-notification bg-secondary text-white p-2"> Wildlife </span>
+                    <span class="badge badge-interest rounded-pill badge-notification bg-secondary text-white p-2"> Events </span>
                 </div>
                 <div class="py-4">
                     <button id="btnConnect" data-toggle="modal" data-target="#connect" class="btn btn-dark btn-md" style="width: 100px;" > Connect </button>
@@ -145,8 +144,8 @@
             <!-- Portfolio -->
             <h3 class=" text-center mt-2"> Portfolios </h3> <br>
             <div class="container mt-3">
-                <div class="row">
-                    <div class="col-lg-4 mb-3 d-flex align-items-stretch">
+                <div class="row" id="portfolio_cards">
+                    <!-- <div class="col-lg-4 mb-3 d-flex align-items-stretch">
                         <div class="card folio-cards">
                             <img src="https://i.postimg.cc/4xVY64PV/porto-timoni-double-beach-corfu-greece-700.jpg"
                                 class="card-img-top" alt="Card Image">
@@ -156,9 +155,9 @@
                                     many landmark commercial locals and vivid neon signs. </p>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="col-lg-4 mb-3 d-flex align-items-stretch">
+                    <!-- <div class="col-lg-4 mb-3 d-flex align-items-stretch">
                         <div class="card folio-cards">
                             <img src="https://i.postimg.cc/4xVY64PV/porto-timoni-double-beach-corfu-greece-700.jpg"
                                 class="card-img-top" alt="Card Image">
@@ -168,9 +167,9 @@
                                     many landmark commercial locals and vivid neon signs. </p>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="col-lg-4 mb-3 d-flex align-items-stretch">
+                    <!-- <div class="col-lg-4 mb-3 d-flex align-items-stretch">
                         <div class="card folio-cards">
                             <img src="https://i.postimg.cc/4xVY64PV/porto-timoni-double-beach-corfu-greece-700.jpg"
                                 class="card-img-top" alt="Card Image">
@@ -180,7 +179,7 @@
                                     many landmark commercial locals and vivid neon signs. </p>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
 
@@ -212,7 +211,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="../clientJs.js"></script>
+    <!-- <script src="../clientJs.js"></script> -->
     <script src="./photographerInfo.js"></script>
     <script src="/socket.io/socket.io.js"></script>
 

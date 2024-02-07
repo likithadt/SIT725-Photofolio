@@ -64,27 +64,6 @@ async function fetchImageUrl(id) {
     }
 }
 
-async function fetchLastImageUrl(id) {
-    try {
-        const resp = await fetch('/clients/fetchPhotographerImage', {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body : JSON.stringify({id}),
-        });
-        const data = await resp.json();
-
-        if(data.length > 0) {
-            return data[data.length - 1].fileUrl;
-        } else {
-            return '';
-        }
-    } catch(error) {
-        showToaster("Error fetching photographer images");
-    }
-}
-
 async function searchPhotographer() {
     try {
         let searchText = document.getElementById('search-input').value;
