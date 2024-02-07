@@ -74,8 +74,7 @@
 }
 #signupButton,
 #loginButton ,
-#passwordReset,
-#confirmPassword{
+#passwordReset{
     color:black;
     font-weight: 700;
     width: 100%;

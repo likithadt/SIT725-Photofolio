@@ -5,7 +5,8 @@ async function formElements() {
         email: document.getElementById('email').value,
         password: document.getElementById('password').value,
         confirmPassword: document.getElementById('confirmPassword').value,
-        role: document.getElementById('roleSelect').value
+        role: document.getElementById('roleSelect').value,
+        specialization: document.getElementById('specialization').value
     };
 
     return formData;
@@ -63,7 +64,6 @@ async function adduser() {
     try {
         var formData = await formElements();
         if(formData.password != formData.confirmPassword) {
-            console.log("inside toastreeee");
             showToaster("Passwords don't match");
             return;
         }
@@ -73,6 +73,7 @@ async function adduser() {
             password: formData.password,
             name: formData.name,
             role: formData.role,
+            specialization: formData.specialization,
         }
         const resp = await fetch('/userRegistration/adduser', {
             method: 'POST',
@@ -87,6 +88,7 @@ async function adduser() {
         localStorage.setItem("userEmail",body.email);
         localStorage.setItem("userName", body.name);
         localStorage.setItem("userRole", body.role);
+        localStorage.setItem("userSpecialization", body.specialization);
 
         console.log("Data from server ::", data);
         return true;
