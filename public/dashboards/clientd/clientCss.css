@@ -117,3 +117,7 @@ body {
 .search-width {
     width: 50% !important;
 }
+
+.badge-interest{
+    font-size: 15px !important;
+}

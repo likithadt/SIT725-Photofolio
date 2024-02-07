@@ -1,4 +1,28 @@
 // const socket = io();
+const addCards = (items) => {
+    items.forEach(item => {
+        let itemToAppend = ' <div class="col-lg-4 mb-3 d-flex align-items-stretch">'+
+                '<div class="card folio-cards">'+
+                '<img src="'+item.fileUrl+'"  class="card-img-top" alt="Card Image">'+
+                '  <h6 class="card-title" style=" margin-bottom: 0.75rem; margin-top: 1rem;"> '+item.title+'</h6> <div class="card-body d-flex flex-column">  <p class="card-text mb-4">'+item.inspiration+'</p>'+
+                '</div></div></div>'
+        $("#portfolio_cards").append(itemToAppend)
+    });
+} 
+
+{/* <div class="col-lg-4 mb-3 d-flex align-items-stretch">
+                        <div class="card folio-cards">
+                            <img src="https://i.postimg.cc/4xVY64PV/porto-timoni-double-beach-corfu-greece-700.jpg"
+                                class="card-img-top" alt="Card Image">
+                            <div class="card-body d-flex flex-column">
+                                <h6 class="card-title"> Dōtonbori Canal</h6>
+                                <p class="card-text mb-4">Is a manmade waterway dug in the early 1600's and now displays
+                                    many landmark commercial locals and vivid neon signs. </p>
+                            </div>
+                        </div>
+                    </div> */}
+
+
 async function sendBookingEnquiry() {
     try {
         let body = {
@@ -46,9 +70,21 @@ async function fetchPhotographersData() {
                 data[i].imageUrl = await fetchLastImageUrl(data[i]._id);
             }
             console.log("Photographers Data", data); // DATA HERE
+            let name_element = document.getElementById("photographer_name");
+            name_element.innerHTML = data[0].name;
+
+            let bio_element = document.getElementById("bio_content");
+            bio_element.innerHTML = "Welcome to the captivating portfolio of "+ data[0].name +". Here, amidst the digital canvas, lies a testament to creativity and passion, meticulously crafted to captivate and inspire. Each brushstroke of code, every pixel delicately placed, tells a story of innovation and dedication.";
+           
+            let interest_element = document.getElementById("interest_content");
+            interest_element.innerHTML = data[0].specialization;
+           
+            
 
             // fetch photographers portfolio
             fetchPhotographersPortfolio(pId);
+
+            
 
             // if(data.length == 0){
             //     let empty_display = document.getElementById("empty_display");
@@ -58,6 +94,7 @@ async function fetchPhotographersData() {
             //     let search_display = document.getElementById("search_display");
             //     search_display.style.display = "block";
             //     addCards(data);
+            // addCards(data);
             // }
         } else {
             showToaster("No Photographers Found");
@@ -67,6 +104,26 @@ async function fetchPhotographersData() {
     }
 }
 
+async function fetchLastImageUrl(id) {
+    try {
+        const resp = await fetch('/clients/fetchPhotographerImage', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body : JSON.stringify({id}),
+        });
+        const data = await resp.json();
+
+        if(data.length > 0) {
+            return data[data.length - 1].fileUrl;
+        } else {
+            return '';
+        }
+    } catch(error) {
+        showToaster("Error fetching photographer images");
+    }
+}
 
 async function fetchPhotographersPortfolio(id) {
     try {
@@ -90,7 +147,7 @@ async function fetchPhotographersPortfolio(id) {
             // else{
             //     let search_display = document.getElementById("search_display");
             //     search_display.style.display = "block";
-            //     addCards(data);
+                addCards(data);
             // }
         } else {
             showToaster("No Photographers Found");
@@ -135,3 +192,5 @@ function showToaster(message) {
 function getPhotographerDetails(e){
 location.href=`/dashboards/clientd/pg/photographerInfo.html?id=${e.currentTarget.id}`;
 }
+
+fetchPhotographersData()
