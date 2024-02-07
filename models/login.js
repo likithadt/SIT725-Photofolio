@@ -44,6 +44,26 @@ class login {
         }
     }
 
+    async fetchResetEmail(email) {
+        try {
+            const userEmail = await collection.findOne({ email: email});
+            if (userEmail) {
+                return {
+                    email: userEmail.email,
+                    name: userEmail.name,
+                    role: userEmail.role,
+                    id: userEmail._id.toString(),
+                };
+            }
+            else {
+                return null;
+            }
+        } catch (error) {
+            console.log("Error inside getEmail() ", error);
+
+        }
+    }
+
     async resetPasswordToDB(body) {
         let email = body.email;
         const data = await collection.updateOne({email: email}, {$set: body});

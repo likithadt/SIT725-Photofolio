@@ -51,7 +51,7 @@ class loginController {
     async sendResetPasswordLink(req, res) {
         try {
             const email = req.body.email;
-            const userEmail = await loginModel.getEmail(email);
+            const userEmail = await loginModel.fetchResetEmail(email);
             console.log(userEmail, "User email is ");
             if (userEmail) {
                 const passwordLink = 'http://localhost:3000/authentication/newPassword.html';
@@ -68,7 +68,6 @@ class loginController {
                 res.json({ success: true, message: "Email sent successfully" });
             }
             else {
-
                 res.status(404).json({ success: false, message: "User Not Found" });
             }
         } catch (error) {
