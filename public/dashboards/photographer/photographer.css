@@ -25,6 +25,13 @@ body {
 
 .dropdown:hover .dropdown-content {
     display: block;
+    top: 25px;
+    left: -15px;
+    font-size: 14px;
+    font-family: math;
+    min-width: 20px;
+    padding: 0px;
+    margin: 0px;
 }
 
 .dropdown-content a {
