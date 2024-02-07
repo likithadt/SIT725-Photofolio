@@ -86,12 +86,12 @@
     <main>
         <div id="snackbar"></div>
         <div class="user-dashboard container">
-            <h1 class="text-center" style="font-family: math; font-weight: 900;"> NEW PORTFOLIO POST </h1> <br>
+            <h1 class="text-center" style="font-weight: 700;"> NEW PORTFOLIO POST </h1> <br>
             <div class="container border border-dark bg-white">
                 <div class="row pt-5 px-4">
                     <div class="col-md-10">
                         <form id="form-submit" enctype="multipart/form-data">
-                            <img id='img-upload' />
+                            <img style="display: none;" id='img-upload' />
                                 <div class="col-lg-4">
                                     <input type="file" name="image" onchange="selectedFile(event)" id="imageChoose" accept="image/*" required style="visibility: hidden;">
                                     <button onclick="openFileUpload()"  class= "upload_button" type="button">Upload Image</button>

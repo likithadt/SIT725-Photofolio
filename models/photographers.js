@@ -6,9 +6,9 @@ let ObjectId = require('mongodb').ObjectId;
 
 class photographers {
 
-    async portfolios() {
+    async portfolios(photographerId) {
         try {
-            const data = await collection.find().toArray();
+            const data = await collection.find({photographerId: photographerId}).toArray();
             return data;
         }
         catch (error) {
@@ -46,6 +46,12 @@ class photographers {
     async sendRejectMessage(id, body) {
         const data = await collectionBooking.updateOne({_id: new ObjectId(id)}, {$set: body});
         return data.modifiedCount > 0;
+    }
+
+    async deletePost(id) {
+        // id = parseInt(id);
+        const data = await collection.deleteOne({_id: new ObjectId(id)});
+        return data.deletedCount > 0;
     }
 }
 

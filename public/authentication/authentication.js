@@ -38,12 +38,12 @@ async function roleBasedPageNavigator(event) {
         if(respUser == true) {
             if (formData.role == "photographer") {
                 var a = document.createElement('a');
-                a.href = '/dashboards/photographer/photographerDashboard.html';
+                a.href = '/dashboards/photographer/portfolio/portfolio.html';
                 a.click();
             }
             else if (formData.role == "client") {
                 var a = document.createElement('a');
-                a.href = '/dashboards/clientDashboard.html';
+                a.href = '/dashboards/clientd/clientDashboard.html';
                 a.click();
             }
         }

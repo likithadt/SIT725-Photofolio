@@ -13,7 +13,7 @@ class PhotographersController {
 
     async portfolios(req, res) {
         try {
-            const data = await photographersModel.portfolios();
+            const data = await photographersModel.portfolios(req.body.photographerId);
             res.json(data);
 
         } catch(error) {
@@ -55,6 +55,18 @@ class PhotographersController {
         }
     }
 
+    async deletePost(req, res) {
+        try {
+            const id = req.params.id;
+            const data = await photographersModel.deletePost(id);
+            res.json(data);
+
+            console.log("Data at controller :",data);
+
+        } catch(error) {
+            console.log("Error fetching users :", error);
+        }
+    }
 }
 
 module.exports = new PhotographersController();

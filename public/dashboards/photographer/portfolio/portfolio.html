@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../photographer.css">
     <script src="https://kit.fontawesome.com/6fa2f2e88e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../../toater.css">
 </head>
 
 <body>
@@ -83,9 +84,16 @@
 
     <!-- Main -->
     <main>
+        <div id="snackbar"></div>
         <div class="user-dashboard container">
-            <h1 class="text-center" style="font-family: math; font-weight: 900;" > MY PORTFOLIO </h1> <br>
-            <div class="row">
+            <h1 class="text-center" style=" font-weight: 700;" > MY PORTFOLIO </h1> <br>
+            <div style="font-size: larger;font-weight: 700; display: none;"  id="empty_booking" class="container-fluid">
+                <p id="view-portfolio-dashboard" class="text-center"> You have no photos in your portfolio. </p> <br>
+            </div>
+            <div id = "hide_button" style=" display: none;" class="text-center">
+                <button type="button" class="btn btn-dark text-center" onclick = "newPortfolio()"> New Portfolio </button>
+            </div>
+            <div id = "functions_portfolio" style="display: none;" class="row">
                 <div class="container col-sm-8 d-inline">
                     <div class="dropdown">
                         <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton"
@@ -96,6 +104,7 @@
                             <a class="dropdown-item" href="#"> Something else here</a>
                         </div> -->
                     </div>
+                   
                     <!-- <div class="dropdown"> -->
                         <!-- <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Sort </button> -->
@@ -110,6 +119,7 @@
                         <button class="btn btn-outline-dark" type="submit"  style="width:6vw" onclick="">Search</button>
                     </form>
                 </div>
+               
 
                 <div class="dropdown col-sm-2">
                     <a class="new_portfolio btn btn-dark" type="submit" href="newPortfolio.html"> New Portfolio</a>
