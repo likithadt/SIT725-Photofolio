@@ -33,6 +33,7 @@ class Database {
             await this.selDb.createCollection('events');
             await this.selDb.createCollection('blogs');
             await this.selDb.createCollection('queries');
+            await this.selDb.createCollection('testimonials');
             await this.selDb.createCollection('bookings');
             console.log(`Collections created successfully`);
 

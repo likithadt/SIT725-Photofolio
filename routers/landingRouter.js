@@ -11,5 +11,6 @@ router.put('/update/:id', landingController.updateData);
 router.delete('/delete/:id', landingController.deleteData);
 
 router.post('/query', landingController.postUserQuery);
+router.get('/testimonials', landingController.getTestimonialsData);
 
 module.exports = router;

@@ -1,3 +1,5 @@
+const socket = io();
+
 // Function to add animation class after a delay
 function animateWords() {
     const words = document.querySelector('.animate');
@@ -104,8 +106,84 @@ async function sendQuery(event){
     }
 } 
 
+async function getUserTestimonials(){
+try{
+    const resp = await fetch('/landing/testimonials', {
+        method: 'GET'
+    });
+    console.log(resp);
+    // const data = await resp.json();
 
+    // console.log("Data from server ::", data);
+}
+catch(e){
+    console.log(" Error while fetching Data from server ::", e);
+}
+}
+
+getUserTestimonials();
 // updateData();
 // deleteData();
 // postLandingData();
 // fetchLandingData();
+
+async function uploadImage() {
+    const fileData = document.getElementById('upimage').files;
+    if(fileData.length == 0) {
+        alert("No file selected");
+        return;
+    }
+    
+    var fileIds = [];
+    for(var i=0; i < fileData.length; i++) {
+        var formData = new FormData();
+        formData.append('image', fileData[i]);
+        try {
+            const resp = await fetch('/upload', {
+                method: 'POST',
+                body: formData,
+            });
+            const data = await resp.json();
+            console.log("Data from server ::", data);
+            fileIds.push(data.fileId);
+            retrieveImage(data.fileId);
+        } catch(error) {
+            console.log("Error uploading image", error);
+        }
+    }
+    console.log("FILES ::", fileIds);
+}
+
+async function retrieveImage(fileId) {
+    try {
+        const resp = await fetch(`/file/${fileId}`, {
+            method: 'GET',
+        });
+        const data = await resp;
+
+        console.log("Data from server ::", data);
+
+        imgEle = document.createElement('img');
+        imgEle.src = data.url;
+        imgEle.alt = 'image';
+        document.getElementById('imagesHere').appendChild(imgEle);
+
+
+    } catch(error) {
+        console.log("Error uploading image", error);
+    }
+}
+
+async function sendNotification() {
+    const data = {
+        userEmail : document.getElementById('email-message').value,
+        userName : document.getElementById('name-message').value,
+    };
+    socket.emit('send_notif', data);
+}
+
+socket.on('booking_notif', (data) => {
+    console.log("Data here :",data);
+    document.querySelector('#notification').textContent = data;
+});
+

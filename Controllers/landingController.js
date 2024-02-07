@@ -82,6 +82,18 @@ Best Regards,
             console.log("Error fetching users :", error);
         }
     }
+
+    async getTestimonialsData (req, res) {
+        try {
+            const data = await landingModel.getTestimonialsData();
+            res.json(data);
+
+            console.log("Data at controller :",data);
+
+        } catch(error) {
+            console.log("Error fetching users :", error);
+        }
+    }
 }
 
 
