@@ -10,5 +10,6 @@ router.post('/getSelectedPhotographer', clientsController.getSinglePhotographerD
 router.post('/getSelectedPortfolios', clientsController.getSelectedPortfolios);
 router.post('/sendBookingNotification', clientsController.sendBookingNotification);
 router.post('/getBookingRequests', clientsController.getBookingRequests);
+router.get('/fetchAllBlogs', clientsController.fetchAllBlogs);
 
 module.exports = router;

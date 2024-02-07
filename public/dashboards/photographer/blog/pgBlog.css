@@ -63,3 +63,10 @@
     display: flex;
     align-items: center;
   }
+  
+  .blog-post-button {
+    width: 100%;
+    right: 58px;
+    position: relative;
+    top: 20px;
+  }

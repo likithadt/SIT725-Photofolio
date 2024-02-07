@@ -71,6 +71,16 @@ class clientsController {
             console.log("Error fetching Bookings :", error);
         }
     }
+
+    async fetchAllBlogs(req, res) {
+        try {
+            const data = await clientsModel.fetchAllBlogs();
+            res.json(data);
+
+        } catch(error) {
+            console.log("Error fetching Bookings :", error);
+        }
+    }
 }
 
 module.exports = new clientsController();

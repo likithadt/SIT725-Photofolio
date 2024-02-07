@@ -103,6 +103,21 @@ async function searchPhotographer() {
     }
 }
 
+async function fetchAllBlogs() {
+    try {
+        const resp = await fetch('/clients/fetchAllBlogs', {
+            method: 'GET'
+        });
+        const response = await resp.json();
+        
+        console.log("List of blogs :: ",response);
+        showToaster("Blogposts listed successfully");
+    }
+    catch(error){
+        showToaster("Failed to load blogposts");
+    }
+}
+
 function getPhotographerDetails(e){
     location.href=`/dashboards/clientd/pg/photographerInfo.html?id=${e.currentTarget.id}`;
 }
