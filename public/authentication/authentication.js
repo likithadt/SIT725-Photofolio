@@ -249,3 +249,17 @@ function showToaster(message) {
     x.innerHTML = message;
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 }
+
+function getRole(){
+
+    roleSelect = document.getElementById("roleSelect");
+    
+    let ele_hide = document.getElementById("specialization_hide");
+    if(roleSelect.value == "client")
+    {
+        ele_hide.style.display = "none";
+
+    }else{
+        ele_hide.style.display = "block";
+    }
+}
