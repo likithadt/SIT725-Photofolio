@@ -88,15 +88,18 @@
             <div class="container border border-dark bg-white">
                 <div class="row pt-5 px-4">
                     <div class="col-md-10">
-                        <img id='img-upload' />
+                        <form id="form-submit" enctype="multipart/form-data">
+                            <img id='img-upload' />
+                                <div class="col-lg-4">
+                                    <input type="file" name="image" onchange="selectedFile(event)" id="imageChoose" accept="image/*" required style="visibility: hidden;">
+                                    <button onclick="openFileUpload()" type="button">Upload Image</button>
+                                </div>
+                        </form>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-btn">
-                                    <span class="btn btn-default btn-outline-dark btn-file"> Upload... 
-                                        <input type="file" id="imgInp" >
-                                    </span>
                                 </span>
                             </div>
                         </div>
@@ -111,22 +114,22 @@
                         <div class="form-group form-group-post">
                           <label for="Cateogory"> Category</label>
                           <select class="form-control" id="Cateogory">
-                            <option> Abstract </option>
-                            <option> Fashion </option>
-                            <option> Nature </option>
-                            <option> Wedding </option>
+                            <option value="0"> Abstract </option>
+                            <option value="1"> Fashion </option>
+                            <option value="2"> Nature </option>
+                            <option value="3"> Wedding </option>
                           </select>
                         </div>
                         <div class="form-group">
                             <label for="Inspo"> Inspiration </label>
-                            <textarea style="height:150px" class="form-control" placeholder="Story behind the click..."></textarea>
+                            <textarea style="height:150px" id="Inspiration" class="form-control" placeholder="Story behind the click..."></textarea>
                         </div>
                         <div class="form-group">
                             <label for="Inspo"> Tags </label>
-                            <input type="text"  class="form-control" placeholder="Natue, Wildlife..." data-role="tagsinput">
+                            <input type="text"  id="tags" class="form-control" placeholder="Natue, Wildlife..." data-role="tagsinput">
                         </div>
 
-                        <button type="submit" class="btn btn-dark w-100 mt-2"> Send </button>
+                        <button type="submit" class="btn btn-dark w-100 mt-2" onclick="createNew(event)"> Send </button>
                     </form>
                 </div>
             </div>

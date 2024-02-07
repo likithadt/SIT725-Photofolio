@@ -7,6 +7,7 @@ const db = require('./dbConnection');
 //importing routers
 const landingRouter = require('./routers/landingRouter');
 const loginRouter = require('./routers/loginRouter');
+const photographersRouter = require('./routers/photographers')
  
 let PORT = process.env.port || 3000;
 var bodyParser = require('body-parser');
@@ -75,6 +76,7 @@ app.get('/userRegistration', function (req, res) {
 // Defining routers with path
 app.use('/landing', landingRouter);
 app.use('/userRegistration', loginRouter);
+app.use('/photographers', photographersRouter);
 
 
 app.listen(PORT, async () => {

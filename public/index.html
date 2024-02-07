@@ -12,15 +12,7 @@
 
 <body>
 
-    <!-- <div class="img-container">
-        <form id="form-submit" enctype="multipart/form-data">
-            <label for="image">Select an image to upload:</label>
-            <input type="file" name="image" id="image" accept="image/*" required>
-            <button type="button" onclick="uploadImage()">Upload Image</button>
-        </form>
-    </div>
-    <div id="imagesHere"></div> -->
-
+    
     <div>
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#"><img src = "./images/Photo.png" width="230" height="60"></a>
@@ -28,6 +20,15 @@
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        <div class="img-container">
+            <form id="form-submit" enctype="multipart/form-data">
+                <label for="image">Select an image to upload:</label>
+                <input type="file" name="image" id="image" accept="image/*" required>
+                <button type="button" onclick="uploadImage()">Upload Image</button>
+            </form>
+        </div>
+        <div id="imagesHere"></div>
+    
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
@@ -349,12 +350,14 @@
     
 
     <!-- Bootstrap JS and your JS files -->
+    <!-- <script src = "common/toaster.js"></script> -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="script.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    
 </body>
 
 </html>
