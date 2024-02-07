@@ -91,6 +91,8 @@ async function retrieveImage(fileId) {
         imgEle.src = data.url;
         imgEle.alt = 'image';
         file_url = data.url;
+        photo = document.getElementById("img-upload");
+        photo.style.display = 'block';
 
     } catch(error) {
         console.log("Error uploading image", error);

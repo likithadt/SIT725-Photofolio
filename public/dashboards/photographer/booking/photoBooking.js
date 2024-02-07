@@ -60,7 +60,6 @@ function actions(id){
 async function getBookingRequests(){
     try{
         photographerId = localStorage.getItem("userId");
-        showToaster("hello from bookings");
 
         const resp = await fetch('/photographers/bookingRequests', {
             method: 'POST',
@@ -70,15 +69,24 @@ async function getBookingRequests(){
             body : JSON.stringify({photographerId}),
         });
         const data = await resp.json();
-        
+        showToaster("Booking Requests fetched successfully!");
+        if(data.length == 0){
+            hidden_empty = document.getElementById("empty_booking");
+            hidden_empty.style.display = 'block';
+        }
+        else{
+
         for(var i=0;i<data.length;i++){
         bookingRequestsData = data;
         const card1 = createCard(data[i].title, data[i].name, data[i].email, data[i].message, i, data[i].status);
         cardContainer.appendChild(card1);
+       
+        }
         }
     }
     catch(e){
         console.log(" Error while fetching Data from server ::", e);
+        showToaster("Couldn't fetch the booking requests!");
     }
 }
 
@@ -132,6 +140,7 @@ email_data: email_data,
 
             status.innerHTML = '<div class="col-sm-4 " id="changed_status_accept"> <div class="text-center"> Booking Accepted </div> </div>';
             changed_status.appendChild(status);
+            showToaster("Booking Request Accepted");
 
         }
 
@@ -185,6 +194,7 @@ email_data: email_data,
 
             status.innerHTML = '<div class="col-sm-4 " id="changed_status_reject"> <div class="text-center"> Booking Declined </div> </div>';
             changed_status.appendChild(status);
+            showToaster("Booking Request Declined");
 
         }
 
