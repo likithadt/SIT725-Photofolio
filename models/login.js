@@ -40,7 +40,6 @@ class login {
             }
         } catch (error) {
             console.log("Error inside getEmail() ", error);
-
         }
     }
 

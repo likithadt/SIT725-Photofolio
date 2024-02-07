@@ -6,6 +6,8 @@ const clientsController = require('../Controllers/clientController');
 router.get('/fetchPhotographers',clientsController.fetchPhotographers);
 router.post('/fetchPhotographerImage', clientsController.fetchSinglePhotographerImage);
 router.post('/searchPhotographer', clientsController.fetchSearchedPhotographer);
-
+router.post('/getSelectedPhotographer', clientsController.getSinglePhotographerData);
+router.post('/getSelectedPortfolios', clientsController.getSelectedPortfolios);
+router.post('/sendBookingNotification', clientsController.sendBookingNotification);
 
 module.exports = router;

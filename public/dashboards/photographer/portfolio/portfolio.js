@@ -1,3 +1,4 @@
+const socket = io();
 const addCards = (items) => {
     items.forEach(item => {
         let itemToAppend = ' <div  id="'+item._id+'_main'+'" class="col-lg-4 mb-3 d-flex align-items-stretch">'+
@@ -10,6 +11,10 @@ const addCards = (items) => {
         $("#card_holder_container").append(itemToAppend)
     });
 } 
+
+socket.on('booking_notification_sent', (data) => {
+    console.log("Data here :",data);
+});
 
 async function getPortfolios(){
     try{

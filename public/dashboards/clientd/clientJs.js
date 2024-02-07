@@ -1,8 +1,9 @@
+const socket = io();
 
 const addCards = (items) => {
     items.forEach(item => {
-        let itemToAppend = ' <div  onclick="getPhotographerDetails(event)" style="cursor:pointer" id="'+item._id+'_main'+'" class="col-lg-4 mb-3 d-flex align-items-stretch">'+
-                '<div style="height: 19vw;" class="card folio-cards"> <img style="max-height: 13vw;height: 13vw;" src="'+item.imageUrl+'" class="card-img-top" alt="Card Image">'+
+        let itemToAppend = ' <div style="cursor:pointer" id="'+item._id+'" onclick="getPhotographerDetails(event)" class="col-lg-4 mb-3 d-flex align-items-stretch">'+
+                '<div style="height: 19vw; width:100%" class="card folio-cards"> <img style="max-height: 13vw;height: 13vw;" src="'+item.imageUrl+'" class="card-img-top" alt="Card Image">'+
                 '<div class="card-body d-flex flex-column"><h6 style="font-size: 22px;text-align: center;font-family: math;font-weight: 700;" class="card-title">'+item.name+'</h6>'+
                 '<h6 class="card-title" style="font-size: 20px;text-align: center;font-family: system-ui;font-weight: 700;  background-color: #000000c9; color: white; padding: 8px 12px;border-radius: 5px;">'+item.specialization+'</h6>'+
                 '</div></div></div>'
@@ -63,6 +64,27 @@ async function fetchImageUrl(id) {
     }
 }
 
+async function fetchLastImageUrl(id) {
+    try {
+        const resp = await fetch('/clients/fetchPhotographerImage', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body : JSON.stringify({id}),
+        });
+        const data = await resp.json();
+
+        if(data.length > 0) {
+            return data[data.length - 1].fileUrl;
+        } else {
+            return '';
+        }
+    } catch(error) {
+        showToaster("Error fetching photographer images");
+    }
+}
+
 async function searchPhotographer() {
     try {
         let searchText = document.getElementById('search-input').value;
@@ -89,6 +111,106 @@ async function searchPhotographer() {
         }
     } catch(error) {
         showToaster("Photographer not found");
+    }
+}
+
+async function sendBookingEnquiry() {
+    try {
+        let body = {
+            title: document.getElementById('title').value,
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            status: -1,
+            photographerId: location.search.split('=')[1],
+            message: document.getElementById('enquiry').value
+        };
+        const resp = await fetch('/clients/sendBookingNotification', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body : JSON.stringify(body),
+        });
+        const data = await resp.json();
+
+        if(data.acknowledged) {
+            document.getElementById("modal-closure").click();
+            socket.emit('send_notification_to_photographer', body);
+        }
+
+    } catch(error) {
+        showToaster("Failed to send booking");
+    }
+}
+
+async function fetchPhotographersData() {
+    try {
+        let pId = location.search.split('=')[1];
+        const resp = await fetch('/clients/getSelectedPhotographer', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body : JSON.stringify({pId}),
+        });
+        const data = await resp.json();
+        
+        if(data.length > 0) {
+            for(let i=0; i< data.length; i++) {
+                data[i].imageUrl = await fetchLastImageUrl(data[i]._id);
+            }
+            console.log("Photographers Data", data); // DATA HERE
+
+            // fetch photographers portfolio
+            fetchPhotographersPortfolio(pId);
+
+            // if(data.length == 0){
+            //     let empty_display = document.getElementById("empty_display");
+            //     empty_display.style.display = "block";
+            // }
+            // else{
+            //     let search_display = document.getElementById("search_display");
+            //     search_display.style.display = "block";
+            //     addCards(data);
+            // }
+        } else {
+            showToaster("No Photographers Found");
+        }
+    } catch(error) {
+        showToaster("Failed to get photographers data");
+    }
+}
+
+
+async function fetchPhotographersPortfolio(id) {
+    try {
+        const resp = await fetch('/clients/getSelectedPortfolios', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body : JSON.stringify({id}),
+        });
+        const data = await resp.json();
+        
+        if(data.length > 0) {
+
+            console.log("Portfolios Data :: ", data); // DATA HERE
+
+            // if(data.length == 0){
+            //     let empty_display = document.getElementById("empty_display");
+            //     empty_display.style.display = "block";
+            // }
+            // else{
+            //     let search_display = document.getElementById("search_display");
+            //     search_display.style.display = "block";
+            //     addCards(data);
+            // }
+        } else {
+            showToaster("No Photographers Found");
+        }
+    } catch(error) {
+        showToaster("Failed to get photographers data");
     }
 }
 
@@ -125,6 +247,5 @@ function showToaster(message) {
 }
 
 function getPhotographerDetails(e){
-console.log("e",e)
-location.href="/dashboards/clientd/pg/photographerInfo.html";
+location.href=`/dashboards/clientd/pg/photographerInfo.html?id=${e.currentTarget.id}`;
 }

@@ -54,3 +54,11 @@ cardContainer.appendChild(card2);
 
 cardContainer.appendChild(card3);
 
+async function fetchBookings() {
+    try {
+
+    } catch(error) {
+        
+    }
+}
+
