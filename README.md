@@ -23,14 +23,15 @@
         <li><a href="#tech-stack"> Tech Stack </a></li>
       </ul>
     </li>
-    <li>
+    <!-- <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
       </ul>
-    </li>
-    <li><a href="#contact">Contact</a></li>
+    </li> -->
+    <li><a href="#additional-information">Additional Information</a></li>
+    <li><a href="#team">Team</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
@@ -72,14 +73,14 @@ There are heaps of ideas that can be implemented to this project and we'll be ad
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
-* [![Node][Node.js]][[Next-url](https://nodejs.org/en)]
-* [![Mocha][Mochajs.org]][[Mocha-url](https://mochajs.org/)]
-* [![Chai][Chai.com]][[chai-url](https://www.chaijs.com/)]
-* [![NodeMailer][Nodemailer.com]][[modemailer-url](https://nodemailer.com/)]
-* [![GridFS-Stream][npm.com]][[gridfs-url](https://www.npmjs.com/package/multer/)]
-* [![Multer][npm.com]][[multer-url](https://www.npmjs.com/package/multer/)]
-* [![Bootstrap][Bootstrap.com]][[Bootstrap-url](https://getbootstrap.com/)]
-* [![JavaScript][Javascript.com]][[JQuery-url](https://www.javascript.com/)]
+* [![Node][Node.js]](https://nodejs.org/en)
+* [![Mocha][Mochajs.org]](https://mochajs.org/)
+* [![Chai][Chai.com]](https://www.chaijs.com/)
+* [![NodeMailer][Nodemailer.com]](https://nodemailer.com/)
+* [![GridFS-Stream][npm.com]](https://www.npmjs.com/package/multer/)
+* [![Multer][npm.com]](https://www.npmjs.com/package/multer/)
+* [![Bootstrap][Bootstrap.com]](https://getbootstrap.com/)
+* [![JavaScript][Javascript.com]](https://www.javascript.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
