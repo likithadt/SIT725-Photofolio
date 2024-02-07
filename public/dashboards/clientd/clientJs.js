@@ -13,6 +13,12 @@ const addCards = (items) => {
 
 socket.on('booking_notification_sent_to_client', (data) => {
     console.log("Data here :",data);
+    showToaster("New update on your Booking request.");
+
+    let red_notification = document.getElementById("notification_red");
+    console.log("red_notification",red_notification);
+
+    red_notification.style.display = "block";
 });
 
 async function fetchAllPhotographers() {
@@ -106,5 +112,11 @@ function showToaster(message) {
     x.className = "show";
     x.innerHTML = message;
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
+
+function toggleRed(){
+    let red_notification = document.getElementById("notification_red");
+    red_notification.style.display = "none";
+    location.href = '/dashboards/clientd/bk/clientBooking.html';
 }
 

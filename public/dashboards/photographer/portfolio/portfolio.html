@@ -9,6 +9,7 @@
     <script src="https://kit.fontawesome.com/6fa2f2e88e.js" crossorigin="anonymous"></script>
     <script src="https://cdn.socket.io/4.5.0/socket.io.min.js" integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../../../toater.css">
+    <link rel="stylesheet" href = "./../../../styles.css">
 </head>
 
 <body>
@@ -51,9 +52,10 @@
                     <div class="d-flex align-items-center">
                         <!-- Notifications -->
                         <div class="dropdown">
-                            <a class="text-reset me-3 mr-3" href="#" role="button" aria-expanded="false">
+                            <a id="notification" class="text-reset me-3 mr-3" href="#" role="button" aria-expanded="false">
                                 <i class="fas fa-bell"></i>
-                                <span class="badge rounded-pill badge-notification bg-danger"></span>
+                                <span  id="notification_red" style="display: none;" onclick="toggleRed()" class="badge">3</span>
+                                <!-- <span class="badge rounded-pill badge-notification bg-danger">1</span> -->
                             </a>
                         </div>
                         <!-- Settings -->
@@ -73,7 +75,7 @@
                             </a>
                             <ul class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdownMenuAvatar">
                                 <li>
-                                    <a class="dropdown-item" href="../../../authentication/login.html"> Logout</a>
+                                    <a class="logout dropdown-item" href="../../../authentication/login.html"> Logout</a>
                                 </li>
                             </ul>
                         </div>
@@ -94,7 +96,7 @@
             <div id = "hide_button" style=" display: none;" class="text-center">
                 <button type="button" class="btn btn-dark text-center" onclick = "newPortfolio()"> New Portfolio </button>
             </div>
-            <div id = "functions_portfolio" style="display: none;" class="row">
+            <div id = "functions_portfolio" style="display: none; margin-left: 25%;" class="row">
                 <div class="container col-sm-8 d-inline">
                     <!-- <div class="dropdown">
                         <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton"
