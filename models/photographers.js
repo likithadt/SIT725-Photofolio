@@ -49,6 +49,16 @@ class photographers {
         }
     }
 
+    async searchPortfolio(text) {
+        try {
+            const data = await collection.find({title: text}).toArray();
+            return data;
+        }
+        catch (error) {
+            console.log("Portfolio not found", error);
+        }
+    }
+
     async bookingRequests(photographerId) {
         try {
             const data = await collectionBooking.find({photographerId: photographerId}).toArray();

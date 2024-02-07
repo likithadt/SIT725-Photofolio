@@ -67,6 +67,51 @@ async function deletePost(e) {
     }
 }
 
+async function searchPortfolio() {
+    try {
+        let searchText = document.getElementById('search-input').value;
+        if(searchText == "") {            
+            location.reload();
+            return;
+        }
+        const resp = await fetch('/photographers/searchPhotographer', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body : JSON.stringify({searchText}),
+        });
+        const data = await resp.json();
+        
+        if(data.length > 0) {
+            // for(let i=0; i< data.length; i++) {
+            //     data[i].imageUrl = await fetchImageUrl(data[i]._id);
+            // }
+            console.log("Searched Data", data); // DATA HERE
+
+            document.getElementById('card_holder_container').remove();
+            let contain = document.createElement('div');
+            contain.setAttribute('id', 'card_holder_container');
+            document.getElementById("parent_container").append(contain);
+
+            if(data.length == 0){
+                let empty_display = document.getElementById("empty_display");
+                empty_display.style.display = "block";
+            }
+            else{
+                let search_display = document.getElementById("search_display");
+                search_display.style.display = "block";
+                addCards(data);
+            }
+
+        } else {
+            showToaster("Portfolio Not Found");
+        }
+    } catch(error) {
+        showToaster("Portfolio not found");
+    }
+}
+
 function showToaster(message) {
  
     var x = document.getElementById("snackbar");

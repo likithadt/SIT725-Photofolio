@@ -51,6 +51,16 @@ class PhotographersController {
         }
     }
 
+    async searchPhotographer(req, res) {
+        try {
+            const data = await photographersModel.searchPortfolio(req.body.searchText);
+            res.json(data);
+
+        } catch(error) {
+            console.log("Error fetching portfolios :", error);
+        }
+    }
+
     async sendAcceptMessage(req,res) {
         try {
             let body = req.body;
