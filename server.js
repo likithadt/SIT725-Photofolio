@@ -6,7 +6,7 @@ const db = require('./dbConnection');
 //importing routers
 const landingRouter = require('./routers/landingRouter');
 const loginRouter = require('./routers/loginRouter');
- 
+ const blogRouter =require('./routers/blogRouter');
 let PORT = process.env.port || 3000;
 var bodyParser = require('body-parser');
 const path = require('path');
@@ -68,7 +68,7 @@ app.get('/', function (req,res) {
 });
 
 app.get('/userRegistration', function (req, res) {
-  res.sendFile(path.join(__dirname,'authentication', 'userRegistration.html')); 
+  res.sendFile(path.join(__dirname,'public','authentication', 'userRegistration.html')); 
 })
 app.get('/login', function (req, res) {
   res.sendFile(path.join(__dirname, 'public', 'authentication', 'login.html')); 
@@ -79,13 +79,22 @@ app.get('/resetPassword', function (req, res) {
 app.get('/newPassword', function (req, res) {
   res.sendFile(path.join(__dirname, 'public', 'authentication', 'newPassword.html')); 
 })
+
+app.get('/blogs', function (req, res) {
+  res.sendFile(path.join(__dirname, 'public', 'dashboards', 'photographer','blog','blog.html')); 
+})
+
+app.get('/newBlog', function (req, res) {
+  res.sendFile(path.join(__dirname, 'public', 'dashboards', 'photographer','blog','newBlog.html')); 
+})
 // Defining routers with path
 app.use('/landing', landingRouter);
 app.use('/userRegistration', loginRouter);
 app.use('/login',loginRouter);
 app.use('/resetPassword',loginRouter);
 app.use('/newPassword',loginRouter);
-
+app.use('/blogs',blogRouter);
+app.use('/newBlog',blogRouter);
 app.listen(PORT, async () => {
   try {
     await db.connect();

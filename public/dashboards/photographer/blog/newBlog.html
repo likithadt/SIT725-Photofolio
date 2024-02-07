@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>PhotoFolio - Home</title>
+    <title>New Blog</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./photographer.css">
+    <link rel="stylesheet" href="../photographer.css">
     <script src="https://kit.fontawesome.com/6fa2f2e88e.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
-
-    <!-- Header !-->
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
             <div class="container-fluid">
@@ -25,12 +23,12 @@
                 <div class="collapse navbar-collapse mr-auto" id="navbarSupportedContent">
                     <!-- Navbar brand -->
                     <a class="navbar-brand mt-2 mt-lg-0" href="#">
-                        <img class="logo" src="../../images/Photo.png" alt="Photofolio Logo" />
+                        <img class="logo" src="../../../images/Photo.png" alt="Photofolio Logo" />
                     </a>
                     <!-- Navbar -->
                     <ul class="navbar-nav ml-auto mr-3">
                         <li class="nav-item">
-                            <a class="nav-link" href="../photographer/booking/photoBooking.html"> Bookings</a>
+                            <a class="nav-link" href="#"> Bookings</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"> Porfolio</a>
@@ -39,33 +37,31 @@
                             <a class="nav-link" href="#"> Events</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../photographer/blog/blog.html"> Blog</a>
+                            <a class="nav-link" href="#"> Blog</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"> Forum</a>
                         </li>
                     </ul>
-                    
+
                     <div class="d-flex align-items-center">
                         <!-- Notifications -->
                         <div class="dropdown">
-                            <a class="text-reset me-3 mr-3" href="#"
-                                role="button" aria-expanded="false">
+                            <a class="text-reset me-3 mr-3" href="#" role="button" aria-expanded="false">
                                 <i class="fas fa-bell"></i>
                                 <span class="badge rounded-pill badge-notification bg-danger"></span>
                             </a>
                         </div>
                         <!-- Settings -->
                         <div>
-                            <a class="text-reset me-3 mr-3" href="#"
-                                role="button" aria-expanded="false">
+                            <a class="text-reset me-3 mr-3" href="#" role="button" aria-expanded="false">
                                 <i class="fa-solid fa-gear"></i>
                             </a>
                         </div>
                         <!-- User Avatar -->
                         <div class="dropdown">
-                            <a class="dropdown-toggle d-flex align-items-center hidden-arrow"
-                                href="#" id="navbarDropdownMenuAvatar" role="button" aria-expanded="false">
+                            <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#"
+                                id="navbarDropdownMenuAvatar" role="button" aria-expanded="false">
                                 <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle"
                                     height="25" alt="user photo" loading="lazy" />
                             </a>
@@ -81,39 +77,62 @@
         </nav>
     </header>
 
-    <!-- Main -->
+
     <main>
         <div class="user-dashboard container-fluid">
-            <h1 class=" text-center"> Photographer Dashboard </h1> <br>
-        </div> <br>
-
-        <div class="container-fluid">
-            <p id="view-portfolio-dashboard" class="text-center"> You haven't uploaded any portfolio! </p> <br>
+            <h1 class="text-center">New Blog Post </h1> <br>
+            <div class="contaier" id="newBlog">
+            </div>
+            <form style="border: 2px solid black; width:100%; height:100%;padding:4%" id="newBlogForm"
+                enctype="multipart/form-data">
+                <div class=form-group>
+                    <div class="row" style="margin-top:10px;">
+                        <div class="col-md-6 ">
+                            <div class="file-input">
+                                <input type="file" id="file" class="file">
+                                <label for="file" id="uploadImage">
+                                    + </label>
+                            </div>
+                        </div>
+                        <div class="col-md-6"
+                            style="padding-left: 40%;margin-top:5% ;height:fit-content;width:fit-content;">
+                            <button type="button" id="uploadButton">Upload</button>
+                        </div>
+                    </div>
+                    <div class="form-group row" style="margin-top:2%;">
+                        <div class="col-md-12">
+                            <input type="text" class="form-control" id="title" placeholder="Title">
+                        </div>
+                    </div>
+                    <div class="form-group row" style="margin-top:2%;">
+                        <div class="col-md-12">
+                            <textarea class="form-control" id="description" rows="15"
+                                placeholder="Story behind the click..."></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row ">
+                        <div class="col-md-6">
+                            <button type="button" class="btn-block" id="publishButton" onclick="saveBlog()">Save and
+                                Publish</button>
+                        </div>
+                        <div class="col-md-6">
+                            <button type="button" class="btn-block" id="saveButton">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
+    </main>
 
-        <div class="text-center">
-            <button type="button" class="btn btn-dark text-center"> Build your portfolio </button>
-        </div>
-    </main> <br>
-
-    <!-- Footer -->
     <footer>
-        <!-- <div class="footer-div text-center">
-            <a class="navbar-brand mt-2 text-center" href="#">
-                <img class="logo" src="../../images/Photo.png" alt="Photofolio Logo" />
-            </a>
-        </div> -->
         <p class="text-center py-3"> &copy; 2024 PhotoFolio - All rights reserved. </p>
     </footer>
 
-    <!--  JS files -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="photoDashboard.js"></script>
-
-    <!-- Ref: https://mdbootstrap.com/docs/standard/navigation/navbar/-->
-
+    <script src="../photoDashboard.js"></script>
+    <script src="blog.js"></script>
 </body>
 
 </html>
