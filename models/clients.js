@@ -3,6 +3,7 @@ let selDB = db.client.db('photofolio');
 let collectionUsers = selDB.collection('users');
 let collectionBooking = selDB.collection('bookings');
 let collectionPortfolio = selDB.collection('portfolios');
+let colectionBlogs = selDB.collection('blogs');
 let ObjectId = require('mongodb').ObjectId;
 
 class clients {
@@ -78,7 +79,7 @@ class clients {
 
     async fetchAllBlogs() {
         try {
-            const data = await collectionBooking.find().toArray();
+            const data = await colectionBlogs.find().toArray();
             return data;
         }
         catch (error) {
