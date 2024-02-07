@@ -82,6 +82,11 @@ async function adduser() {
         });
         const data = await resp.json();
 
+        localStorage.setItem("userId", data.insertedId);
+        localStorage.setItem("userEmail",body.email);
+        localStorage.setItem("userName", body.name);
+        localStorage.setItem("userRole", body.role);
+
         console.log("Data from server ::", data);
         return true;
     } catch (error) {
