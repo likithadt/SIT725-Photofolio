@@ -12,6 +12,7 @@ router.get('/events',photographersController.events);
 router.post('/createNewBlog',photographersController.createNewBlog);
 router.post('/fetchAllBlogs',photographersController.fetchAllBlogs);
 router.post('/searchPhotographer',photographersController.searchPhotographer);
+router.delete('/deleteBlog/:id', photographersController.deleteBlog);
 
 
 module.exports = router;

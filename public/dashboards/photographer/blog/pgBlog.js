@@ -3,11 +3,12 @@ let file_url = "";
 
 const cardContainer = document.getElementById('pg-blogs');
 
-function createCard(title, blog, status, img) {
+function createCard(title, blog, status, img, id) {
     const card = document.createElement('div');
     card.classList.add('cardb');
     card.classList.add('row');
     card.classList.add('mx-auto');
+    card.id = id + '_main'
 
     const cardImg = document.createElement('div');
     cardImg.classList.add('col-sm-3');
@@ -31,7 +32,7 @@ function createCard(title, blog, status, img) {
     currDate.innerHTML = curD.toLocaleDateString() + " | " + status;
 
 
-    const action = this.actions();
+    const action = this.actions(id);
 
     cardDetails.appendChild(cardTitle);
     cardDetails.appendChild(cardBlog);
@@ -44,11 +45,11 @@ function createCard(title, blog, status, img) {
     return card;
 }
 
-function actions(){
+function actions(id){
     const action = document.createElement('div');
     // action.classList.add('right');
     action.innerHTML = '<div class="col-sm-1"> ' +
-        '<button id="btnDelete" data-toggle="modal" onclick="deleteBlog(event)" style="position: relative; left: 200px; top:130px" data-target="#delete"  class="btn btn-outline-dark btn-md "> Delete </button> </div>';
+        '<button id="'+id+'" data-toggle="modal" onclick="deleteBlog(event)" style="position: relative; left: 200px; top:130px" data-target="#delete"  class="btn btn-outline-dark btn-md "> Delete </button> </div>';
 
     return action;
 }
@@ -160,7 +161,7 @@ async function fetchBlogPosts() {
         const response = await resp.json();
         
         for(let i=0; i< response.length;i++) {
-            const cardd = createCard(response[i].title,response[i].description,'Melbourne',response[i].fileUrl);
+            const cardd = createCard(response[i].title,response[i].description,'Melbourne',response[i].fileUrl, response[i]._id);
             cardContainer.appendChild(cardd);
         }
         console.log("List of blogs :: ",response);
@@ -172,3 +173,19 @@ async function fetchBlogPosts() {
     }
 }
 
+async function deleteBlog(e)
+{
+console.log(e.target.id)
+try {
+    id = e.target.id;
+    const resp = await fetch(`/photographers/deleteBlog/${id}`, {method: 'DELETE'});
+    const data = await resp.json();
+    main_id = id+'_main';
+    main_container = document.getElementById(main_id);
+    main_container.remove();
+    showToaster("Deleted Blog post successfully")
+    console.log("Data from server ::", data);
+} catch(error) {
+    console.log("Error getting Data", error);
+}
+}
