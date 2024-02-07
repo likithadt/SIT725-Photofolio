@@ -1,4 +1,15 @@
 
+const addCards = (items) => {
+    items.forEach(item => {
+        let itemToAppend = ' <div  onclick="getPhotographerDetails(event)" style="cursor:pointer" id="'+item._id+'_main'+'" class="col-lg-4 mb-3 d-flex align-items-stretch">'+
+                '<div style="height: 19vw;" class="card folio-cards"> <img style="max-height: 13vw;height: 13vw;" src="'+item.imageUrl+'" class="card-img-top" alt="Card Image">'+
+                '<div class="card-body d-flex flex-column"><h6 style="font-size: 22px;text-align: center;font-family: math;font-weight: 700;" class="card-title">'+item.name+'</h6>'+
+                '<h6 class="card-title" style="font-size: 20px;text-align: center;font-family: system-ui;font-weight: 700;  background-color: #000000c9; color: white; padding: 8px 12px;border-radius: 5px;">'+item.specialization+'</h6>'+
+                '</div></div></div>'
+        $("#card_holder_container").append(itemToAppend)
+    });
+} 
+
 async function fetchAllPhotographers() {
     try{
         const resp = await fetch('/clients/fetchPhotographers', {
@@ -11,6 +22,17 @@ async function fetchAllPhotographers() {
                 data[i].imageUrl = await fetchImageUrl(data[i]._id);
             }
             console.log("Mainn Data", data); // DATA HERE
+
+            if(data.length == 0){
+                let empty_display = document.getElementById("empty_display");
+                empty_display.style.display = "block";
+            }
+            else{
+                let search_display = document.getElementById("search_display");
+                search_display.style.display = "block";
+                addCards(data);
+            }
+            
         } else {
             showToaster("No Photographers Found");
         }
@@ -70,19 +92,6 @@ async function searchPhotographer() {
     }
 }
 
-const addCards = (items) => {
-    items.forEach(item => {
-        let itemToAppend = ' <div class="col-lg-4 mb-3 d-flex align-items-stretch">'+
-                '<div class="card folio-cards"> <img src="'+item.fileUrl+'" class="card-img-top" alt="Card Image">'+
-                '<div class="card-body d-flex flex-column"><h6 class="card-title">'+item.title+'</h6>'+
-                '<p class="card-text mb-4">'+item.inspiration+'</p>'+
-                '<div><a class="text-reset me-3" href="#" role="button" aria-expanded="false"><i class="fa-solid fa-edit"></i></a>'+
-                '<a class="text-reset me-3" href="#" role="button" aria-expanded="false"><i class="fa-solid fa-trash"></i></a></div>'+
-                '</div></div></div>'
-        $("#card_holder_container").append(itemToAppend)
-    });
-}
-
 
 function showPhotographers(img) {
     const grid = document.getElementsByClassName('image-grid');
@@ -113,4 +122,9 @@ function showToaster(message) {
     x.className = "show";
     x.innerHTML = message;
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
+
+function getPhotographerDetails(e){
+console.log("e",e)
+location.href="/dashboards/clientd/pg/photographerInfo.html";
 }
