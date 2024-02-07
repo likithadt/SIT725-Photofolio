@@ -35,6 +35,36 @@ class clients {
             console.log("Error while searching photographer", error);
         }
     }
+
+    async getSinglePhotographer(pid) {
+        try {
+            const data = await collectionUsers.find({_id: new ObjectId(pid)}).toArray();
+            return data;
+        }
+        catch (error) {
+            console.log("Error while searching photographer", error);
+        }
+    }
+
+    async getPhotographerPortfolio(id) {
+        try {
+            const data = await collectionPortfolio.find({photographerId: id}).toArray();
+            return data;
+        }
+        catch (error) {
+            console.log("Error while searching photographer", error);
+        }
+    }
+
+    async sendBookingNotification(body) {
+        try {
+            const data = await collectionBooking.insertOne(body);
+            return data;
+        }
+        catch (error) {
+            console.log("Error while adding the booking", error);
+        }   
+    }
 }
 
 module.exports = new clients();

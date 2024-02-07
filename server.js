@@ -74,9 +74,8 @@ socketIO.on('connection', (socket) => {
   });
 
   //socket msgs
-  socket.on('send_notif', (data) => {
-    data.newDat = "new Data added here";
-    socket.broadcast.emit('booking_notif', data); 
+  socket.on('send_notification_to_photographer', (data) => {
+    socket.broadcast.emit('booking_notification_sent', data);
   });
 });
 
