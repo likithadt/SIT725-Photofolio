@@ -3,9 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>PhotoFolio - Client Blog </title>
+    <title>PhotoFolio - Home</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../clientCss.css">
+    <link rel="stylesheet" href="../photographer.css">
+    <link rel="stylesheet" href="./pgBlog.css">
     <script src="https://kit.fontawesome.com/6fa2f2e88e.js" crossorigin="anonymous"></script>
 </head>
 
@@ -29,14 +30,20 @@
                     </a>
                     <!-- Navbar -->
                     <ul class="navbar-nav ml-auto mr-3">
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" href="#"> Photographers </a>
-                        </li> -->
                         <li class="nav-item">
-                            <a class="nav-link" href="../bk/clientBooking.html"> Bookings </a>
+                            <a class="nav-link" href="../booking/photoBooking.html"> Bookings </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../blog/clientBlog.html"> Blog</a>
+                            <a class="nav-link" href="../portfolio/portfolio.html"> Porfolio </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"> Events </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"> Blog </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"> Forum </a>
                         </li>
                     </ul>
 
@@ -50,10 +57,12 @@
                         </div>
                         <!-- Settings -->
                         <div>
-                            <a class="text-reset me-3 mr-3" href="#" role="button" aria-expanded="false">
+                            <a class="text-reset me-3 mr-3" data-toggle="modal" href="#profile" role="button"
+                                aria-expanded="false">
                                 <i class="fa-solid fa-gear"></i>
                             </a>
                         </div>
+
                         <!-- User Avatar -->
                         <div class="dropdown">
                             <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#"
@@ -63,7 +72,7 @@
                             </a>
                             <ul class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdownMenuAvatar">
                                 <li>
-                                    <a class="dropdown-item" href="../../authentication/login.html"> Logout</a>
+                                    <a class="dropdown-item" href="../../../authentication/login.html"> Logout</a>
                                 </li>
                             </ul>
                         </div>
@@ -75,20 +84,42 @@
 
     <!-- Main -->
     <main>
-        <div class="user-dashboard container-fluid">
-            <h1 class="text-center"> Blogs </h1> <br>
+        <div class="user-dashboard container">
+            <h1 class="text-center"> My Blogs </h1> <br>
+            <div class="row">
+                <div class="container col-sm-8 d-inline">
+                    <div class="dropdown">
+                        <button class="btn btn-outline-dark dropdown-toggle" type="button" id="status"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Status </button>
+                        <!-- <div class="dropdown-menu" aria-labelledby="status">
+                            <a class="dropdown-item" href="#"> Action</a>
+                            <a class="dropdown-item" href="#"> Another action</a>
+                            <a class="dropdown-item" href="#"> Something else here</a>
+                        </div> -->
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Sort </button>
+                        <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#"> Action</a>
+                        <a class="dropdown-item" href="#"> Another action</a>
+                        <a class="dropdown-item" href="#"> Something else here</a>
+                    </div> -->
+                    </div>
+                </div>
 
-            <div id="feature" class="container">
+                <div class=" col-sm-2">
+                    <a class="btn btn-dark" type="submit" href="newBlog.html"> New </a>
+                </div>
+            </div> <br>
 
-            </div>
-            <div id="latest" class="container">
-
+            <div class="container align-items-center">
+                <div id="pg-blogs" class="row align-items-center "> </div>
             </div>
 
         </div> <br>
-       
 
-    </main> <br>
+    </main>
 
     <!-- Footer -->
     <footer>
@@ -104,7 +135,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
+    <script src="../photoDashboard.js"></script>
+    <script src="./pgBlog.js"></script>
 
     <!-- Ref: https://mdbootstrap.com/docs/standard/navigation/navbar/-->
 

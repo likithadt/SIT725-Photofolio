@@ -124,7 +124,7 @@ async function loginEvent(event) {
                 localStorage.setItem("userRole", data.userData.role);
                 if (data.userData.role == "photographer") {
                     var a = document.createElement('a');
-                    a.href = '/dashboards/photographer/photographerDashboard.html';
+                    a.href = '/dashboards/photographer/portfolio/portfolio.html';
                     a.click();
                 }
                 else if (data.userData.role == "client") {
