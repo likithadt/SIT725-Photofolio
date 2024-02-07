@@ -1,4 +1,4 @@
-// const socket = io();
+const socket = io();
 const addCards = (items) => {
     items.forEach(item => {
         let itemToAppend = ' <div class="col-lg-4 mb-3 d-flex align-items-stretch">'+
