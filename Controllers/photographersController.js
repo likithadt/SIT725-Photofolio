@@ -97,6 +97,19 @@ class PhotographersController {
             console.log("Error fetching users :", error);
         }
     }
+
+    async deleteBlog(req, res) {
+        try {
+            const id = req.params.id;
+            const data = await photographersModel.deleteBlog(id);
+            res.json(data);
+
+            console.log("Data at controller :",data);
+
+        } catch(error) {
+            console.log("Error fetching users :", error);
+        }
+    }
 }
 
 module.exports = new PhotographersController();

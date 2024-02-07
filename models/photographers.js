@@ -85,6 +85,12 @@ class photographers {
         }
 
     }
+
+      async deleteBlog(id) {
+        // id = parseInt(id);
+        const data = await blogCollection.deleteOne({_id: new ObjectId(id)});
+        return data.deletedCount > 0;
+    }
 }
 
 module.exports = new photographers()
