@@ -45,7 +45,7 @@ function actions(){
     const action = document.createElement('div');
     action.classList.add('right');
     action.innerHTML = '<div class="col-sm-2"> ' +
-        '<div> <p class="d-inline">  Publish  </p> <label class="switch"><input type="checkbox"> <span class="slider round"> </span> </label> </div>' +
+        '<div> <p class="d-inline">  Publish  </p> <label class="switch"><input type="checkbox"> <span class="slider round"> </span> </label> </div>' 
         '<div class="text-center m right"> <button id="btnDelete" data-toggle="modal" data-target="#edit" class="btn btn-dark btn-md" > Edit </button>' + 
         '<button id="btnEdit" data-toggle="modal" data-target="#delete"  class="btn btn-outline-dark btn-md "> Delete </button> </div> </div>';
 
