@@ -1,5 +1,5 @@
 const cardContainer = document.getElementById('c-booking-requests');
-
+let BookingsData;
 function createCard(pgName, msg, status) {
     const card = document.createElement('div');
     card.classList.add('cardb');
@@ -28,31 +28,27 @@ function createCard(pgName, msg, status) {
 function status(status){
     const action = document.createElement('div');
     let color = "#000000";
-    if (status.toLowerCase() == 'pending') {
-        color = "#FFD43B"
-    } else if (status.toLowerCase() == 'rejected') {
-        color = "#DD2330"
-    } else if (status.toLowerCase() == 'accepted') {
+    let status_code;
+    if (status == -1 ) {
+        color = "#FFD43B";
+        status_code = 'pending';
+    } else if (status == 0) {
+        color = "#DD2330";
+        status_code = 'Rejected';
+    } else if (status == 1) {
         color = "#065535"
+        status_code = 'Accepted';
     } else {
         color = "000000";
     }
-    action.innerHTML = '<div class="col-sm-2"> <a class="text-reset" href="#" style="text-decoration: none;"> <i class="fa-solid fa-circle fa-xs" style="color: ' + color +';"></i> <span> '+ status +' </span> </a></div>';
+    action.innerHTML = '<div class="col-sm-2"> <a class="text-reset" href="#" style="text-decoration: none;"> <i class="fa-solid fa-circle fa-xs" style="color: ' + color +';"></i> <span> '+ status_code +' </span> </a></div>';
     
 
     return action;
 }
 
 // Example usage
-const card1 = createCard('Billie', 'I would like to book you for a wedding shoot!', 'Pending');
-const card2 = createCard('Likita', 'I would like to book you for a wedding shoot!', 'Accepted');
-const card3 = createCard('Mohan', 'I would like to book you for a wedding shoot!', 'Rejected');
 
-cardContainer.appendChild(card1);
-
-cardContainer.appendChild(card2);
-
-cardContainer.appendChild(card3);
 
 async function fetchBookings() {
     try {
@@ -65,22 +61,24 @@ async function fetchBookings() {
             },
             body : JSON.stringify({clientId}),
         });
-        const data = await resp.json();
+        let data = [];
+        data = await resp.json();
 
         console.log("book_resp ::",data);
-
+        // fetchPhotographersData();
+        // BookingsData = data;
+       
         showToaster("Booking Requests fetched successfully!");
         if(data.length == 0){
             hidden_empty = document.getElementById("empty_booking");
             hidden_empty.style.display = 'block';
         }
         else{
-
-        for(var i=0;i<data.length;i++){
-        bookingRequestsData = data;
-        const card1 = createCard(data[i].title, data[i].name, data[i].email, data[i].message, i, data[i].status);
-        cardContainer.appendChild(card1);
        
+            for(let i=0; i < data.length; i++){
+                let name = await fetchPhotographersData(data[i].photographerId);
+                const card1 = createCard(name, data[i].message, data[i].status);
+                cardContainer.appendChild(card1);
         }
     }
     } catch(error) {
@@ -95,3 +93,20 @@ function showToaster(message) {
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 }
 
+async function fetchPhotographersData(pId) {
+    try {
+        // let pId = location.search.split('=')[1];
+        const resp = await fetch('/clients/getSelectedPhotographer', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body : JSON.stringify({pId}),
+        });
+        const data = await resp.json();
+        console.log(data, "data");
+        return data[0].name;
+    } catch(error) {
+        showToaster("Failed to get photographers data");
+    }
+}
