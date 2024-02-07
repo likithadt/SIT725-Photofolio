@@ -8,6 +8,7 @@ router.post('/bookingRequests',photographersController.bookingRequests);
 router.put('/sendAcceptMessage', photographersController.sendAcceptMessage)
 router.put('/sendRejectMessage', photographersController.sendRejectMessage)
 router.delete('/delete/:id', photographersController.deletePost);
+router.get('/events',photographersController.events);
 
 
 module.exports = router;

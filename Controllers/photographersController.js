@@ -67,6 +67,16 @@ class PhotographersController {
             console.log("Error fetching users :", error);
         }
     }
+
+    async events(req, res) {
+        try {
+            const data = await photographersModel.events();
+            res.json(data);
+
+        } catch(error) {
+            console.log("Error fetching users :", error);
+        }
+    }
 }
 
 module.exports = new PhotographersController();

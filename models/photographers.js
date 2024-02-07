@@ -2,6 +2,7 @@ let db = require('../dbConnection');
 let selDB = db.client.db('photofolio');
 let collection = selDB.collection('portfolios');
 let collectionBooking = selDB.collection('bookings');
+let eventsCollection = selDB.collection('events');
 let ObjectId = require('mongodb').ObjectId;
 
 class photographers {
@@ -52,6 +53,17 @@ class photographers {
         // id = parseInt(id);
         const data = await collection.deleteOne({_id: new ObjectId(id)});
         return data.deletedCount > 0;
+    }
+
+    async events() {
+        try {
+            const data = await eventsCollection.find().toArray();
+            return data;
+        }
+        catch (error) {
+            console.log("There is an error in portfoios get all", error);
+        }
+
     }
 }
 
