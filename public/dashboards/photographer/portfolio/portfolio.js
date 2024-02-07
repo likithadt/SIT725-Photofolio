@@ -2,11 +2,11 @@ const socket = io();
 const addCards = (items) => {
     items.forEach(item => {
         let itemToAppend = ' <div  id="'+item._id+'_main'+'" class="col-lg-4 mb-3 d-flex align-items-stretch">'+
-                '<div class="card folio-cards"> <img src="'+item.fileUrl+'" class="card-img-top" alt="Card Image">'+
+                '<div class="card folio-cards"> <img src="'+item.fileUrl+'" style="height:55%" class="card-img-top" alt="Card Image">'+
                 '<div class="card-body d-flex flex-column"><h6 class="card-title">'+item.title+'</h6>'+
                 '<p class="card-text mb-4" style = "max-height: 6vw; overflow: auto;">'+item.inspiration+'</p>'+
                 '<div style="margin-left: 90%;">'+
-                '<a class="text-reset me-3"  onclick = "deletePost(event)" role="button" aria-expanded="false"><i id="'+item._id+'" class="fa-solid fa-trash"></i></a></div>'+
+                '<a style="width: max-content;" class="text-reset me-3"  onclick = "deletePost(event)" role="button" aria-expanded="false"><i id="'+item._id+'" class="fa-solid fa-trash"></i></a></div>'+
                 '</div></div></div>'
         $("#card_holder_container").append(itemToAppend)
     });
@@ -14,6 +14,10 @@ const addCards = (items) => {
 
 socket.on('booking_notification_sent_to_photographer', (data) => {
     console.log("Data here :",data);
+    showToaster("New Booking Request!");
+    let red_notification = document.getElementById("notification_red");
+    console.log("red_notification",red_notification)
+    red_notification.style.display = "block";
 });
 
 async function getPortfolios(){
@@ -76,5 +80,11 @@ function showToaster(message) {
     a.href = '/dashboards/photographer/portfolio/newPortfolio.html';
     a.click();
   }
+
+  function toggleRed(){
+    let red_notification = document.getElementById("notification_red");
+    red_notification.style.display = "none";
+    location.href = '/dashboards/photographer/booking/photoBooking.html';
+}
 
 getPortfolios();
