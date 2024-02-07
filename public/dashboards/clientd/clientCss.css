@@ -1,0 +1,119 @@
+.fa-solid{
+    padding-top: 3px;
+    margin: 2px;
+}
+
+body {
+    background-color: #F5F5F5;
+}
+
+.logo {
+    height: 40%;
+    width: 40%;
+}
+
+
+.dropdown { 
+    display: inline-block; 
+    position: relative; 
+  } 
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    top: 25px;
+    left: -15px;
+    font-size: 14px;
+    font-family: math;
+    min-width: 20px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.dropdown-content a {
+    display: block;
+    color: #000000;
+    padding: 5px;
+    text-decoration: none;
+}
+
+.dropdown-content a:hover {
+    color: #FFFFFF;
+    background-color: #00A4BD;
+}
+
+.user-dashboard {
+   margin-top: 100px;
+   margin-bottom: 20px;
+}
+
+.navbar,
+.footer-div {
+    background-color: #FFFFFF;
+}
+
+* {box-sizing: border-box;}
+
+
+.image-grid {
+	--gap: 16px;
+	--num-cols: 4;
+	--row-height: 300px;
+
+	box-sizing: border-box;
+	padding: var(--gap);
+
+	display: grid;
+	grid-template-columns: repeat(var(--num-cols), 1fr);
+	grid-auto-rows: var(--row-height);
+	gap: var(--gap);
+}
+
+.image-grid>img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.image-grid-col-2 {
+	grid-column: span 2;
+}
+
+.image-grid-row-2 {
+	grid-row: span 2;
+}
+
+/* Anything udner 1024px */
+@media screen and (max-width: 1024px) {
+	.image-grid {
+		--num-cols: 2;
+		--row-height: 200px;
+	}
+}
+
+.avatar {
+    vertical-align: middle;
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+  }
+
+  
+.cardb {
+    height: 150px;
+    width: 90%;
+    overflow: auto;
+    border: 1px solid #ddd;
+    padding: 25px;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+.search-width {
+    width: 50% !important;
+}

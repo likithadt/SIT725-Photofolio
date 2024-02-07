@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>PhotoFolio - Client Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../clientCss.css">
+    <link rel="stylesheet" href="../../../toater.css">
+    <script src="https://kit.fontawesome.com/6fa2f2e88e.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div id="snackbar"></div>
+    <!-- Header !-->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+            <div class="container-fluid">
+                <!-- Toggle button -->
+                <button data-mdb-dropdown-init class="navbar-toggler" type="button"
+                    data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <div class="collapse navbar-collapse mr-auto" id="navbarSupportedContent">
+                    <!-- Navbar brand -->
+                    <a class="navbar-brand mt-2 mt-lg-0" href="#">
+                        <img class="logo" src="../../../images/Photo.png" alt="Photofolio Logo" />
+                    </a>
+                    <!-- Navbar -->
+                    <ul class="navbar-nav ml-auto mr-3">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../clientDashboard.html"> Photographers </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../bk/clientBooking.html"> Bookings </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../blog/clientBlog.html"> Blog</a>
+                        </li>
+                    </ul>
+
+                    <div class="d-flex align-items-center">
+                        <!-- Notifications -->
+                        <div class="dropdown">
+                            <a class="text-reset me-3 mr-3" href="#" role="button" aria-expanded="false">
+                                <i class="fas fa-bell"></i>
+                                <span class="badge rounded-pill badge-notification bg-danger"></span>
+                            </a>
+                        </div>
+                        <!-- Settings -->
+                        <!-- <div>
+                            <a class="text-reset me-3 mr-3" href="#" role="button" aria-expanded="false">
+                                <i class="fa-solid fa-gear"></i>
+                            </a>
+                        </div> -->
+                        <!-- User Avatar -->
+                        <div class="dropdown">
+                            <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#"
+                                id="navbarDropdownMenuAvatar" role="button" aria-expanded="false">
+                                <img src="../../../images/profile_icon.png" class="rounded-circle"
+                                    height="25" alt="user photo" loading="lazy" />
+                            </a>
+                            <ul class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdownMenuAvatar">
+                                <li>
+                                    <a class="dropdown-item" href="../../authentication/login.html"> Logout</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main -->
+    <main>
+        <div class="user-dashboard container-fluid text-center">
+            <img src="https://images.unsplash.com/photo-1556125574-d7f27ec36a06?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Avatar" class="avatar">
+            <h1 class=" text-center mt-2"> {Photographer Name} </h1> <br>
+            <div class="container text-center px-5">
+                <p> {Photographer Bio} Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing
+                    elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                <div class="pt-2">
+                    <a class="text-reset me-3 mr-3" href="#" role="button" aria-expanded="false" style="text-decoration: none;">
+                        <i class="fas fa-location-pin"></i> <span> {Location} </span>
+                    </a>
+                    <a class="text-reset me-3 mr-3" href="#" role="button" aria-expanded="false" style="text-decoration: none;">
+                        <i class="fas fa-globe"></i> <span> {Website} </span>
+                    </a>
+                </div>
+                <div class="pt-3">
+                    <p class="text-secondary"> Interests </p>
+                    <span class="badge rounded-pill badge-notification bg-secondary text-white p-2"> Wildlife </span>
+                    <span class="badge rounded-pill badge-notification bg-secondary text-white p-2"> Nature </span>
+                </div>
+                <div class="py-4">
+                    <button id="btnConnect" data-toggle="modal" data-target="#connect" class="btn btn-dark btn-md" style="width: 100px;" > Connect </button>
+                </div>
+                <hr class="pt-4 pb-3">
+            </div>
+
+            <!-- Connect Modal -->
+            <div class="modal fade" id="connect" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title w-100 text-center" id="connect"> Contact </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="contactForm">
+                                <div class="form">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea style="height:150px" class="form-control" id="enquiry"
+                                            placeholder="Message..."></textarea>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" id="enquiryButton" style="width: 96%;"
+                                class="btn btn-dark"> Submit </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Portfolio -->
+            <h3 class=" text-center mt-2"> Portfolios </h3> <br>
+            <div class="container mt-3">
+                <div class="row">
+                    <div class="col-lg-4 mb-3 d-flex align-items-stretch">
+                        <div class="card folio-cards">
+                            <img src="https://i.postimg.cc/4xVY64PV/porto-timoni-double-beach-corfu-greece-700.jpg"
+                                class="card-img-top" alt="Card Image">
+                            <div class="card-body d-flex flex-column">
+                                <h6 class="card-title"> Dōtonbori Canal</h6>
+                                <p class="card-text mb-4">Is a manmade waterway dug in the early 1600's and now displays
+                                    many landmark commercial locals and vivid neon signs. </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 mb-3 d-flex align-items-stretch">
+                        <div class="card folio-cards">
+                            <img src="https://i.postimg.cc/4xVY64PV/porto-timoni-double-beach-corfu-greece-700.jpg"
+                                class="card-img-top" alt="Card Image">
+                            <div class="card-body d-flex flex-column">
+                                <h6 class="card-title"> Dōtonbori Canal</h6>
+                                <p class="card-text mb-4">Is a manmade waterway dug in the early 1600's and now displays
+                                    many landmark commercial locals and vivid neon signs. </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 mb-3 d-flex align-items-stretch">
+                        <div class="card folio-cards">
+                            <img src="https://i.postimg.cc/4xVY64PV/porto-timoni-double-beach-corfu-greece-700.jpg"
+                                class="card-img-top" alt="Card Image">
+                            <div class="card-body d-flex flex-column">
+                                <h6 class="card-title"> Dōtonbori Canal</h6>
+                                <p class="card-text mb-4">Is a manmade waterway dug in the early 1600's and now displays
+                                    many landmark commercial locals and vivid neon signs. </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div> <br>
+
+
+            <!-- Photographer  Portfolios -->
+
+            <div class="container text-center">
+                <!-- Photo Grid -->
+                <div class="image-grid" id="img-grid"> </div>
+
+            </div>
+
+    </main> <br>
+
+    <!-- Footer -->
+    <footer>
+        <!-- <div class="footer-div text-center">
+            <a class="navbar-brand mt-2 text-center" href="#">
+                <img class="logo" src="../../images/Photo.png" alt="Photofolio Logo" />
+            </a>
+        </div> -->
+        <p class="text-center py-3"> &copy; 2024 PhotoFolio - All rights reserved. </p>
+    </footer>
+
+    <!--  JS files -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../clientJs.js"></script>
+
+    <!-- Ref: https://mdbootstrap.com/docs/standard/navigation/navbar/-->
+
+</body>
+
+</html>

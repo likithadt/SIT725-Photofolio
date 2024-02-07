@@ -4,9 +4,15 @@ const mongoose = require('mongoose');
 const multer = require('multer');
 const db = require('./dbConnection');
 
+// socket imports
+const http = require("http").Server(app);
+const socketIO = require("socket.io")(http);
+
 //importing routers
 const landingRouter = require('./routers/landingRouter');
 const loginRouter = require('./routers/loginRouter');
+const photographersRouter = require('./routers/photographers');
+const clientPhotographer = require('./routers/client');
  
 let PORT = process.env.port || 3000;
 var bodyParser = require('body-parser');
@@ -59,6 +65,21 @@ app.get('/file/:id', async (req, res) => {
   }
 });
 
+
+//socket connection
+socketIO.on('connection', (socket) => {
+  console.log(`${socket.id} user connected now`);
+  socket.on('disconnect', () => {
+    console.log('User Disconnected!');
+  });
+
+  //socket msgs
+  socket.on('send_notif', (data) => {
+    data.newDat = "new Data added here";
+    socket.broadcast.emit('booking_notif', data); 
+  });
+});
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));
 app.use(express.json());
@@ -71,16 +92,38 @@ app.get('/', function (req,res) {
 app.get('/userRegistration', function (req, res) {
   res.sendFile(path.join(__dirname,'authentication', 'userRegistration.html')); 
 })
-
+app.get('/login', function (req, res) {
+  res.sendFile(path.join(__dirname, 'public', 'authentication', 'login.html')); 
+})
+app.get('/resetPassword', function (req, res) {
+  res.sendFile(path.join(__dirname, 'public', 'authentication', 'passwordReset.html')); 
+})
+app.get('/newPassword', function (req, res) {
+  res.sendFile(path.join(__dirname, 'public', 'authentication', 'newPassword.html')); 
+})
 // Defining routers with path
 app.use('/landing', landingRouter);
 app.use('/userRegistration', loginRouter);
+app.use('/photographers', photographersRouter);
+app.use('/login',loginRouter);
+app.use('/resetPassword',loginRouter);
+app.use('/newPassword',loginRouter);
+app.use('/clients',clientPhotographer);
 
+// app.listen(PORT, async () => {
+//   try {
+//     await db.connect();
+//     console.log(`Server running on port ${PORT}`);
+//   } catch(error) {
+//     console.log('Error connecting to the Database: ', error);
+//   }
+// });
 
-app.listen(PORT, async () => {
+http.listen(PORT, async ()=> {
   try {
     await db.connect();
     console.log(`Server running on port ${PORT}`);
+    console.log(`Socket listening on ${PORT}`);
   } catch(error) {
     console.log('Error connecting to the Database: ', error);
   }

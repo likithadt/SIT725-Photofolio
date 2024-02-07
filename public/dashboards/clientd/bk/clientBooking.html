@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>PhotoFolio - Home</title>
+    <title>PhotoFolio - Client Booking </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./photographer.css">
+    <link rel="stylesheet" href="../clientCss.css">
     <script src="https://kit.fontawesome.com/6fa2f2e88e.js" crossorigin="anonymous"></script>
 </head>
 
@@ -25,48 +25,40 @@
                 <div class="collapse navbar-collapse mr-auto" id="navbarSupportedContent">
                     <!-- Navbar brand -->
                     <a class="navbar-brand mt-2 mt-lg-0" href="#">
-                        <img class="logo" src="../../images/Photo.png" alt="Photofolio Logo" />
+                        <img class="logo" src="../../../images/Photo.png" alt="Photofolio Logo" />
                     </a>
                     <!-- Navbar -->
                     <ul class="navbar-nav ml-auto mr-3">
                         <li class="nav-item">
-                            <a class="nav-link" href="../photographer/booking/photoBooking.html"> Bookings</a>
+                            <a class="nav-link" href="../clientDashboard.html"> Photographers </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../photographer/portfolio/portfolio.html"> Porfolio</a>
+                            <a class="nav-link" href="../bk/clientBooking.html"> Bookings </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./events/events.html"> Events</a>
+                            <a class="nav-link" href="../blog/clientBlog.html"> Blog</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./blog/pgBlog.html"> Blog</a>
-                        </li>
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" href="#"> Forum</a>
-                        </li> -->
                     </ul>
-                    
+
                     <div class="d-flex align-items-center">
                         <!-- Notifications -->
                         <div class="dropdown">
-                            <a class="text-reset me-3 mr-3" href="#"
-                                role="button" aria-expanded="false">
+                            <a class="text-reset me-3 mr-3" href="#" role="button" aria-expanded="false">
                                 <i class="fas fa-bell"></i>
                                 <span class="badge rounded-pill badge-notification bg-danger"></span>
                             </a>
                         </div>
                         <!-- Settings -->
                         <!-- <div>
-                            <a class="text-reset me-3 mr-3" href="#"
-                                role="button" aria-expanded="false">
+                            <a class="text-reset me-3 mr-3" href="#" role="button" aria-expanded="false">
                                 <i class="fa-solid fa-gear"></i>
                             </a>
                         </div> -->
                         <!-- User Avatar -->
                         <div class="dropdown">
-                            <a class="dropdown-toggle d-flex align-items-center hidden-arrow"
-                                href="#" id="navbarDropdownMenuAvatar" role="button" aria-expanded="false">
-                                <img src="../../images/profile_icon.png" class="rounded-circle"
+                            <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#"
+                                id="navbarDropdownMenuAvatar" role="button" aria-expanded="false">
+                                <img src="../../../images/profile_icon.png" class="rounded-circle"
                                     height="25" alt="user photo" loading="lazy" />
                             </a>
                             <ul class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdownMenuAvatar">
@@ -84,16 +76,12 @@
     <!-- Main -->
     <main>
         <div class="user-dashboard container-fluid">
-            <h1 class=" text-center"> Photographer Dashboard </h1> <br>
+            <h1 class="text-center"> Booking Requests </h1> <br>
         </div> <br>
-
-        <div class="container-fluid">
-            <p id="view-portfolio-dashboard" class="text-center"> You haven't uploaded any portfolio! </p> <br>
+        <div class="container align-items-center">
+            <div id="c-booking-requests" class="row "> </div>
         </div>
 
-        <div class="text-center">
-            <button type="button" class="btn btn-dark text-center"> Build your portfolio </button>
-        </div>
     </main> <br>
 
     <!-- Footer -->
@@ -110,7 +98,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="photoDashboard.js"></script>
+    <script src="./clientBooking.js"> </script>
 
     <!-- Ref: https://mdbootstrap.com/docs/standard/navigation/navbar/-->
 

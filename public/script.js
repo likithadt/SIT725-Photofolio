@@ -1,3 +1,5 @@
+const socket = io();
+
 // Function to add animation class after a delay
 function animateWords() {
     const words = document.querySelector('.animate');
@@ -123,23 +125,33 @@ getUserTestimonials();
 // updateData();
 // deleteData();
 // postLandingData();
-fetchLandingData();
+// fetchLandingData();
 
 async function uploadImage() {
-    const form = document.getElementById('form-submit');
-    const formData = new FormData(form);
-    try {
-        const resp = await fetch('/upload', {
-            method: 'POST',
-            body: formData,
-        });
-        const data = await resp.json();
-
-        console.log("Data from server ::", data);
-        retrieveImage(data.fileId);
-    } catch(error) {
-        console.log("Error uploading image", error);
+    const fileData = document.getElementById('upimage').files;
+    if(fileData.length == 0) {
+        alert("No file selected");
+        return;
     }
+    
+    var fileIds = [];
+    for(var i=0; i < fileData.length; i++) {
+        var formData = new FormData();
+        formData.append('image', fileData[i]);
+        try {
+            const resp = await fetch('/upload', {
+                method: 'POST',
+                body: formData,
+            });
+            const data = await resp.json();
+            console.log("Data from server ::", data);
+            fileIds.push(data.fileId);
+            retrieveImage(data.fileId);
+        } catch(error) {
+            console.log("Error uploading image", error);
+        }
+    }
+    console.log("FILES ::", fileIds);
 }
 
 async function retrieveImage(fileId) {
@@ -161,4 +173,17 @@ async function retrieveImage(fileId) {
         console.log("Error uploading image", error);
     }
 }
+
+async function sendNotification() {
+    const data = {
+        userEmail : document.getElementById('email-message').value,
+        userName : document.getElementById('name-message').value,
+    };
+    socket.emit('send_notif', data);
+}
+
+socket.on('booking_notif', (data) => {
+    console.log("Data here :",data);
+    document.querySelector('#notification').textContent = data;
+});
 

@@ -6,8 +6,7 @@
     <title>PhotoFolio - Home</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../photographer.css">
-    <link rel="stylesheet" href="./photoBooking.css">
-    <link rel = "stylesheet" href="../../../toater.css">
+    <link rel="stylesheet" href="./pgBlog.css">
     <script src="https://kit.fontawesome.com/6fa2f2e88e.js" crossorigin="anonymous"></script>
 </head>
 
@@ -41,7 +40,7 @@
                             <a class="nav-link" href="../events/events.html"> Events </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../blog/pgBlog.html"> Blog </a>
+                            <a class="nav-link" href="./pgBlog.html"> Blog </a>
                         </li>
                         <!-- <li class="nav-item">
                             <a class="nav-link" href="#"> Forum </a>
@@ -85,94 +84,42 @@
 
     <!-- Main -->
     <main>
-        <div id="snackbar"></div>
-        <div class="user-dashboard container-fluid">
-            <h1 class="text-center" style="  font-family: math; font-weight: 900;"> BOOKING REQUESTS </h1> <br>
+        <div class="user-dashboard container">
+            <h1 class="text-center"> My Blogs </h1> <br>
+            <div class="row">
+                <div class="container col-sm-8 d-inline">
+                    <div class="dropdown">
+                        <button class="btn btn-outline-dark dropdown-toggle" type="button" id="status"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Status </button>
+                        <!-- <div class="dropdown-menu" aria-labelledby="status">
+                            <a class="dropdown-item" href="#"> Action</a>
+                            <a class="dropdown-item" href="#"> Another action</a>
+                            <a class="dropdown-item" href="#"> Something else here</a>
+                        </div> -->
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Sort </button>
+                        <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#"> Action</a>
+                        <a class="dropdown-item" href="#"> Another action</a>
+                        <a class="dropdown-item" href="#"> Something else here</a>
+                    </div> -->
+                    </div>
+                </div>
+
+                <div class=" col-sm-2">
+                    <a class="btn btn-dark" type="submit" href="newBlog.html"> New </a>
+                </div>
+            </div> <br>
+
+            <div class="container align-items-center">
+                <div id="pg-blogs" class="row align-items-center "> </div>
+            </div>
+
         </div> <br>
 
-            <div style="font-size: larger;font-weight: 700; display: none;"  id="empty_booking" class="container-fluid">
-                <p id="view-portfolio-dashboard" class="text-center"> You have no Booking Requests at the moment. </p> <br>
-            </div>
-
-        <div class="container align-items-center">
-            <div id="booking-requests" class="row "> </div>
-        </div>
-
-        <!-- Modal: Accept Requests -->
-        <div class="modal fade" id="accept" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title w-100 text-center" id="accept"> Accept Request </h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form id="contactForm">
-                            <div class="form">
-                                <div class="form-group">
-                                    <input type="name" class="form-control" id="subject" placeholder="Subject">
-                                </div>
-                                <div class="form-group">
-                                    <textarea id="acceptMessage" style="height:150px" class="form-control" id="enquiry"
-                                        placeholder="Message..."></textarea>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" onclick="sendAcceptMessage()" id="enquiryButton" style="width: 96%;" class="btn btn-dark">Send</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Modal: Reject Requests -->
-        <div class="modal fade" id="reject" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title w-100 text-center" id="reject"> Reject Request </h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p class="text-center align-items-center"> Are you sure? you want to reject this booking
-                            request? </p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" id="cancel" class="btn btn-outline-dark" data-dismiss="modal"> Cancel
-                        </button>
-                        <button type="button" id="confirm"  class="btn btn-dark" data-dismiss="modal"> Confirm </button>
-                    </div>
-                </div>
-            </div>
-        </div>
     </main>
-
-    <!-- Modal: User Setting -->
-    <!-- <div class="modal fade" id="profile" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title w-100 text-center" id="profile"> User Profile </h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    
-                </div>
-                <div class="modal-footer">
-                    <button type="button" id="confirm" class="btn btn-dark"> Save </button>
-                </div>
-            </div>
-        </div>
-    </div> -->
 
     <!-- Footer -->
     <footer>
@@ -189,7 +136,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="../photoDashboard.js"></script>
-    <script  src="./photoBooking.js"></script>
+    <script src="./pgBlog.js"></script>
 
     <!-- Ref: https://mdbootstrap.com/docs/standard/navigation/navbar/-->
 

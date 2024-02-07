@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>PhotoFolio - Client Blog </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../clientCss.css">
+    <link rel="stylesheet" href="./clientBlog.css">
+    <script src="https://kit.fontawesome.com/6fa2f2e88e.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <!-- Header !-->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+            <div class="container-fluid">
+                <!-- Toggle button -->
+                <button data-mdb-dropdown-init class="navbar-toggler" type="button"
+                    data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <div class="collapse navbar-collapse mr-auto" id="navbarSupportedContent">
+                    <!-- Navbar brand -->
+                    <a class="navbar-brand mt-2 mt-lg-0" href="#">
+                        <img class="logo" src="../../../images/Photo.png" alt="Photofolio Logo" />
+                    </a>
+                    <!-- Navbar -->
+                    <ul class="navbar-nav ml-auto mr-3">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../clientDashboard.html"> Photographers </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../bk/clientBooking.html"> Bookings </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../blog/clientBlog.html"> Blog</a>
+                        </li>
+                    </ul>
+
+                    <div class="d-flex align-items-center">
+                        <!-- Notifications -->
+                        <div class="dropdown">
+                            <a class="text-reset me-3 mr-3" href="#" role="button" aria-expanded="false">
+                                <i class="fas fa-bell"></i>
+                                <span class="badge rounded-pill badge-notification bg-danger"></span>
+                            </a>
+                        </div>
+                        <!-- Settings -->
+                        <!-- <div>
+                            <a class="text-reset me-3 mr-3" href="#" role="button" aria-expanded="false">
+                                <i class="fa-solid fa-gear"></i>
+                            </a>
+                        </div> -->
+                        <!-- User Avatar -->
+                        <div class="dropdown">
+                            <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#"
+                                id="navbarDropdownMenuAvatar" role="button" aria-expanded="false">
+                                <img src="../../../images/profile_icon.png" class="rounded-circle"
+                                    height="25" alt="user photo" loading="lazy" />
+                            </a>
+                            <ul class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdownMenuAvatar">
+                                <li>
+                                    <a class="dropdown-item" href="../../authentication/login.html"> Logout</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main -->
+    <main>
+        <div class="user-dashboard container-fluid">
+            <h1 class="text-center"> Blogs </h1> <br>
+
+            <div id="feature" class="container">
+                <div class="row mt-n5">
+                    <div class="col-md-6 col-lg-4 mt-5 wow fadeInUp" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                        <div class="blog-grid">
+                            <div class="blog-grid-img position-relative"><img alt="img" src="https://images.unsplash.com/photo-1571755931207-3ede68df575a?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"></div>
+                            <div class="blog-grid-text p-4">
+                                <h4 class="h5 mb-3"> Magical Sunset and You! </h4>
+                                <p class="display-30">Exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+                                <div class="meta meta-style2">
+                                    <ul>
+                                        <li><a href="../pg/photographerInfo.html"><i class="fas fa-user"></i> Photographer Name </a></li>
+                                        <li><a href="#!"><i class="fas fa-calendar-alt" style="text-decoration: none;"></i> 7 Feb, <script>document.write(new Date().getFullYear())</script></a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mt-5 wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
+                        <div class="blog-grid">
+                            <div class="blog-grid-img position-relative"><img alt="img" src="https://images.unsplash.com/photo-1506102383123-c8ef1e872756?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8fA%3D%3D"></div>
+                            <div class="blog-grid-text p-4">
+                                <h4 class="h5 mb-3"> Blue heavens and the mystery </h4>
+                                <p class="display-30">Exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+                                <div class="meta meta-style2">
+                                    <ul>
+                                        <li><a href="../pg/photographerInfo.html"><i class="fas fa-user"></i> Photographer Name </a></li>
+                                        <li><a href="#!"><i class="fas fa-calendar-alt"></i> 31 Jan, <script>document.write(new Date().getFullYear())</script></a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mt-5 wow fadeInUp" data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">
+                        <div class="blog-grid">
+                            <div class="blog-grid-img position-relative"><img alt="img" src="https://images.unsplash.com/photo-1560753091-91ffecb56692?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"></div>
+                            <div class="blog-grid-text p-4">
+                                <h4 class="h5 mb-3"> Beach and Peace </h4>
+                                <p class="display-30">Exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+                                <div class="meta meta-style2">
+                                    <ul>
+                                        <li><a href="../pg/photographerInfo.html"><i class="fas fa-user"></i> Photographer Name </a></li>
+                                        <li><a href="#!"><i class="fas fa-calendar-alt"></i> 1 Jan, <script>document.write(new Date().getFullYear())</script></a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            
+            </div>
+
+        </div> <br>
+       
+
+    </main> <br>
+
+    <!-- Footer -->
+    <footer>
+        <!-- <div class="footer-div text-center">
+            <a class="navbar-brand mt-2 text-center" href="#">
+                <img class="logo" src="../../images/Photo.png" alt="Photofolio Logo" />
+            </a>
+        </div> -->
+        <p class="text-center py-3"> &copy; 2024 PhotoFolio - All rights reserved. </p>
+    </footer>
+
+    <!--  JS files -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../clientJs.js"></script>
+    
+
+    <!-- Ref:   https://mdbootstrap.com/docs/standard/navigation/navbar/ 
+                https://www.bootdey.com/snippets/view/blog-post-grid-cards#html -->
+
+</body>
+</html>

@@ -25,6 +25,13 @@ body {
 
 .dropdown:hover .dropdown-content {
     display: block;
+    top: 25px;
+    left: -15px;
+    font-size: 14px;
+    font-family: math;
+    min-width: 20px;
+    padding: 0px;
+    margin: 0px;
 }
 
 .dropdown-content a {
@@ -49,7 +56,7 @@ body {
     background-color: #FFFFFF;
 }
 
-.card {
+.cardb {
     height: 220px;
     width: 90%;
     overflow: auto;
@@ -58,4 +65,74 @@ body {
     margin: 10px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.folio-cards{
+    border: 1px solid black;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+.input-group {
+margin-bottom: 30px;
+}
+
+#img-upload{
+    width: 200px;
+    height: 150px;
+}
+
+.as-console-wrapper {
+display: none !important;
+}
+
+.upload_button{
+    background-color: #434a43;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    margin-left: 176%;
+    width: max-content;
+}
+#img-upload{
+    width: 50vw;
+    height: 20vw;
+}
+
+.new_portfolio{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #000000;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 2px solid #000000;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 16px;
+    max-width: 400px;
+    width: 8vw;
 }
