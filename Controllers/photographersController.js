@@ -23,7 +23,7 @@ class PhotographersController {
     
     async bookingRequests(req, res) {
         try {
-            const data = await photographersModel.bookingRequests();
+            const data = await photographersModel.bookingRequests(req.body.photographerId);
             res.json(data);
 
         } catch(error) {

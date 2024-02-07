@@ -27,9 +27,9 @@ class photographers {
 
     }
 
-    async bookingRequests() {
+    async bookingRequests(photographerId) {
         try {
-            const data = await collectionBooking.find().toArray();
+            const data = await collectionBooking.find({photographerId: photographerId}).toArray();
             return data;
         }
         catch (error) {

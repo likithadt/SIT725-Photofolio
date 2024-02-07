@@ -57,10 +57,15 @@ function actions(id){
 
 async function getBookingRequests(){
     try{
+        photographerId = localStorage.getItem("userId");
         showToaster("hello from bookings");
 
         const resp = await fetch('/photographers/bookingRequests', {
-            method: 'GET'
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body : JSON.stringify({photographerId}),
         });
         const data = await resp.json();
         

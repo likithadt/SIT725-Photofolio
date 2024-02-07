@@ -4,7 +4,7 @@ let router = express.Router();
 const photographersController = require('../Controllers/photographersController');
 router.post('/newportfolio', photographersController.newPortfolio);
 router.get('/portfolios',photographersController.portfolios);
-router.get('/bookingRequests',photographersController.bookingRequests);
+router.post('/bookingRequests',photographersController.bookingRequests);
 router.put('/sendAcceptMessage', photographersController.sendAcceptMessage)
 router.put('/sendRejectMessage', photographersController.sendRejectMessage)
 
