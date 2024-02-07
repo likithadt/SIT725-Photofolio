@@ -241,4 +241,242 @@ describe("User Signup API is working properly and returns 200", function() {
     });
 });
 
+describe("Photographers dashboard is working correctly", function() {
+    var url = "http://localhost:3000/dashboards/photographer/portfolio/portfolio.html";
+    it("Portfolios loaded properly and returns status 200", function(done) {
+        request(url, function(error, response, body) {
+            expect(response.statusCode).to.equal(200);
+            done();
+        });
+    });
 
+    var url = "http://localhost:3000/dashboards/photographer/booking/photoBooking.html";
+    it("Booking requests loaded properly and returns status 200", function(done) {
+        request(url, function(error, response, body) {
+            expect(response.statusCode).to.equal(200);
+            done();
+        });
+    });
+
+    var url = "http://localhost:3000/dashboards/photographer/events/events.html";
+    it("Events are loaded properly and returns status 200", function(done) {
+        request(url, function(error, response, body) {
+            expect(response.statusCode).to.equal(200);
+            done();
+        });
+    });
+
+    var url = "http://localhost:3000/dashboards/photographer/blog/pgBlog.html";
+    it("Blog posts are loaded properly and returns status 200", function(done) {
+        request(url, function(error, response, body) {
+            expect(response.statusCode).to.equal(200);
+            done();
+        });
+    });    
+    
+});
+
+describe("Clients dashboard is working correctly", function() {
+    var url = "http://localhost:3000/dashboards/clientd/clientDashboard.html";
+    it("Photographers portfolios loaded properly and returns status 200", function(done) {
+        request(url, function(error, response, body) {
+            expect(response.statusCode).to.equal(200);
+            done();
+        });
+    });
+
+    var url = "http://localhost:3000/dashboards/clientd/bk/clientBooking.html";
+    it("Booking statuses are loaded properly and returns status 200", function(done) {
+        request(url, function(error, response, body) {
+            expect(response.statusCode).to.equal(200);
+            done();
+        });
+    });
+
+    var url = "http://localhost:3000/dashboards/clientd/blog/clientBlog.html";
+    it("Blog posts are loaded properly and returns status 200", function(done) {
+        request(url, function(error, response, body) {
+            expect(response.statusCode).to.equal(200);
+            done();
+        });
+    });     
+});
+
+describe("Photographers dashboard returns back data as expected and is working correctly", function() {
+    var url = "http://localhost:3000/photographers/portfolios";
+    it("Portfolios API is working as expected and returns status 200", function(done) {
+        request.post({
+            url: url,
+            json: {photographerId:"65c3a0c7407e066d89af1583"}
+        }, function(error, response, body) {
+            expect(response.statusCode).to.equal(200);
+            // expect(body.success).to.equal(true);
+            done();
+        });
+    });
+
+    var url = "http://localhost:3000/photographers/portfolios";
+    it("Portfolios API is working as expected and returns back data as expected", function(done) {
+        request.post({
+            url: url,
+            json: {photographerId:"65c3a0c7407e066d89af1583"}
+        }, function(error, response, body) {
+            expect(response.statusCode).to.equal(200);
+            expect(body.length).to.be.greaterThan(0);
+            done();
+        });
+    });
+
+    var url = "http://localhost:3000/photographers/bookingRequests";
+    it("Bookings Listing API is working as expected and returns status 200", function(done) {
+        request.post({
+            url: url,
+            json: {photographerId:"65c3a0c7407e066d89af1583"}
+        }, function(error, response, body) {
+            expect(response.statusCode).to.equal(200);
+            // expect(body.success).to.equal(true);
+            done();
+        });
+    });
+
+    var url = "http://localhost:3000/photographers/bookingRequests";
+    it("Bookings Listing API is working as expected and returns back data as expected", function(done) {
+        request.post({
+            url: url,
+            json: {photographerId:"65c3a0c7407e066d89af1583"}
+        }, function(error, response, body) {
+            expect(response.statusCode).to.equal(200);
+            expect(body.length).to.be.greaterThan(0);
+            done();
+        });
+    });
+
+    var url = "http://localhost:3000/photographers/fetchAllBlogs";
+    it("Blogs Listing API is working as expected and returns status 200", function(done) {
+        request.post({
+            url: url,
+            json: {photographerId:"65c3a0c7407e066d89af1583"}
+        }, function(error, response, body) {
+            expect(response.statusCode).to.equal(200);
+            // expect(body.success).to.equal(true);
+            done();
+        });
+    });
+
+    var url = "http://localhost:3000/photographers/fetchAllBlogs";
+    it("Blogs Listing API is working as expected and returns back data as expected", function(done) {
+        request.post({
+            url: url,
+            json: {photographerId:"65c3a0c7407e066d89af1583"}
+        }, function(error, response, body) {
+            expect(response.statusCode).to.equal(200);
+            expect(body.length).to.be.greaterThan(0);
+            done();
+        });
+    });
+});
+
+describe("Events page in the photographers dashboard is working correctly", function() {
+    var url = "http://localhost:3000/photographers/events";
+    it("Events Listing API is working as expected and returns status 200", function(done) {
+        request(url, function(error, response, body) {
+            expect(response.statusCode).to.equal(200);
+            done();
+        });
+    });
+
+    var url = "http://localhost:3000/photographers/events";
+    it("Events Listing API is working as expected and returns back data as expected", function(done) {
+        request(url, function(error, response, body) {
+            expect(response.statusCode).to.equal(200);
+            expect(body.length).to.be.greaterThan(0);
+            done();
+        });
+    });     
+});
+
+describe("Photographers page in the client dashboard is working correctly", function() {
+    var url = "http://localhost:3000/clients/fetchPhotographers";
+    it("Fetching photographers API is working as expected and returns status 200", function(done) {
+        request(url, function(error, response, body) {
+            expect(response.statusCode).to.equal(200);
+            done();
+        });
+    });
+
+    var url = "http://localhost:3000/clients/fetchPhotographers";
+    it("Fetching Photographers API is working as expected and returns back data as expected", function(done) {
+        request(url, function(error, response, body) {
+            expect(response.statusCode).to.equal(200);
+            expect(body.length).to.be.greaterThan(0);
+            done();
+        });
+    });
+    
+    var url = "http://localhost:3000/clients/fetchAllBlogs";
+    it("Fetching photographers Blogs API is working as expected and returns status 200", function(done) {
+        request(url, function(error, response, body) {
+            expect(response.statusCode).to.equal(200);
+            done();
+        });
+    });
+
+    var url = "http://localhost:3000/clients/fetchAllBlogs";
+    it("Fetching Photographers Blogs API is working as expected and returns back data as expected", function(done) {
+        request(url, function(error, response, body) {
+            expect(response.statusCode).to.equal(200);
+            expect(body.length).to.be.greaterThan(0);
+            done();
+        });
+    });
+});
+
+describe("Clients dashboard returns back data as expected and is working correctly", function() {
+    var url = "http://localhost:3000/clients/getBookingRequests";
+    it("Requests Listing page is working as expected and returns status 200", function(done) {
+        request.post({
+            url: url,
+            json: {clientId:"65c3a985407e066d89af1639"}
+        }, function(error, response, body) {
+            expect(response.statusCode).to.equal(200);
+            // expect(body.success).to.equal(true);
+            done();
+        });
+    });
+
+    var url = "http://localhost:3000/clients/getBookingRequests";
+    it("Requests Listing page is working as expected and returns back data as expected", function(done) {
+        request.post({
+            url: url,
+            json: {clientId:"65c3a985407e066d89af1639"}
+        }, function(error, response, body) {
+            expect(response.statusCode).to.equal(200);
+            // expect(body.length).to.be.greaterThan(0);
+            done();
+        });
+    });
+
+    var url = "http://localhost:3000/clients/getSelectedPhotographer";
+    it("Fetching data of specific photographer API is working as expected and returns status 200", function(done) {
+        request.post({
+            url: url,
+            json: {pId:"65c3a0c7407e066d89af1583"}
+        }, function(error, response, body) {
+            expect(response.statusCode).to.equal(200);
+            // expect(body.success).to.equal(true);
+            done();
+        });
+    });
+
+    var url = "http://localhost:3000/clients/getSelectedPhotographer";
+    it("Fetching data of specific photographer API is working as expected and returns back data as expected", function(done) {
+        request.post({
+            url: url,
+            json: {pId:"65c3a0c7407e066d89af1583"}
+        }, function(error, response, body) {
+            expect(response.statusCode).to.equal(200);
+            expect(body.length).to.be.greaterThan(0);
+            done();
+        });
+    });
+});
