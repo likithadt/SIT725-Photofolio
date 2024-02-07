@@ -31,7 +31,7 @@
       </ul>
     </li> -->
     <li><a href="#additional-information">Additional Information</a></li>
-    <li><a href="#team">Team</a></li>
+    <li><a href="#meet-the-team">Meet The Team</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
@@ -145,7 +145,7 @@ _Below is an example of how you can instruct your audience on installing and set
 </div>
 
 <!-- CONTACT -->
-## Team
+## Meet The Team
 
 <strong>
 <ul>
