@@ -11,7 +11,8 @@ const socketIO = require("socket.io")(http);
 //importing routers
 const landingRouter = require('./routers/landingRouter');
 const loginRouter = require('./routers/loginRouter');
-const photographersRouter = require('./routers/photographers')
+const photographersRouter = require('./routers/photographers');
+const clientPhotographer = require('./routers/client');
  
 let PORT = process.env.port || 3000;
 var bodyParser = require('body-parser');
@@ -107,6 +108,7 @@ app.use('/photographers', photographersRouter);
 app.use('/login',loginRouter);
 app.use('/resetPassword',loginRouter);
 app.use('/newPassword',loginRouter);
+app.use('/clients',clientPhotographer);
 
 // app.listen(PORT, async () => {
 //   try {

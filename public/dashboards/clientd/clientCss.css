@@ -25,6 +25,13 @@ body {
 
 .dropdown:hover .dropdown-content {
     display: block;
+    top: 25px;
+    left: -15px;
+    font-size: 14px;
+    font-family: math;
+    min-width: 20px;
+    padding: 0px;
+    margin: 0px;
 }
 
 .dropdown-content a {
@@ -106,4 +113,7 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: white;
+}
+.search-width {
+    width: 50% !important;
 }

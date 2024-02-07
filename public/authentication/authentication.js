@@ -43,7 +43,7 @@ async function roleBasedPageNavigator(event) {
             }
             else if (formData.role == "client") {
                 var a = document.createElement('a');
-                a.href = '/dashboards/clientDashboard.html';
+                a.href = '/dashboards/clientd/clientDashboard.html';
                 a.click();
             }
         }
@@ -129,7 +129,7 @@ async function loginEvent(event) {
                 }
                 else if (data.userData.role == "client") {
                     var a = document.createElement('a');
-                    a.href = '/dashboards/clientDashboard.html';
+                    a.href = '/dashboards/clientd/clientDashboard.html';
                     a.click();
                 }
             }
@@ -246,4 +246,4 @@ function showToaster(message) {
     x.className = "show";
     x.innerHTML = message;
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-  }
+}

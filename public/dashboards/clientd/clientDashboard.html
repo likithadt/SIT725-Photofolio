@@ -6,11 +6,13 @@
     <title>PhotoFolio - Client Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="./clientCss.css">
+    <link rel="stylesheet" href="./../../toater.css">
     <script src="https://kit.fontawesome.com/6fa2f2e88e.js" crossorigin="anonymous"></script>
 </head>
 
-<body onload="showPhotographers()">
+<body onload="fetchAllPhotographers()">
 
+    <div id="snackbar"></div>
     <!-- Header !-->
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
@@ -49,16 +51,16 @@
                             </a>
                         </div>
                         <!-- Settings -->
-                        <div>
+                        <!-- <div>
                             <a class="text-reset me-3 mr-3" href="#" role="button" aria-expanded="false">
                                 <i class="fa-solid fa-gear"></i>
                             </a>
-                        </div>
+                        </div> -->
                         <!-- User Avatar -->
                         <div class="dropdown">
                             <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#"
                                 id="navbarDropdownMenuAvatar" role="button" aria-expanded="false">
-                                <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle"
+                                <img src="../../images/profile_icon.png" class="rounded-circle"
                                     height="25" alt="user photo" loading="lazy" />
                             </a>
                             <ul class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdownMenuAvatar">
@@ -80,36 +82,36 @@
             <div class="container">
                 <div class="row">
                     <div class="container text-center d-inline">
-                        <div class="dropdown">
+                        <!-- <div class="dropdown">
                             <button class="btn btn-outline-dark dropdown-toggle" type="button" id="cat"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Category </button>
-                            <!-- <div class="dropdown-menu" aria-labelledby="cat">
+                            <div class="dropdown-menu" aria-labelledby="cat">
                                 <a class="dropdown-item" href="#"> Action</a>
                                 <a class="dropdown-item" href="#"> Another action</a>
                                 <a class="dropdown-item" href="#"> Something else here</a>
-                            </div> -->
+                            </div>
                         </div>
                         <div class="dropdown">
                             <button class="btn btn-outline-dark dropdown-toggle" type="button" id="sort"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Sort </button>
-                            <!-- <div class="dropdown-menu" aria-labelledby="sort">
+                            <div class="dropdown-menu" aria-labelledby="sort">
                             <a class="dropdown-item" href="#"> Action</a>
                             <a class="dropdown-item" href="#"> Another action</a>
                             <a class="dropdown-item" href="#"> Something else here</a>
-                            </div> -->
+                            </div>
                         </div>
                         <div class="dropdown">
                             <button class="btn btn-outline-dark dropdown-toggle" type="button" id="location"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Location </button>
-                            <!-- <div class="dropdown-menu" aria-labelledby="location">
+                            <div class="dropdown-menu" aria-labelledby="location">
                             <a class="dropdown-item" href="#"> Action</a>
                             <a class="dropdown-item" href="#"> Another action</a>
                             <a class="dropdown-item" href="#"> Something else here</a>
-                            </div> -->
-                        </div>
-                        <form class="d-inline form-inline">
-                            <input class="form-control mr-sm-1" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-dark" type="submit">Search</button>
+                            </div>
+                        </div> -->
+                        <form class="d-inline form-inline search-form" onsubmit="return false">
+                            <input class="form-control mr-sm-1 search-width" id="search-input" type="search" placeholder="Search for a photographer" aria-label="Search">
+                            <button class="btn btn-outline-dark search-" onclick="searchPhotographer()" type="submit">Search</button>
                         </form>
                     </div>
                 </div>
