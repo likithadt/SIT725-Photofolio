@@ -33,7 +33,7 @@ class landingModel {
     }
 
     async getTestimonialsData() {
-        const data = await collection.find().toArray();
+        const data = await collectionTestimonials.find().toArray();
         return data;
     }
 }
