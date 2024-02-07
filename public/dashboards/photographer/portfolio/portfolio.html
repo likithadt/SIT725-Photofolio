@@ -55,18 +55,18 @@
                             </a>
                         </div>
                         <!-- Settings -->
-                        <div>
+                        <!-- <div>
                             <a class="text-reset me-3 mr-3" data-toggle="modal" href="#profile" role="button"
                                 aria-expanded="false">
                                 <i class="fa-solid fa-gear"></i>
                             </a>
-                        </div>
+                        </div> -->
 
                         <!-- User Avatar -->
                         <div class="dropdown">
                             <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#"
                                 id="navbarDropdownMenuAvatar" role="button" aria-expanded="false">
-                                <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle"
+                                <img src="../../../images/profile_icon.png" class="rounded-circle"
                                     height="25" alt="user photo" loading="lazy" />
                             </a>
                             <ul class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdownMenuAvatar">
@@ -84,7 +84,7 @@
     <!-- Main -->
     <main>
         <div class="user-dashboard container">
-            <h1 class="text-center"> My Portfolio </h1> <br>
+            <h1 class="text-center" style="font-family: math; font-weight: 900;" > MY PORTFOLIO </h1> <br>
             <div class="row">
                 <div class="container col-sm-8 d-inline">
                     <div class="dropdown">
@@ -96,29 +96,29 @@
                             <a class="dropdown-item" href="#"> Something else here</a>
                         </div> -->
                     </div>
-                    <div class="dropdown">
-                        <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Sort </button>
+                    <!-- <div class="dropdown"> -->
+                        <!-- <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Sort </button> -->
                         <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="#"> Action</a>
                         <a class="dropdown-item" href="#"> Another action</a>
                         <a class="dropdown-item" href="#"> Something else here</a>
                     </div> -->
-                    </div>
+                    <!-- </div> -->
                     <form class="d-inline form-inline">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-dark" type="submit" onclick="">Search</button>
+                        <input class="form-control mr-sm-2" type="search" style="width:25vw" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-dark" type="submit"  style="width:6vw" onclick="">Search</button>
                     </form>
                 </div>
 
-                <div class=" col-sm-2">
-                    <a class="btn btn-dark" type="submit" href="newPortfolio.html"> New </a>
+                <div class="dropdown col-sm-2">
+                    <a class="new_portfolio btn btn-dark" type="submit" href="newPortfolio.html"> New Portfolio</a>
                 </div>
             </div>
 
             <div class="container mt-5">
-                <div class="row">
-                    <div class="col-lg-4 mb-3 d-flex align-items-stretch">
+                <div class="row" id="card_holder_container">
+                    <!-- <div class="col-lg-4 mb-3 d-flex align-items-stretch">
                         <div class="card folio-cards">
                             <img src="https://i.postimg.cc/4xVY64PV/porto-timoni-double-beach-corfu-greece-700.jpg"
                                 class="card-img-top" alt="Card Image">
@@ -136,7 +136,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+
+                    </div> -->
                     <!-- <div class="col-lg-4 mb-3 d-flex align-items-stretch">
                         <div class="card">
                             <img src="https://i.postimg.cc/4xVY64PV/porto-timoni-double-beach-corfu-greece-700.jpg"
@@ -186,6 +187,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="../photoDashboard.js"></script>
     <script src="./photoBooking.js"></script>
+    <script src ="./portfolio.js"></script>
 
     <!-- Ref: https://mdbootstrap.com/docs/standard/navigation/navbar/-->
 
