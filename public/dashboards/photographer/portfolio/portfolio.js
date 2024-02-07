@@ -12,7 +12,7 @@ const addCards = (items) => {
     });
 } 
 
-socket.on('booking_notification_sent', (data) => {
+socket.on('booking_notification_sent_to_photographer', (data) => {
     console.log("Data here :",data);
 });
 

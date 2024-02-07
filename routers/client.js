@@ -9,5 +9,6 @@ router.post('/searchPhotographer', clientsController.fetchSearchedPhotographer);
 router.post('/getSelectedPhotographer', clientsController.getSinglePhotographerData);
 router.post('/getSelectedPortfolios', clientsController.getSelectedPortfolios);
 router.post('/sendBookingNotification', clientsController.sendBookingNotification);
+router.post('/getBookingRequests', clientsController.getBookingRequests);
 
 module.exports = router;

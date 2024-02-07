@@ -65,6 +65,16 @@ class clients {
             console.log("Error while adding the booking", error);
         }   
     }
+
+    async getBookingRequests(id) {
+        try {
+            const data = await collectionBooking.find({clientId: id}).toArray();
+            return data;
+        }
+        catch (error) {
+            console.log("Error while fetching bookings", error);
+        }
+    }
 }
 
 module.exports = new clients();

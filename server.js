@@ -75,8 +75,12 @@ socketIO.on('connection', (socket) => {
 
   //socket msgs
   socket.on('send_notification_to_photographer', (data) => {
-    socket.broadcast.emit('booking_notification_sent', data);
+    socket.broadcast.emit('booking_notification_sent_to_photographer', data);
   });
+
+  socket.on('send_notification_to_client', (data) => {
+    socket.broadcast.emit('booking_notification_sent_to_client', data);
+  })
 });
 
 app.use(bodyParser.urlencoded({ extended: false }));

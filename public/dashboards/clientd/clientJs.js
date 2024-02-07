@@ -9,7 +9,11 @@ const addCards = (items) => {
                 '</div></div></div>'
         $("#card_holder_container").append(itemToAppend)
     });
-} 
+}
+
+socket.on('booking_notification_sent_to_client', (data) => {
+    console.log("Data here :",data);
+});
 
 async function fetchAllPhotographers() {
     try{
@@ -116,5 +120,12 @@ async function searchPhotographer() {
 
 function getPhotographerDetails(e){
     location.href=`/dashboards/clientd/pg/photographerInfo.html?id=${e.currentTarget.id}`;
-    }
+}
+
+function showToaster(message) {
+    var x = document.getElementById("snackbar");
+    x.className = "show";
+    x.innerHTML = message;
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
 

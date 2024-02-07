@@ -1,3 +1,5 @@
+const socket = io();
+
 var bookingRequestsData;
 
 const cardContainer = document.getElementById('booking-requests');
@@ -53,7 +55,7 @@ function createCard(title, name, email, msg, id, status) {
 
 function actions(id){
     const action = document.createElement('div');
-    action.innerHTML = '<div class="col-sm-4 " onclick = "getId(event)" id="actions_block"> <div class="text-center"> <button id='+'"btnAccept_' + id +'" data-target="#accept" class="btn btn-dark btn-md" style="width: 100px;"> Accept </button> <button id='+'"btnReject_' + id +'"  data-target="#reject"  class="btn btn-outline-dark btn-md " Style="width: 100px;" > Reject</button> </div> </div>';
+    action.innerHTML = '<div class="col-sm-4 " onclick = "getId(event)" id="actions_block"> <div class="text-center"> <button id='+'"btnAccept_' + id +'" data-target="#accept" class="btn btn-dark btn-md" style="width: 100px;"> Accept </button> <button id='+'"btnReject_' + id +'"  data-target="#reject"  class="btn btn-outline-dark btn-md " Style="width: 100px; margin-top: 30%" > Reject</button> </div> </div>';
     return action;
 }
 
@@ -142,6 +144,7 @@ email_data: email_data,
             changed_status.appendChild(status);
             showToaster("Booking Request Accepted");
 
+            socket.emit('send_notification_to_client', data);
         }
 
     }
@@ -196,6 +199,7 @@ email_data: email_data,
             changed_status.appendChild(status);
             showToaster("Booking Request Declined");
 
+            socket.emit('send_notification_to_client', data);
         }
 
     }

@@ -61,6 +61,16 @@ class clientsController {
             console.log("Error fetching photographer data :", error);
         }
     }
+
+    async getBookingRequests(req, res) {
+        try {
+            const data = await clientsModel.getBookingRequests(req.body.clientId);
+            res.json(data);
+
+        } catch(error) {
+            console.log("Error fetching Bookings :", error);
+        }
+    }
 }
 
 module.exports = new clientsController();

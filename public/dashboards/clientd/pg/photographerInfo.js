@@ -1,3 +1,4 @@
+// const socket = io();
 async function sendBookingEnquiry() {
     try {
         let body = {
@@ -6,7 +7,8 @@ async function sendBookingEnquiry() {
             email: document.getElementById('email').value,
             status: -1,
             photographerId: location.search.split('=')[1],
-            message: document.getElementById('enquiry').value
+            message: document.getElementById('enquiry').value,
+            clientId: localStorage.getItem("userId"),
         };
         const resp = await fetch('/clients/sendBookingNotification', {
             method: 'POST',

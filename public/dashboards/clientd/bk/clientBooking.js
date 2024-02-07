@@ -56,9 +56,42 @@ cardContainer.appendChild(card3);
 
 async function fetchBookings() {
     try {
+        clientId = localStorage.getItem("userId");
 
-    } catch(error) {
-        
+        const resp = await fetch('/clients/getBookingRequests', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body : JSON.stringify({clientId}),
+        });
+        const data = await resp.json();
+
+        console.log("book_resp ::",data);
+
+        showToaster("Booking Requests fetched successfully!");
+        if(data.length == 0){
+            hidden_empty = document.getElementById("empty_booking");
+            hidden_empty.style.display = 'block';
+        }
+        else{
+
+        for(var i=0;i<data.length;i++){
+        bookingRequestsData = data;
+        const card1 = createCard(data[i].title, data[i].name, data[i].email, data[i].message, i, data[i].status);
+        cardContainer.appendChild(card1);
+       
+        }
     }
+    } catch(error) {
+        showToaster("Failed to fetch booking requests");
+    }
+}
+
+function showToaster(message) {
+    var x = document.getElementById("snackbar");
+    x.className = "show";
+    x.innerHTML = message;
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 }
 
