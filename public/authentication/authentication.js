@@ -47,8 +47,8 @@ async function roleBasedPageNavigator(event) {
                 a.click();
             }
         }
-        else {
-            alert("Failed to add User");
+        else {            
+            showToaster("Failed to add User");
         }
 
     }
@@ -63,7 +63,8 @@ async function adduser() {
     try {
         var formData = await formElements();
         if(formData.password != formData.confirmPassword) {
-            alert('Passwords dont match');
+            console.log("inside toastreeee");
+            showToaster("Passwords don't match");
             return;
         }
 
@@ -81,6 +82,11 @@ async function adduser() {
             body: JSON.stringify(body),
         });
         const data = await resp.json();
+
+        localStorage.setItem("userId", data.insertedId);
+        localStorage.setItem("userEmail",body.email);
+        localStorage.setItem("userName", body.name);
+        localStorage.setItem("userRole", body.role);
 
         console.log("Data from server ::", data);
         return true;
@@ -128,7 +134,7 @@ async function loginEvent(event) {
                 }
             }
             else {
-                alert("Email Id or Password not found ");
+                showToaster("Email Id or Password not found ");
             }
 
         } else {
@@ -169,15 +175,15 @@ async function sendPasswordLink(email) {
         const data = await resp.json();
 
         if (resp.status === 200) {
-            alert("Check your inbox to rest your password ");
+            showToaster("Check your inbox to rest your password ");
             var a = document.createElement('a');
             a.href = '/authentication/login.html';
             a.click();
         }
         else if (resp.status === 404) {
-            alert("User not found");
+            showToaster("User not found");
         } else {
-            alert("Could not send the password reset instructions");
+            showToaster("Could not send the password reset instructions");
         }
     } catch (error) {
 
@@ -193,7 +199,7 @@ async function passNew() {
         let confirmPass = document.getElementById('passwordConfirm').value;
 
         if(password != confirmPass) {
-            alert("Passwords don't match");
+            showToaster("Passwords don't match");
             return;
         }
 
@@ -211,10 +217,10 @@ async function passNew() {
         const data = await resp.json();
 
         if (data) {
-            alert("Password reset successfully!");
+            showToaster("Password reset successfully!");
 
         } else {
-            alert("Failed to set password. Please try again");
+            showToaster("Failed to set password. Please try again");
         }
 
         var a = document.createElement('a');
@@ -228,9 +234,16 @@ async function passNew() {
 async function newPassword(event)
 {
     try {
-        alert("Password Clicked ");
+        showToaster("Password Clicked ");
     } catch (error) {
         console.log("Error in newPassword")
     }
    
 }
+
+function showToaster(message) {
+    var x = document.getElementById("snackbar");
+    x.className = "show";
+    x.innerHTML = message;
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+  }
