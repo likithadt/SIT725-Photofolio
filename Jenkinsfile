@@ -62,16 +62,27 @@ pipeline {
                 }
             }
 
-            stage('Deploying Docker Image to Dockerhub') {
+            stage('Test') {
                 steps {
                     script {
-                        withDockerRegistry([ credentialsId: registryCredential, url: 'https://index.docker.io/v1/' ]) {
-                        // docker.withRegistry('', registryCredential) {
-                        dockerImage.push()
+                        docker.image("${registry}:$BUILD_NUMBER").inside {
+                            sh 'npm install'
+                            sh 'npm test' // Run your tests
                         }
-                    }
+                    }   
                 }
             }
+
+            // stage('Deploying Docker Image to Dockerhub') {
+            //     steps {
+            //         script {
+            //             withDockerRegistry([ credentialsId: registryCredential, url: 'https://index.docker.io/v1/' ]) {
+            //             // docker.withRegistry('', registryCredential) {
+            //             dockerImage.push()
+            //             }
+            //         }
+            //     }
+            // }
 
             stage('Cleaning Up') {
                 steps{
