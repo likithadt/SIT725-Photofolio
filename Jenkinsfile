@@ -2,14 +2,14 @@ pipeline {
     agent {
         docker { 
             image 'node:18' // Use the same base image as in your Dockerfile
-            args '-v /usr/src/app:/usr/src/app' // Volume mapping if needed (optional)
+            args '-u node' // Volume mapping if needed (optional)
         }
     }
     stages {
         stage('Build') {
             steps {
                 // Install dependencies
-                sh 'npm install --only=production'
+                sh 'npm install --only=production --log-level=verbose'
             }
         }
         stage('Test') {
