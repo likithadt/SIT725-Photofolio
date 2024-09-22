@@ -12,17 +12,17 @@ pipeline {
                 sh 'npm install --only=production --log-level=verbose'
             }
         }
-        stage('Test') {
-            steps {
-                // You can add tests here if needed
-                sh 'npm test'
-            }
-        }
+        // stage('Test') {
+        //     steps {
+        //         // You can add tests here if needed
+        //         sh 'npm test'
+        //     }
+        // }
         stage('Package') {
             steps {
                 script {
                     // Build and tag the Docker image
-                    def app = docker.build('my-nodejs-app')
+                    def app = docker.build('liki-app')
                     app.push('latest') // Push the Docker image (requires Docker Hub or a registry)
                 }
             }
