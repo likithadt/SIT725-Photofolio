@@ -68,6 +68,7 @@ pipeline {
                         docker.image("${registry}:${BUILD_NUMBER}").inside {
                         sh 'npm install --unsafe-perm' // Add --unsafe-perm to avoid permission issues
                         sh 'npm test' // Run your tests
+                        }
                     }   
                 }
             }
