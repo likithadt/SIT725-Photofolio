@@ -41,8 +41,8 @@
 
 pipeline {
     environment {
-    registry = "mohansaikiran/docker_automation"
-    registryCredential = 'dockerhub'
+    registry = "mohansaikiran/sit753-app"
+    registryCredential = 'dockerhubdredentials'
     dockerImage = ''
     }
 
