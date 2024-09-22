@@ -50,7 +50,7 @@ pipeline {
     stages {
             stage('Cloning our Git') {
                 steps {
-                git 'git@github.com:mohansaikiran/SIT725-Photofolio.git'
+                    git branch: 'main', url: 'https://github.com/mohansaikiran/SIT725-Photofolio.git'
                 }
             }
 
