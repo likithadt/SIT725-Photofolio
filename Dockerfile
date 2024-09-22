@@ -34,8 +34,8 @@ USER node
 # Copy package.json and package-lock.json files first to install dependencies
 COPY --chown=node:node package*.json ./
 
-# Install dependencies
-RUN npm install
+# Install dependencies with global permissions disabled
+RUN npm config set unsafe-perm true && npm install
 
 # Copy the rest of the application code into the container
 COPY --chown=node:node . .
