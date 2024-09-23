@@ -4,7 +4,7 @@
   "description": "End-to-end Applied Software Engineering Project",
   "main": "server.js",
   "scripts": {
-    "test": "mocha --reporter spec",
+    "test": "mocha --loader ts-node/esm",
     "start": "node server.js"
   },
   "author": "",

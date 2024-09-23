@@ -1,5 +1,5 @@
 const chai = require('chai');
-const chaiHttp = require('chai-http');
+const chaiHttp = await import('chai-http');
 const expect = chai.expect;
 const server = 'http://localhost:3000'; // Ensure your server is running on this port
 
