@@ -65,11 +65,13 @@ pipeline {
             stage('Test') {
                 steps {
                     script {
-                        docker.image("${registry}:${BUILD_NUMBER}").inside {
+                        // docker.image("${registry}:${BUILD_NUMBER}").inside {
+                        // sh 'npm install'
+                        // sh 'npm start'
+                        // sh 'npm test' // Run your tests
+                        // }
                         sh 'npm install'
-                        sh 'npm start'
-                        sh 'npm test' // Run your tests
-                        }
+                        sh 'npm test'
                     }   
                 }
             }
