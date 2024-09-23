@@ -67,6 +67,7 @@ pipeline {
                     script {
                         docker.image("${registry}:${BUILD_NUMBER}").inside {
                         sh 'npm install'
+                        sh 'npm start'
                         sh 'npm test' // Run your tests
                         }
                     }   
