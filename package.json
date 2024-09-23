@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "chai": "4.3.10",
+    "chai-http": "^5.0.0",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "gridfs-stream": "^1.1.1",
@@ -23,8 +24,5 @@
     "request": "^2.88.2",
     "socket.io": "^4.7.4",
     "socket.io-client": "^4.7.4"
-  },
-  "devDependencies": {
-    "chai-http": "^5.0.0"
   }
 }
